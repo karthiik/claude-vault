@@ -27,26 +27,40 @@ You interact through Obsidian (or any markdown editor). Claude interacts through
 
 Click "Fork" on GitHub to create your own copy.
 
-### 2. Connect Claude Code
+### 2. Create a GitHub Token
 
-- You need a [Claude Pro/Team subscription](https://claude.ai)
-- Open Claude → Claude Code tab
-- Connect your GitHub account
-- Select your forked repository when starting a session
+[Create a Personal Access Token](https://github.com/settings/tokens/new) with `repo` scope. Save it — you'll need it in step 4.
 
-### 3. Add GitHub Token
+### 3. Open Claude Code
 
-For Claude to sync changes to your repository, add a GitHub token:
+Open the Claude app and switch to the **Code** tab:
 
-1. [Create a Personal Access Token](https://github.com/settings/tokens/new) with `repo` scope
-2. In Claude Code settings, add environment variable:
-   ```
-   GH_TOKEN=your_token_here
-   ```
+<img src=".github/assets/setup/step-1.png" width="500">
 
-Claude will guide you through onboarding.
+### 4. Create a Cloud Environment
 
-### 4. Open in Obsidian
+Click the environment dropdown and select **Add environment**:
+
+<img src=".github/assets/setup/step-2.png" width="300">
+
+Fill in the environment settings:
+- **Name**: anything you like
+- **Network access**: Full
+- **Environment variables**: `GH_TOKEN=your_github_token`
+
+<img src=".github/assets/setup/step-3.png" width="400">
+
+### 5. Start a Session
+
+Click **New session**, select your forked repository and the environment you created:
+
+<img src=".github/assets/setup/step-4.png" width="500">
+
+Say "Let's set up the knowledge base" — Claude will guide you through onboarding.
+
+### 6. (Optional) Open in Obsidian
+
+To access your vault locally:
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
