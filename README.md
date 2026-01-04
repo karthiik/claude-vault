@@ -23,9 +23,9 @@ You interact through Obsidian (or any markdown editor). Claude interacts through
 
 ## Setup
 
-### 1. Fork this repository
+### 1. Create your repository
 
-Click "Fork" on GitHub to create your own copy.
+Click **"Use this template"** → **"Create a new repository"** to create your own copy.
 
 ### 2. Create a GitHub Token
 
