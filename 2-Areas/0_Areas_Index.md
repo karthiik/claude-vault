@@ -78,16 +78,16 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 ## Areas & Intentions
 
-| Area | Intention | Index |
-|------|-----------|-------|
-| **Health – Mind, Body & Spirit** | Transforming my body to be lean and energized, sharpening focus and clarity, grounding in mindfulness over materialism | [[0_Health_Mind_Body_Spirit_Index]] |
-| **Relationships & Social Life** | Build deep connection and mutual trust | [[0_Relationships_Social_Life_Index]] |
-| **Career & Purpose** | Step into visible, human-centered leadership | [[0_Career_Purpose_Index]] |
-| **Finances & Security** | Establish lasting security and aligned wealth | [[0_Finances_Security_Index]] |
-| **Education & Learning** | Expand wisdom through curiosity and reflection | [[0_Education_Learning_Index]] |
-| **Joy, Creativity & Play** | Reclaim wonder, adventure, and play | [[0_Joy_Creativity_Play_Index]] |
-| **Home & Environment** | Nurture a sanctuary that supports healing and peace | [[0_Home_Environment_Index]] |
-| **Contribution & Legacy** | Give back through mentoring and sharing expertise | [[0_Contribution_Legacy_Index]] |
+| Area                             | Intention                                                                                                                                                                                                                                                                 | Index                                 |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **Health – Mind, Body & Spirit** | Transforming my body to be lean and energized, sharpening focus and clarity, grounding in mindfulness over materialism                                                                                                                                                    | [[0_Health_Mind_Body_Spirit_Index]]   |
+| **Relationships & Social Life**  | Deepening my bond with Vinay so he sees me as someone to look up to, showing up fully for Jamie as we enter this new chapter, and finding the rhythm that honors work, family, and partnership without sacrifice                                                          | [[0_Relationships_Social_Life_Index]] |
+| **Career & Purpose**             | Emerging as a thought leader who balances optimism with realism in the AI revolution — guiding people and businesses to capitalize on technology that is reshaping humanity, driven by a deep sense of purpose to help those around me navigate this transformational era | [[0_Career_Purpose_Index]]            |
+| **Finances & Security**          | Building toward freedom at 55-60 — the ability to travel, stay active, pursue passion projects, and leave a legacy that sets Vinay up for life                                                                                                                            | [[0_Finances_Security_Index]]         |
+| **Education & Learning**         | Growing into a well-rounded leader who communicates and articulates with clarity, treats people with empathy and thoughtfulness, shows up fully present in every conversation, and continuously learns how to be the best version of myself across all areas of life      | [[0_Education_Learning_Index]]        |
+| **Joy, Creativity & Play**       | Chasing aliveness — through the spark of problem-solving with a team, the exhilaration of riding my motorcycle in breathtaking environments, and immersing in nature's beauty to refresh my mind and gain new perspective on life and the world | [[0_Joy_Creativity_Play_Index]]       |
+| **Home & Environment**           | Creating a home that sparks creativity and encourages healthy eating and active living — a comfortable safe haven for Vinay, and a space that feels like Jamie's home too when she visits, bridging our separate lives into shared belonging | [[0_Home_Environment_Index]]          |
+| **Contribution & Legacy**        | Contributing to the community and the people I work with by sharing my learnings and experiences, being the one who looks around the corner into the future and brings it back to reality for now — while becoming an inspirational figure for Vinay, showing him through my story that anything is possible | [[0_Contribution_Legacy_Index]]       |
 
 ---
 
