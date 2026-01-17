@@ -45,18 +45,18 @@ All .md files should be connected and navigable through Obsidian.
 └── Templates/        # Note templates
 ```
 
-### Areas (Life Balance Wheel)
+### Areas (Full Circle)
 
 ```
 2-Areas/
-├── Health/           # Physical & mental wellness
-├── Relationships/    # Family, friends, community
-├── Career/           # Work, professional identity
-├── Finance/          # Money, investments
-├── Learning/         # Skills, education
-├── Recreation/       # Fun, hobbies, rest
-├── Environment/      # Home, possessions
-└── Contribution/     # Purpose, giving back
+├── Health – Mind, Body & Spirit/    # Vibrant vitality
+├── Relationships & Social Life/     # Deep connection, trust
+├── Career & Purpose/                # Visible, human-centered leadership
+├── Finances & Security/             # Lasting security, aligned wealth
+├── Education & Learning/            # Wisdom through curiosity
+├── Joy, Creativity & Play/          # Wonder, adventure, play
+├── Home & Environment/              # Sanctuary for healing
+└── Contribution & Legacy/           # Giving back, mentoring
 ```
 
 ---
