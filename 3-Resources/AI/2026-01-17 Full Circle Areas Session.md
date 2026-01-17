@@ -67,6 +67,16 @@ Build a comprehensive Life Areas master document based on Jamie's "Full Circle" 
 
 7. **Completed Jamie-style coaching** to personalize all 8 area intention statements:
 
+### Phase 5: Guiding Principles (Complete)
+
+8. **Personalized "Principles to Carry Forward"** — Replaced Jamie's framework principles with Karthik's own lessons learned:
+   - Trust Your Gut — intuition as compass
+   - Choose You First — peace over people-pleasing
+   - Decide and Move — confidence, no second-guessing
+   - Journal for Clarity — mindfulness through writing
+   - Practice Gratitude — abundance mindset
+   - Break the Pattern — health accountability (don't repeat past slips)
+
    - ✅ **Health – Mind, Body & Spirit:** Transforming body, sharpening focus, grounding in mindfulness
    - ✅ **Relationships & Social Life:** Vinay looking up to him, showing up for Jamie, work-family balance
    - ✅ **Career & Purpose:** AI thought leader balancing optimism with realism, deep sense of purpose

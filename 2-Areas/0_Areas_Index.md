@@ -147,14 +147,14 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 ## Principles to Carry Forward
 
-*Lessons that apply across all areas:*
+*Lessons learned — reminders for when things get hard:*
 
-1. **Intuition is the Compass** — Trust your gut; listen for what truly fits rather than forcing outcomes
-2. **Boundaries Protect Peace** — Maintain distance from what drains; protect your energy
-3. **Presence Over Perfection** — Choose to be present, even with limitations
-4. **Alignment Over Speed** — Quiet momentum beats rushing; mind, body, spirit are interconnected
-5. **Environment Matters** — Home as sanctuary underpins wellbeing
-6. **Vulnerability is Strength** — Sharing your story makes you a leader of human experience
+1. **Trust Your Gut** — You're only human. Intuition is your compass — listen to what feels right rather than overthinking or forcing outcomes
+2. **Choose You First** — Do what feels right to you, not what makes someone else happy. Your peace matters
+3. **Decide and Move** — Be confident in the decisions you make. Once you've decided, commit — don't rethink or second-guess
+4. **Journal for Clarity** — Practice mindfulness by writing regularly. Processing thoughts on paper keeps you grounded and present
+5. **Practice Gratitude** — Remember all that you have in your life. Gratitude shifts perspective from scarcity to abundance
+6. **Break the Pattern** — You've let health slip before — eating, activity, strength. Name it, remember it, don't repeat it this year
 
 ---
 
