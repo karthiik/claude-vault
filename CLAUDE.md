@@ -219,8 +219,10 @@ When we do coaching or vault-building sessions, document the process for future 
    - Frameworks used
    - Artifacts created
    - Open threads for next time
+   - **IMPORTANT:** Keep session logs focused by area/topic (e.g., "Career Coaching Session", "Full Circle Areas Session"). Even on the same day, create separate logs for different focus areas. This makes it easier to load relevant context in future sessions.
 
-2. **Methodology Doc** — Update relevant methodology in `3-Resources/AI/`
+2. **Methodology Doc** — Update or create methodology in `3-Resources/AI/`
+   - Each major area should have its own methodology file
    - If we refined a process, capture it
    - Add new templates or patterns discovered
    - Link session logs to methodologies
@@ -228,6 +230,10 @@ When we do coaching or vault-building sessions, document the process for future 
 3. **Index** — Update `3-Resources/AI/0_AI_Index.md`
    - Add new session logs to the table
    - Add new methodologies if created
+
+**Current Methodologies:**
+- [[Career Coaching Methodology]] — Career planning, goal cascades
+- [[Full Circle Areas Methodology]] — Life area balance, intentions
 
 **When to document:**
 - Building out new Areas or major sections

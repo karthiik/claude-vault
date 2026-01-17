@@ -9,6 +9,7 @@ Documentation of AI-assisted workflows, methodologies, and session logs.
 | Methodology | Purpose | Status |
 |-------------|---------|--------|
 | [[Career Coaching Methodology]] | AI-assisted career planning and goal setting | Active |
+| [[Full Circle Areas Methodology]] | Life area balance and intentional living | Active |
 
 ---
 
@@ -16,7 +17,8 @@ Documentation of AI-assisted workflows, methodologies, and session logs.
 
 | Date | Focus | Key Output |
 |------|-------|------------|
-| [[2026-01-17 Career Coaching Session]] | Career Index buildout + 2026 goals | [[0_Career_Index]], [[2026 Goals]] |
+| [[2026-01-17 Career Coaching Session]] | Career Index buildout + 2026 goals | [[0_Career_Purpose_Index]], [[2026 Goals]] |
+| [[2026-01-17 Full Circle Areas Session]] | Life Areas framework + Word of the Year | [[0_Areas_Index]], folder restructure |
 
 ---
 
