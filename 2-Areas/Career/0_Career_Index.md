@@ -26,6 +26,25 @@ The operating role provides leverage and credibility. The teaching/publishing ex
 
 ---
 
+## 2026 Theme
+
+> **"The year I become visible outside Lockton."**
+
+*One theme to guide decisions. Everything else is secondary.*
+
+### Success Criteria (Dec 2026)
+
+- [ ] 1+ external speaking engagement (conference, podcast, or panel) #area/career #p1
+- [ ] 2+ published articles beyond LinkedIn #area/career #p2
+- [ ] Innovation thesis articulated and tested with external audiences #area/career #p2
+- [ ] At least 1 external sponsor/advocate relationship developed #area/career #p2
+
+### Why This Theme?
+
+Internal credibility is established (GAS Summit, AI expert, GCC expansion). The gap to CTO and thought leadership is **external visibility**. 2026 is the year to close that gap.
+
+---
+
 ## Current Role
 
 > [!Profile]
@@ -134,6 +153,36 @@ The operating role provides leverage and credibility. The teaching/publishing ex
 
 ---
 
+## Innovation Thesis
+
+*Your point of view on where technology is going — and what others are getting wrong.*
+
+### The Belief (draft)
+
+> *[Fill in: What do you believe about AI/technology in insurance that most people don't yet understand?]*
+
+**Prompt questions to develop this:**
+- What's the biggest mistake insurance companies make with AI?
+- What will insurance tech look like in 5 years that people aren't preparing for?
+- What have you learned from 20+ years that the industry keeps ignoring?
+
+### Innovation Portfolio
+
+*Active experiments and bets. What are you testing?*
+
+| Experiment | Hypothesis | Status | Learning |
+|------------|------------|--------|----------|
+| *[e.g., AI claims processing]* | *[What you're testing]* | *[Active/Paused/Killed]* | *[What you learned]* |
+| *[add more]* | | | |
+
+### Failure Log
+
+*Innovation requires failed experiments. What didn't work and why?*
+
+- *[Add past experiments that failed and what you learned]*
+
+---
+
 ## Network & Influence
 
 ### Mentoring (giving)
@@ -167,6 +216,52 @@ The operating role provides leverage and credibility. The teaching/publishing ex
 | Rama Ramaswamy | Slalom |
 | Naveen Irudayaraj | Business partner |
 | Vinod Sridharan | Friend (Michigan) |
+
+### External Network (to develop)
+
+*People outside Lockton who could open doors or advocate for you.*
+
+| Name | Context | Relationship | Status |
+|------|---------|--------------|--------|
+| *[industry peer]* | *[context]* | *[how you know them]* | *[to develop / active]* |
+| *[recruiter]* | Insurance tech executive search | | To identify |
+| *[conference connection]* | | | |
+
+---
+
+## External Visibility Plan
+
+*Building the thought leader brand outside Lockton.*
+
+### 2026 Targets
+
+| Channel | Target | Status |
+|---------|--------|--------|
+| External speaking | 1+ conference/podcast/panel | Not started |
+| Published articles | 2+ beyond LinkedIn (industry pubs, HBR, etc.) | Not started |
+| Podcast appearances | 1+ guest appearance | Not started |
+
+### Speaking Pipeline
+
+| Event | Date | Topic | Status |
+|-------|------|-------|--------|
+| *[InsureTech Connect?]* | *[date]* | *[topic]* | *[applied/accepted/delivered]* |
+| *[Gartner IT Symposium?]* | | | |
+| *[Local tech meetup?]* | | | |
+
+### Writing Pipeline
+
+| Topic | Target Publication | Status |
+|-------|-------------------|--------|
+| *[AI in insurance — your POV]* | *[Insurance Journal? HBR?]* | *[idea/draft/submitted/published]* |
+| *[Lessons from building GCCs]* | | |
+| *[Design thinking in enterprise]* | | |
+
+### Book (Someday)
+
+*Working title ideas:*
+- *[e.g., "The Insurance CTO Playbook"]*
+- *[e.g., "Innovation at Scale"]*
 
 ---
 
@@ -204,6 +299,19 @@ The operating role provides leverage and credibility. The teaching/publishing ex
 
 **Innovation + Global Scale** — This is the lane. AI expertise, global architecture leadership, GCC expansion, design thinking. All pointing toward: *technology executive who drives transformation at scale.*
 
+### Business Impact Metrics
+
+*Quantified value of your work. CTO conversations require numbers.*
+
+| Initiative | Business Impact | Year |
+|------------|-----------------|------|
+| GCC Expansion (Chennai → Trivandrum) | $*[cost savings/year]* | 2024-2025 |
+| Operational budget optimization | $*[savings]* or *[% reduction]* | 2025 |
+| Global Digital Workspace | *[productivity gain? adoption rate?]* | 2025 |
+| AI implementations | *[efficiency gain? hours saved?]* | 2025-2026 |
+
+*Fill these in — they become your "proof points" in CTO interviews.*
+
 ---
 
 ## Projects
@@ -217,13 +325,57 @@ The operating role provides leverage and credibility. The teaching/publishing ex
 
 ---
 
+## Risk Register
+
+*Career contingencies. What could derail the plan, and what's the mitigation?*
+
+| Risk | Likelihood | Impact | Mitigation |
+|------|------------|--------|------------|
+| West CIO handoff goes poorly | Medium | High | Document everything, maintain relationships, stay available for transition issues |
+| No CTO path at Lockton | Medium | High | Build external visibility, maintain recruiter relationships, stay marketable |
+| Innovation role gets deprioritized | Low | High | Tie innovation to business outcomes, quantify impact, align with Claude Yoder's agenda |
+| Byron leaves Lockton | Low | High | Diversify sponsors, build relationships with other executives |
+| Burnout from transition + innovation + MIT | Medium | Medium | Protect personal time, prioritize ruthlessly, use 2026 Theme as filter |
+
+### Contingency: What if CTO doesn't happen at Lockton?
+
+**Options to keep warm:**
+- External recruiter relationship (insurance tech focus)
+- Stay visible in industry (conferences, publications)
+- Keep skills current (MIT, certifications)
+- Maintain mentor relationship with John Wei (current CTO)
+
+---
+
 ## Open Tasks
 
-- [ ] Complete MIT CTO Program #area/career #p2
-- [ ] Develop mentoring framework for Mark (public speaking) #area/career #p2
-- [ ] Deepen partnership with Claude Yoder on AI implementations #area/career #p2
+### Immediate (Q1 2026)
+
 - [ ] Wrap up FY budget (due Apr 30) #area/career #p1
 - [ ] Sign Chennai team contracts #area/career #p2
+- [ ] Complete MIT CTO Program #area/career #p2
+
+### 2026 Theme: External Visibility
+
+- [ ] Draft innovation thesis (your POV on AI in insurance) #area/career #p1
+- [ ] Identify 3 target conferences/podcasts for speaking #area/career #p2
+- [ ] Submit 1 speaking proposal #area/career #p2
+- [ ] Identify 1 external publication target #area/career #p2
+- [ ] Connect with 1 insurance tech executive recruiter #area/career #p3
+
+### Relationships
+
+- [ ] Deepen partnership with Claude Yoder on AI implementations #area/career #p2
+- [ ] Develop mentoring framework for Mark (public speaking) #area/career #p2
+- [ ] Identify 1 potential external sponsor #area/career #p3
+
+### Documentation
+
+- [ ] Quantify business impact of 2024-2025 wins ($ values) #area/career #p2
+- [ ] Update LinkedIn with 2026 achievements #area/career #p3
+- [ ] Fill in Innovation Portfolio (active experiments) #area/career #p3
+
+### Completed
+
 - [x] Define career vision / north star #area/career #p3
 - [x] Fill in career timeline (past roles) #area/career #p3
-- [ ] Update LinkedIn with 2026 achievements #area/career #p3
