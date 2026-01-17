@@ -1,0 +1,19 @@
+{
+  "id": "3f0117f8-53b7-479e-a396-fdc37bb13d3f",
+  "title": "Review Life Balance Areas",
+  "titleGenerationStatus": "success",
+  "createdAt": 1768670003312,
+  "updatedAt": 1768670515100,
+  "lastResponseAt": 1768670487825,
+  "sessionId": "3f0117f8-53b7-479e-a396-fdc37bb13d3f",
+  "sdkSessionId": "3f0117f8-53b7-479e-a396-fdc37bb13d3f",
+  "usage": {
+    "model": "claude-opus-4-5-20251101",
+    "inputTokens": 3310,
+    "cacheCreationInputTokens": 24026,
+    "cacheReadInputTokens": 11327,
+    "contextWindow": 200000,
+    "contextTokens": 38663,
+    "percentage": 19
+  }
+}

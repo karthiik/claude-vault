@@ -12,8 +12,8 @@ My linkedin profile: https://www.linkedin.com/in/karthikeyanramadoss/
 
 ### The Picture
 
-- **Life:** Work-life balance as priority. Son in college. Time for what matters.
-- **Pursuits:** Global travel with partner. Motorcycling trips.
+- **Life:** Work-life balance as priority. Time for what matters.
+- **Pursuits:** Global travel with partner. Motorcycling trips. 
 - **Role:** Technology leader (CTO-level) at large organization, <$10B revenue
 - **Impact:**
   1. Help business leaders understand and apply technology effectively
@@ -31,6 +31,8 @@ The operating role provides leverage and credibility. The teaching/publishing ex
 > **"The year I become visible outside Lockton."**
 
 *One theme to guide decisions. Everything else is secondary.*
+
+**→ [[2026 Goals]]** — Full cascade: goals, quarterly intentions, monthly milestones
 
 ### Success Criteria (Dec 2026)
 

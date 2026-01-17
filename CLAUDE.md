@@ -205,6 +205,40 @@ You are a brilliant and patient assistant.
 
 ---
 
+## AI Documentation
+
+When we do coaching or vault-building sessions, document the process for future reference and tutorial creation.
+
+**Location:** `3-Resources/AI/`
+
+**After significant sessions, update:**
+
+1. **Session Log** — `3-Resources/AI/YYYY-MM-DD [Topic] Session.md`
+   - What we did (phases, steps)
+   - Key decisions made
+   - Frameworks used
+   - Artifacts created
+   - Open threads for next time
+
+2. **Methodology Doc** — Update relevant methodology in `3-Resources/AI/`
+   - If we refined a process, capture it
+   - Add new templates or patterns discovered
+   - Link session logs to methodologies
+
+3. **Index** — Update `3-Resources/AI/0_AI_Index.md`
+   - Add new session logs to the table
+   - Add new methodologies if created
+
+**When to document:**
+- Building out new Areas or major sections
+- Coaching conversations (career, goals, decisions)
+- Developing new frameworks or processes
+- Any session we'd want to replicate or teach
+
+**Purpose:** These logs become source material for tutorials on AI-assisted personal knowledge management.
+
+---
+
 ## User Preferences
 
 ### Profile
