@@ -137,7 +137,40 @@ For each area, ask a question that:
 
 ---
 
-### Phase 4: Area Index Buildout
+### Phase 4: Guiding Principles (Coaching)
+
+**Goal:** Personalize the "Principles to Carry Forward" section — lessons learned that apply across all areas.
+
+**The method: Jamie-style Coaching**
+
+Ask a reflective question that invites the person to surface their own wisdom:
+
+> "Looking across your life — the lessons you've learned, the mistakes that taught you something, the values that guide your decisions — what are the principles you want to carry forward? What truths have you discovered that you want to remember when things get hard?"
+
+**Crafting the principles:**
+1. Listen for themes: intuition, boundaries, health, gratitude, mindset
+2. Extract 4-8 principles from their response
+3. Format as: **Bold Title** — one-sentence expansion
+4. Offer concise vs. detailed versions
+5. User chooses or edits
+6. Update the Areas Index
+
+**Sample principles (for reference, not templates):**
+- **Trust Your Gut** — Intuition is your compass; don't overthink
+- **Choose You First** — Do what feels right, not what pleases others
+- **Decide and Move** — Be confident; don't second-guess
+- **Journal for Clarity** — Processing thoughts keeps you grounded
+- **Practice Gratitude** — Abundance mindset over scarcity
+- **Break the Pattern** — Name what's slipped before; don't repeat it
+
+**Why this matters:**
+- Principles are personal reminders, not generic advice
+- They ground the system in lived experience
+- They're the "fall back" when life gets hard
+
+---
+
+### Phase 5: Area Index Buildout
 
 **Goal:** Create a dedicated index file for each area with depth.
 
@@ -214,7 +247,7 @@ Questions to ask during weekly/monthly review:
 
 ---
 
-### Phase 5: Maintenance
+### Phase 6: Maintenance
 
 **Goal:** Keep the system alive through regular review.
 
@@ -270,18 +303,6 @@ The 8 areas of life that require ongoing attention. No end date — these are ma
 
 *Meaningful milestones to experience with deep presence and gratitude.*
 
-### Birthdays & Milestones
-
-| Date | Moment | Area |
-|------|--------|------|
-
-### Career & Learning
-
-| Date | Moment | Area |
-|------|--------|------|
-
-### Travel & Joy
-
 | Date | Moment | Area |
 |------|--------|------|
 
@@ -289,16 +310,7 @@ The 8 areas of life that require ongoing attention. No end date — these are ma
 
 ## Areas & Intentions
 
-| Area | Intention | Index |
-|------|-----------|-------|
-| **Health – Mind, Body & Spirit** | [Intention] | [[0_Health_Mind_Body_Spirit_Index]] |
-| **Relationships & Social Life** | [Intention] | [[0_Relationships_Social_Life_Index]] |
-| **Career & Purpose** | [Intention] | [[0_Career_Purpose_Index]] |
-| **Finances & Security** | [Intention] | [[0_Finances_Security_Index]] |
-| **Education & Learning** | [Intention] | [[0_Education_Learning_Index]] |
-| **Joy, Creativity & Play** | [Intention] | [[0_Joy_Creativity_Play_Index]] |
-| **Home & Environment** | [Intention] | [[0_Home_Environment_Index]] |
-| **Contribution & Legacy** | [Intention] | [[0_Contribution_Legacy_Index]] |
+[8 area cards with emoji, intention statement, index link, status]
 
 ---
 
@@ -306,6 +318,15 @@ The 8 areas of life that require ongoing attention. No end date — these are ma
 
 | Area | Status | [Year] Focus |
 |------|--------|--------------|
+
+---
+
+## Principles to Carry Forward
+
+*Lessons learned — reminders for when things get hard:*
+
+1. **[Principle Title]** — [One-sentence expansion]
+2. ...
 
 ---
 
@@ -335,9 +356,10 @@ The 8 areas of life that require ongoing attention. No end date — these are ma
 2. **Word of the Year anchors everything** — One word, one theme, one north star
 3. **Jamie-style coaching** — Questions are personal, not generic
 4. **Intentions over goals** — "I am..." not "I will..."
-5. **Interconnection** — Each area supports the others
-6. **Presence over perfection** — Anticipated Moments bring the year to life
-7. **Maintenance is the work** — Review cadence keeps the system alive
+5. **Principles from lived experience** — Guiding principles come from the user's own lessons, not templates
+6. **Interconnection** — Each area supports the others
+7. **Presence over perfection** — Anticipated Moments bring the year to life
+8. **Maintenance is the work** — Review cadence keeps the system alive
 
 ---
 

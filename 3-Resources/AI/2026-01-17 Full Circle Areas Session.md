@@ -67,16 +67,6 @@ Build a comprehensive Life Areas master document based on Jamie's "Full Circle" 
 
 7. **Completed Jamie-style coaching** to personalize all 8 area intention statements:
 
-### Phase 5: Guiding Principles (Complete)
-
-8. **Personalized "Principles to Carry Forward"** — Replaced Jamie's framework principles with Karthik's own lessons learned:
-   - Trust Your Gut — intuition as compass
-   - Choose You First — peace over people-pleasing
-   - Decide and Move — confidence, no second-guessing
-   - Journal for Clarity — mindfulness through writing
-   - Practice Gratitude — abundance mindset
-   - Break the Pattern — health accountability (don't repeat past slips)
-
    - ✅ **Health – Mind, Body & Spirit:** Transforming body, sharpening focus, grounding in mindfulness
    - ✅ **Relationships & Social Life:** Vinay looking up to him, showing up for Jamie, work-family balance
    - ✅ **Career & Purpose:** AI thought leader balancing optimism with realism, deep sense of purpose
@@ -85,6 +75,17 @@ Build a comprehensive Life Areas master document based on Jamie's "Full Circle" 
    - ✅ **Joy, Creativity & Play:** Aliveness through team problem-solving, motorcycling, nature
    - ✅ **Home & Environment:** Creativity, healthy living, safe haven for Vinay, Jamie's home too
    - ✅ **Contribution & Legacy:** Sharing learnings, futurist vision, inspiration for Vinay
+
+### Phase 5: Guiding Principles (Complete)
+
+8. **Personalized "Principles to Carry Forward"** — Replaced Jamie's framework principles with Karthik's own lessons learned through coaching:
+
+   - ✅ **Trust Your Gut** — intuition as compass, don't overthink
+   - ✅ **Choose You First** — peace over people-pleasing
+   - ✅ **Decide and Move** — confidence, no second-guessing
+   - ✅ **Journal for Clarity** — mindfulness through writing
+   - ✅ **Practice Gratitude** — abundance mindset
+   - ✅ **Break the Pattern** — health accountability (don't repeat past slips)
 
 ---
 
@@ -95,6 +96,7 @@ Build a comprehensive Life Areas master document based on Jamie's "Full Circle" 
 | Adopt Jamie's Full Circle naming exactly | Shared framework, aligned language, reinforces partnership |
 | Word of the Year: "Emergence" | Captures the transition from internal → external, credibility → visibility |
 | Jamie-style coaching for intentions | Personal, grounded; not generic corporate language |
+| Personalize guiding principles | Jamie's framework principles replaced with Karthik's own lessons learned |
 | Separate session logs by area | Easier to load focused context for future sessions |
 
 ---
@@ -140,9 +142,12 @@ Build a comprehensive Life Areas master document based on Jamie's "Full Circle" 
 - [ ] Build [[0_Home_Environment_Index]]
 - [ ] Build [[0_Contribution_Legacy_Index]]
 
+### Guiding Principles — Complete ✓
+- [x] Personalized "Principles to Carry Forward" through coaching
+
 ### Next Steps
 
-All 8 area intentions are now personalized. Next phase: build out individual Area Index files with vision, current state, habits, and projects.
+All 8 area intentions and guiding principles are now personalized. Next phase: build out individual Area Index files with vision, current state, habits, and projects.
 
 ---
 
