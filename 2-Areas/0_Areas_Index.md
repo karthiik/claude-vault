@@ -4,6 +4,8 @@ The 8 areas of life that require ongoing attention. No end date — these are ma
 
 **Source:** [[2026 Vision and Intentions.pdf]] — Jamie's Full Circle framework
 
+**Quick Nav:** [[#2026 Word of the Year|Word of the Year]] · [[#Areas & Intentions|Areas]] · [[#2026 Timeline|Timeline]] · [[#Current Status|Status]] · [[#Review Cadence|Reviews]]
+
 ---
 
 ## 2026 Word of the Year
@@ -36,58 +38,95 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 ---
 
-## 2026 Anticipated Moments
+## Areas & Intentions
 
-*Meaningful milestones to experience with deep presence and gratitude.*
+### 🏃 Health – Mind, Body & Spirit
 
-### Birthdays & Milestones
+> Transforming my body to be lean and energized, sharpening focus and clarity, grounding in mindfulness over materialism
 
-| Date | Moment | Area |
-|------|--------|------|
-| Jan 3 | Logan's 23rd birthday | Relationships & Social Life |
-| Jan 28-31 | NYC trip (GAI + birthday celebration) | Career & Purpose, Joy |
-| Jan 31 | Karthik's 48th birthday | Relationships & Social Life |
-| Mar 30 | Vinay turns 15 | Relationships & Social Life |
-| Apr 23 | EJ's birthday | Relationships & Social Life |
-| May 18 | EJ graduating high school | Relationships & Social Life |
-| Aug 14 | Jamie's birthday | Relationships & Social Life |
-| August | EJ starting college | Relationships & Social Life |
-
-### Career & Learning
-
-| Date | Moment | Area |
-|------|--------|------|
-| Jan 28 | GAI NYC | Career & Purpose |
-| Feb | London — GEA Kickoff | Career & Purpose |
-| Mar 15 | Jamie: HR Tech speaking | Career & Purpose |
-| April | MIT CTO Program residency | Education & Learning |
-| Aug 18-20 | Jamie: Digital Connect Insurance | Career & Purpose |
-| TBD | External conference (target) | Career & Purpose |
-| TBD | MIT graduation | Education & Learning |
-
-### Travel & Joy
-
-| Date | Moment | Area |
-|------|--------|------|
-| Jan 28-31 | NYC birthday trip | Joy, Creativity & Play |
-| Feb | London (GEA) | Career & Purpose |
-| Apr 24 – May 8 | London trip (together) | Joy, Creativity & Play |
-| Summer | India + Dubai trip (with EJ) | Joy, Creativity & Play |
+**Index:** [[0_Health_Mind_Body_Spirit_Index]] · **Status:** ⬜ To build
 
 ---
 
-## Areas & Intentions
+### 💛 Relationships & Social Life
 
-| Area                             | Intention                                                                                                                                                                                                                                                                 | Index                                 |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| **Health – Mind, Body & Spirit** | Transforming my body to be lean and energized, sharpening focus and clarity, grounding in mindfulness over materialism                                                                                                                                                    | [[0_Health_Mind_Body_Spirit_Index]]   |
-| **Relationships & Social Life**  | Deepening my bond with Vinay so he sees me as someone to look up to, showing up fully for Jamie as we enter this new chapter, and finding the rhythm that honors work, family, and partnership without sacrifice                                                          | [[0_Relationships_Social_Life_Index]] |
-| **Career & Purpose**             | Emerging as a thought leader who balances optimism with realism in the AI revolution — guiding people and businesses to capitalize on technology that is reshaping humanity, driven by a deep sense of purpose to help those around me navigate this transformational era | [[0_Career_Purpose_Index]]            |
-| **Finances & Security**          | Building toward freedom at 55-60 — the ability to travel, stay active, pursue passion projects, and leave a legacy that sets Vinay up for life                                                                                                                            | [[0_Finances_Security_Index]]         |
-| **Education & Learning**         | Growing into a well-rounded leader who communicates and articulates with clarity, treats people with empathy and thoughtfulness, shows up fully present in every conversation, and continuously learns how to be the best version of myself across all areas of life      | [[0_Education_Learning_Index]]        |
-| **Joy, Creativity & Play**       | Chasing aliveness — through the spark of problem-solving with a team, the exhilaration of riding my motorcycle in breathtaking environments, and immersing in nature's beauty to refresh my mind and gain new perspective on life and the world | [[0_Joy_Creativity_Play_Index]]       |
-| **Home & Environment**           | Creating a home that sparks creativity and encourages healthy eating and active living — a comfortable safe haven for Vinay, and a space that feels like Jamie's home too when she visits, bridging our separate lives into shared belonging | [[0_Home_Environment_Index]]          |
-| **Contribution & Legacy**        | Contributing to the community and the people I work with by sharing my learnings and experiences, being the one who looks around the corner into the future and brings it back to reality for now — while becoming an inspirational figure for Vinay, showing him through my story that anything is possible | [[0_Contribution_Legacy_Index]]       |
+> Deepening my bond with Vinay so he sees me as someone to look up to, showing up fully for Jamie as we enter this new chapter, and finding the rhythm that honors work, family, and partnership without sacrifice
+
+**Index:** [[0_Relationships_Social_Life_Index]] · **Status:** ⬜ To build
+
+---
+
+### 🚀 Career & Purpose
+
+> Emerging as a thought leader who balances optimism with realism in the AI revolution — guiding people and businesses to capitalize on technology that is reshaping humanity, driven by a deep sense of purpose to help those around me navigate this transformational era
+
+**Index:** [[0_Career_Purpose_Index]] · **Status:** 🟢 Active · **Goals:** [[2026 Goals]]
+
+---
+
+### 💰 Finances & Security
+
+> Building toward freedom at 55-60 — the ability to travel, stay active, pursue passion projects, and leave a legacy that sets Vinay up for life
+
+**Index:** [[0_Finances_Security_Index]] · **Status:** ⬜ To build
+
+---
+
+### 📚 Education & Learning
+
+> Growing into a well-rounded leader who communicates and articulates with clarity, treats people with empathy and thoughtfulness, shows up fully present in every conversation, and continuously learns how to be the best version of myself across all areas of life
+
+**Index:** [[0_Education_Learning_Index]] · **Status:** ⬜ To build
+
+---
+
+### 🎨 Joy, Creativity & Play
+
+> Chasing aliveness — through the spark of problem-solving with a team, the exhilaration of riding my motorcycle in breathtaking environments, and immersing in nature's beauty to refresh my mind and gain new perspective on life and the world
+
+**Index:** [[0_Joy_Creativity_Play_Index]] · **Status:** ⬜ To build
+
+---
+
+### 🏠 Home & Environment
+
+> Creating a home that sparks creativity and encourages healthy eating and active living — a comfortable safe haven for Vinay, and a space that feels like Jamie's home too when she visits, bridging our separate lives into shared belonging
+
+**Index:** [[0_Home_Environment_Index]] · **Status:** ⬜ To build
+
+---
+
+### 🌟 Contribution & Legacy
+
+> Contributing to the community and the people I work with by sharing my learnings and experiences, being the one who looks around the corner into the future and brings it back to reality for now — while becoming an inspirational figure for Vinay, showing him through my story that anything is possible
+
+**Index:** [[0_Contribution_Legacy_Index]] · **Status:** ⬜ To build
+
+---
+
+## 2026 Timeline
+
+*Meaningful milestones to experience with deep presence and gratitude.*
+
+| Month | Moment | Area |
+|-------|--------|------|
+| **Jan 3** | Logan's 23rd birthday | Relationships |
+| **Jan 28** | GAI NYC | Career |
+| **Jan 28-31** | NYC birthday trip | Joy, Career |
+| **Jan 31** | Karthik's 48th birthday | Relationships |
+| **Feb** | London — GEA Kickoff | Career |
+| **Mar 15** | Jamie: HR Tech speaking | Career |
+| **Mar 30** | Vinay turns 15 | Relationships |
+| **Apr** | MIT CTO Program residency | Learning |
+| **Apr 23** | EJ's birthday | Relationships |
+| **Apr 24 – May 8** | London trip (together) | Joy, Relationships |
+| **May 18** | EJ graduating high school | Relationships |
+| **Summer** | India + Dubai trip (with EJ) | Joy, Relationships |
+| **Aug 14** | Jamie's birthday | Relationships |
+| **Aug 18-20** | Jamie: Digital Connect Insurance | Career |
+| **August** | EJ starting college | Relationships |
+| **TBD** | External conference (target) | Career |
+| **TBD** | MIT graduation | Learning |
 
 ---
 
@@ -97,12 +136,12 @@ Joy, Creativity & Play ---+--- Finances & Security
 |------|--------|------------|
 | **Career & Purpose** | 🟢 Active | [[2026 Goals]] — "Visible outside Lockton" |
 | **Health – Mind, Body & Spirit** | ⬜ To build | Physical wellness, stress management |
-| **Relationships & Social Life** | ⬜ To build | Jamie, EJ's transition to college, family |
-| **Finances & Security** | ⬜ To build | Value-based budgeting, security |
-| **Education & Learning** | ⬜ To build | MIT CTO Program, IDEO, AI mastery |
-| **Joy, Creativity & Play** | ⬜ To build | Travel (London, India, Dubai), motorcycling, hiking, photography |
+| **Relationships & Social Life** | ⬜ To build | Jamie, EJ's transition to college, Vinay |
+| **Finances & Security** | ⬜ To build | Value-based budgeting, retirement planning |
+| **Education & Learning** | ⬜ To build | MIT CTO Program, leadership growth |
+| **Joy, Creativity & Play** | ⬜ To build | Travel, motorcycling, nature |
 | **Home & Environment** | ⬜ To build | Home as sanctuary |
-| **Contribution & Legacy** | ⬜ To build | Mentoring (Mark Burtson), thought leadership |
+| **Contribution & Legacy** | ⬜ To build | Mentoring, thought leadership, Vinay |
 
 ---
 
@@ -155,22 +194,6 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 ---
 
-## Building Out Areas
-
-Each Area index should include:
-
-1. **Intention** — One sentence: "I am [verb]-ing..."
-2. **Vision** — What does thriving look like here?
-3. **Current State** — Where am I now?
-4. **2026 Focus** — Key priorities for this year
-5. **Habits/Routines** — What maintains this area?
-6. **Active Projects** — What's in flight?
-7. **Open Tasks** — What needs attention?
-
-Use [[Career Coaching Methodology]] as a template for building out other areas.
-
----
-
 ## Open Tasks
 
 - [ ] Build out Health – Mind, Body & Spirit index #area/health #p2
@@ -180,4 +203,3 @@ Use [[Career Coaching Methodology]] as a template for building out other areas.
 - [ ] Build out Joy, Creativity & Play index #area/recreation #p3
 - [ ] Build out Home & Environment index #area/environment #p3
 - [ ] Build out Contribution & Legacy index #area/contribution #p3
-- [ ] Define Karthik's Word of the Year (or adopt "Abundance" as shared) #p2
