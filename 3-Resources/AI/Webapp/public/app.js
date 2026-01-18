@@ -1,6 +1,4 @@
-// ============================================
-// Vision Dashboard — Frontend App (Milkdown)
-// ============================================
+// Vision Dashboard — Split View (Preview + Textarea)
 
 let currentFile = null;
 let saveTimeout = null;
@@ -11,6 +9,8 @@ const visionPanel = document.getElementById('visionPanel');
 const visionContent = document.getElementById('visionContent');
 const editorPanel = document.getElementById('editorPanel');
 const editorPath = document.getElementById('editorPath');
+const editorPreview = document.getElementById('editorPreview');
+const editorInput = document.getElementById('editorInput');
 const saveStatus = document.getElementById('saveStatus');
 const currentView = document.getElementById('currentView');
 const todayBtn = document.getElementById('todayBtn');
@@ -36,6 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
   visionBtn.addEventListener('click', showVisionPanel);
   closeEditor.addEventListener('click', showVisionPanel);
 
+  editorInput.addEventListener('input', () => {
+    updatePreview();
+    scheduleSave();
+  });
+
   document.addEventListener('keydown', (e) => {
     if ((e.metaKey || e.ctrlKey) && e.key === 's') {
       e.preventDefault();
@@ -46,10 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function showVisionPanel() {
-  if (currentFile) {
-    saveFile();
-    MilkdownEditor.destroyEditor();
-  }
+  if (currentFile) saveFile();
   visionPanel.classList.remove('hidden');
   editorPanel.classList.add('hidden');
   currentFile = null;
@@ -61,6 +63,10 @@ function showEditorPanel(filePath) {
   visionPanel.classList.add('hidden');
   editorPanel.classList.remove('hidden');
   currentView.textContent = filePath;
+}
+
+function updatePreview() {
+  editorPreview.innerHTML = `<div class="markdown-body">${renderMarkdown(editorInput.value)}</div>`;
 }
 
 async function loadVision(person) {
@@ -140,10 +146,10 @@ async function openFile(filePath) {
 
     currentFile = filePath;
     editorPath.textContent = filePath;
+    editorInput.value = data.content;
+    updatePreview();
     showEditorPanel(filePath);
     saveStatus.textContent = '';
-
-    await MilkdownEditor.createEditor('#milkdownEditor', data.content, () => scheduleSave());
     loadRecent();
   } catch (err) {
     alert('Failed to open file');
@@ -152,7 +158,6 @@ async function openFile(filePath) {
 
 async function saveFile() {
   if (!currentFile) return;
-  const content = MilkdownEditor.getMarkdown();
   saveStatus.textContent = 'Saving...';
   saveStatus.className = 'save-status saving';
 
@@ -160,7 +165,7 @@ async function saveFile() {
     const res = await fetch('/api/file', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ path: currentFile, content })
+      body: JSON.stringify({ path: currentFile, content: editorInput.value })
     });
     const data = await res.json();
     if (data.success) {
@@ -169,11 +174,9 @@ async function saveFile() {
       setTimeout(() => { saveStatus.textContent = ''; }, 2000);
     } else {
       saveStatus.textContent = 'Save failed';
-      saveStatus.className = 'save-status';
     }
   } catch (err) {
     saveStatus.textContent = 'Save failed';
-    saveStatus.className = 'save-status';
   }
 }
 
@@ -192,9 +195,9 @@ async function openTodaysNote() {
 
     currentFile = data.path;
     editorPath.textContent = data.path;
+    editorInput.value = data.content;
+    updatePreview();
     showEditorPanel(data.path);
-
-    await MilkdownEditor.createEditor('#milkdownEditor', data.content, () => scheduleSave());
 
     if (data.created) {
       saveStatus.textContent = 'Created new note';
@@ -214,9 +217,7 @@ async function loadRecent() {
     const res = await fetch('/api/recent');
     recentFiles = await res.json();
     renderRecent();
-  } catch (err) {
-    console.error('Failed to load recent files');
-  }
+  } catch (err) {}
 }
 
 function renderRecent() {

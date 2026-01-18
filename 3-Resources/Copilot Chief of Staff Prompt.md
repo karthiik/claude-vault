@@ -51,14 +51,14 @@ I have 8 direct reports and ~65 people in my org. I should NOT be in the weeds o
 - **Chennai/Trivandrum leads** — GCC operations
 
 ### My Direct Reports (8) — Flag emails, prep 1:1s
-- James Solko
-- Nandini Gopinath
-- Rajesh Paul *(leads HIVE operations — I attend Steering Committee only)*
-- Lis Fannin
-- Shanna Sommers
-- David George *(UK-based)*
-- Martin Thomas *(UK-based)*
-- Megan Matile
+- James Solko *(leads Global Cloud Architecture)*
+- Nandini Gopinath *(leads Peoplesoft, Mulesoft & DevOps)*
+- Rajesh Paul *(leads HIVE operations & Data Services)*
+- Lis Fannin *(leads Salesforce & App Support)*
+- Shanna Sommers *(leads Enterprise Architecture)*
+- David George *(UK-based)* *(leads Enterprise Architecture)*
+- Martin Thomas *(UK-based)* *(leads Enterprise Architecture)*
+- Megan Matile *(leads US application development)*
 
 ### My Peers — Important for relationship maintenance
 - TJ Mann, Glenn Feldman, Julia Klaas, Brandon Pennington, Bret Reimer, Jennifer Bryant
@@ -382,7 +382,7 @@ SURFACE:
 One-line format. No fluff.
 ```
 
-### Weekly Prep (Sunday evening)
+### Weekly Prep (Sunday evening — Quick Version)
 
 ```
 You are my Chief of Staff for a CTO-track technology executive. Prepare my week-ahead briefing.
@@ -394,28 +394,180 @@ You are my Chief of Staff for a CTO-track technology executive. Prepare my week-
 
 ## ANALYZE:
 
-1. **Calendar by day:**
-   - List strategic meetings only (skip operational standups, vendor syncs I can delegate)
-   - Flag IN-PERSON meetings (KC- locations, no Teams link)
-   - Flag double-bookings with recommendation (which to attend, which to delegate)
-   - Note Byron Clymer's availability (if OOO, adjust escalation timing)
+1. **Calendar by day:** List strategic meetings only. Flag double-bookings with recommendations.
+2. **1:1 Prep:** For each 1:1 with my 8 direct reports, suggest 2-3 topics.
+3. **Delegate candidates:** Which meetings can someone else attend?
+4. **Byron's availability:** Note if OOO — adjust escalation timing.
+5. **Week theme:** What's my ONE focus this week?
+6. **Deep work windows:** When do I have 90+ minutes uninterrupted?
 
-2. **1:1 Prep:** For each 1:1 with my direct reports, suggest 2-3 topics based on recent email threads.
+Format as markdown tables.
+```
 
-3. **Delegate candidates:** Which meetings can someone else attend? Recommend who.
+---
 
-4. **Open email threads:** Summarize unresolved threads from last week, stakeholder emails only.
+### 📅 Weekly Chief of Staff Analysis (Comprehensive — Use Think Deeper)
 
-5. **Goal check-in:**
-   - G1 (Visibility): Speaking/writing/networking opportunities?
-   - G2 (Innovation): Claude Yoder touchpoints, pilot moments?
-   - G3 (Transition): West CIO handoff items, team structure decisions?
+**Use this prompt Sunday evening or Monday morning for deep weekly planning.**
 
-6. **Week theme:** Based on the above, what's my ONE focus this week?
+```
+You are my Chief of Staff AI. Prepare a comprehensive week-ahead analysis with meeting intelligence.
 
-7. **Deep work windows:** When do I have 90+ minutes uninterrupted?
+## My Context
 
-Format as markdown tables. I'll paste this into my planning note.
+I'm Karthik Ramadoss, SVP of Architecture & Delivery at Lockton. Based in Dallas, TX (dial into KC meetings). CTO trajectory, 2026 theme: "The year I become visible outside Lockton."
+
+### My 3 Strategic Goals
+- **G1: External Visibility** — 1 speaking gig + 2 articles published
+- **G2: Innovation Leadership** — Thesis defined + 2 pilots with impact
+- **G3: Role Transition** — Smooth handoff to incoming West CIO by Q2
+
+### My Direct Reports (8)
+- James Solko (Global Cloud Architecture)
+- Nandini Gopinath (Peoplesoft, Mulesoft & DevOps)
+- Rajesh Paul (HIVE operations & Data Services)
+- Lis Fannin (Salesforce & App Support)
+- Shanna Sommers (Enterprise Architecture)
+- David George (UK - Enterprise Architecture)
+- Martin Thomas (UK - Enterprise Architecture)
+- Megan Matile (US Application Development)
+
+### Key Stakeholders
+- Byron Clymer (Global CIO, my boss)
+- Claude Yoder (CDO, innovation partner)
+- Glen Feldman (East CIO, peer)
+- Darren Isaacs (UK stakeholder, HIVE + Pace programs)
+
+---
+
+## TASK 1: Calendar Analysis
+
+Analyze my calendar for the upcoming week. For each day:
+
+### Exclude from analysis:
+- IT Daily Stand Up
+- Lunch blocks
+- Focus time blocks
+- CANCELED meetings
+- Platform training sessions (delegate)
+
+### For each strategic meeting, provide:
+| Day | Time | Meeting | G1/G2/G3 | Prep Required | Location |
+|-----|------|---------|----------|---------------|----------|
+
+### Flag:
+- ⚠️ Double-bookings with recommendation (which to attend, which to delegate)
+- 📍 KC meetings (I'm dialing in from Dallas unless noted)
+- 🔴 Byron Clymer's availability (OOO, travel, limited)
+
+---
+
+## TASK 2: Recurring Meeting Transcript Analysis
+
+For these recurring meetings, search the **last 3 meeting transcripts** and extract:
+
+### IT Staff Meeting (Byron's leadership meeting)
+- Open action items assigned to me
+- Decisions pending my input
+- Topics I raised that need follow-up
+- Any commitments I made
+
+### HIVE Steering Committee
+- Open action items from last 3 sessions
+- Pilot status updates I need to know
+- Decisions pending
+- Rajesh's updates I should be aware of
+
+### Global Architect Planning
+- Architecture decisions pending
+- Topics I committed to bring back
+- Cross-team dependencies involving my org
+
+### 1:1s with Direct Reports (James, Shanna, Megan, Nandini, Rajesh, Lis, David, Martin)
+For each upcoming 1:1, search their last 1:1 transcript and recent emails for:
+- Open items they're waiting on from me
+- Topics they raised that need closure
+- Career/development threads to follow up
+
+**Output format:**
+| Meeting | Open Action Items | My Commitments | Topics to Revisit |
+|---------|-------------------|----------------|-------------------|
+
+---
+
+## TASK 3: Week-Ahead Intelligence
+
+### Meetings to Decline/Delegate
+| Meeting | Reason | Alternative |
+|---------|--------|-------------|
+| [meeting] | [why it doesn't need me] | [who to send or decline] |
+
+### 1:1 Prep Notes
+| Day | With | Topics from Transcripts/Email | Open Items |
+|-----|------|-------------------------------|------------|
+| [day] | [direct report] | [suggested talking points] | [threads to close] |
+
+### Stakeholder Touchpoints This Week
+| Day | Who | Meeting/Context | G1/G2/G3 | Prep |
+|-----|-----|-----------------|----------|------|
+| [day] | [stakeholder] | [context] | [goal] | [what to bring] |
+
+---
+
+## TASK 4: Strategic Summary
+
+### Week Theme
+Based on the meetings and open items, what's my ONE strategic focus this week?
+
+> **[Single sentence theme]**
+
+### G1/G2/G3 Opportunities This Week
+- **G1 (Visibility):** [opportunities spotted]
+- **G2 (Innovation):** [HIVE/pilot/Claude Yoder moments]
+- **G3 (Transition):** [handoff items, team decisions]
+
+### Deep Work Windows
+| Day | Time Block | Best Use |
+|-----|------------|----------|
+| [day] | [time] | [what to work on] |
+
+### Busiest Day Warning
+**[Day]** — [X] back-to-back meetings. Protect energy. Consider:
+- Which meetings can go async?
+- Where can I send a delegate?
+
+### Byron Escalation Timing
+If Byron is OOO any days this week, note:
+- Last day to get decisions before OOO: [day]
+- Items to resolve before then: [list]
+
+---
+
+## Output Format
+
+Produce the full analysis in markdown format I can paste into my weekly planning note. Use tables where specified. Be specific — reference actual meeting names, people, and action items from transcripts.
+```
+
+---
+
+### 🔍 Meeting-Specific Transcript Analysis (Ad-Hoc)
+
+**Use before important meetings to pull context from past sessions:**
+
+```
+I have [MEETING NAME] coming up on [DATE].
+
+Search the last 3 transcripts of this meeting and my related emails. Tell me:
+
+1. **Open action items** assigned to me from previous sessions
+2. **Commitments I made** that I need to report on
+3. **Decisions pending** that may come up again
+4. **Topics others raised** that I should be prepared to discuss
+5. **Any tensions or dynamics** I should be aware of
+
+Also search my OneDrive for any documents shared related to this meeting in the last 30 days.
+
+Format as a 1-page prep brief I can review in 5 minutes.
 ```
 
 ### Meeting Prep (Before important meetings)

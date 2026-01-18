@@ -49,14 +49,16 @@
               <button id="closeEditor" class="btn btn-secondary btn-sm">← Back to Vision</button>
             </div>
           </div>
-          <div class="editor-container">
-            <div id="milkdownEditor" class="milkdown-editor"></div>
+          <div class="editor-split">
+            <div id="editorPreview" class="editor-preview"></div>
+            <div class="editor-input-wrapper">
+              <textarea id="editorInput" class="editor-input" placeholder="Start writing..."></textarea>
+            </div>
           </div>
         </div>
       </main>
     </div>
   </div>
-  <script src="editor.bundle.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
