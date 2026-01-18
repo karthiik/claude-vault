@@ -158,4 +158,4 @@ dv.paragraph(table);
 
 ---
 
-**Nav:** [[0_Health_Mind_Body_Spirit_Index|Health Index]] · [[0_Areas_Index|Areas]] · [[2026 Goals]]
+**Nav:** [[0_Health_Mind_Body_Spirit_Index|Health Index]] · [[0_Areas_Index|Areas]] · [[0_Areas_Index|Goals]]

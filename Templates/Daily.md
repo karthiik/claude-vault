@@ -199,4 +199,4 @@ _%>
 
 ---
 
-**Nav:** [[<% tp.date.now("YYYY-MM-DD", -1) %>|← Yesterday]] · [[<% tp.date.now("YYYY-MM-DD", 1) %>|Tomorrow →]] · [[0_Areas_Index|Areas]] · [[AGENDA]] · [[2026 Goals]]
+**Nav:** [[<% tp.date.now("YYYY-MM-DD", -1) %>|← Yesterday]] · [[<% tp.date.now("YYYY-MM-DD", 1) %>|Tomorrow →]] · [[0_Areas_Index|Areas]] · [[AGENDA]] · [[0_Areas_Index|2026 Goals]]

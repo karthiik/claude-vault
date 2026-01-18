@@ -169,7 +169,7 @@ This isn't a gap to close — it's a foundation to keep building on.
 ### Related Notes
 
 - [[0_Career_Purpose_Index]] — External visibility plan lives here too
-- [[2026 Goals]] — Career goals cascade
+- [[2026 Career Goals]] — Career goals cascade
 - [[GPA Hero]] — Project details
 
 ---

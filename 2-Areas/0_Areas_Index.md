@@ -61,7 +61,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 > Emerging as a thought leader who balances optimism with realism in the AI revolution — guiding people and businesses to capitalize on technology that is reshaping humanity, driven by a deep sense of purpose to help those around me navigate this transformational era
 
-**Index:** [[0_Career_Purpose_Index]] · **Status:** 🟢 Active · **Goals:** [[2026 Goals]]
+**Index:** [[0_Career_Purpose_Index]] · **Status:** 🟢 Active · **Goals:** [[2026 Career Goals]]
 
 ---
 
@@ -135,7 +135,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 | Area | Status | 2026 Focus |
 |------|--------|------------|
-| **Career & Purpose** | 🟢 Active | [[2026 Goals]] — "Visible outside Lockton" |
+| **Career & Purpose** | 🟢 Active | [[2026 Career Goals]] — "Visible outside Lockton" |
 | **Health – Mind, Body & Spirit** | 🟢 Active | AT 100 by 50, creation over consumption, evening ritual |
 | **Relationships & Social Life** | 🟢 Active | Jamie (rhythm + travel), Vinay (1:1 time + adventures) |
 | **Finances & Security** | 🟢 Active | Freedom at 55-60, income growth, Vinay financial education |

@@ -1,0 +1,16 @@
+{
+  "name": "vision-dashboard",
+  "version": "1.0.0",
+  "description": "Personal Vision Dashboard for Obsidian vault",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "chokidar": "^3.5.3"
+  },
+  "author": "Karthik Ramadoss",
+  "license": "MIT"
+}

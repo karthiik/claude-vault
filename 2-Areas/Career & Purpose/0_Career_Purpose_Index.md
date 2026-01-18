@@ -32,7 +32,7 @@ The operating role provides leverage and credibility. The teaching/publishing ex
 
 *One theme to guide decisions. Everything else is secondary.*
 
-**→ [[2026 Goals]]** — Full cascade: goals, quarterly intentions, monthly milestones
+**→ [[2026 Career Goals]]** — Full cascade: goals, quarterly intentions, monthly milestones
 
 ### Success Criteria (Dec 2026)
 

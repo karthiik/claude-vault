@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vision Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Marked.js for markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <h1 class="logo">🏠 Vision Dashboard</h1>
+      </div>
+      <div class="header-right">
+        <button id="todayBtn" class="btn btn-primary">
+          <span class="btn-icon">📅</span>
+          Today's Note
+        </button>
+        <div class="recent-dropdown">
+          <button id="recentBtn" class="btn btn-secondary">
+            Recent <span class="dropdown-arrow">▼</span>
+          </button>
+          <div id="recentList" class="dropdown-content"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">📁 Vault</h3>
+          <div id="fileTree" class="file-tree"></div>
+        </div>
+      </aside>
+
+      <!-- Content Area -->
+      <main class="content">
+        <!-- Vision Tabs -->
+        <div class="vision-panel">
+          <div class="tabs">
+            <button class="tab active" data-tab="karthik">Karthik</button>
+            <button class="tab" data-tab="jamie">Jamie</button>
+          </div>
+          <div id="visionContent" class="vision-content"></div>
+        </div>
+
+        <!-- Editor Panel (shown when editing a file) -->
+        <div id="editorPanel" class="editor-panel hidden">
+          <div class="editor-header">
+            <span id="editorPath" class="editor-path"></span>
+            <div class="editor-actions">
+              <span id="saveStatus" class="save-status"></span>
+              <button id="closeEditor" class="btn btn-ghost">✕</button>
+            </div>
+          </div>
+          <div class="editor-split">
+            <div id="editorPreview" class="editor-preview"></div>
+            <div class="editor-input-container">
+              <textarea id="editorInput" class="editor-input" placeholder="Start typing..."></textarea>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
