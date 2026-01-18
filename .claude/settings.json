@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(pgrep -f \"server.js\" && curl -s http://localhost:3333/api/daily | head -100)",
+      "Write(/Users/karthik/Documents/3 - Resources/Vaults/SecondBrain26/2-Areas/Joy, Creativity & Play/2026 Joy Goals.md)",
+      "Edit(/Users/karthik/Documents/3 - Resources/Vaults/SecondBrain26/3-Resources/Copilot Chief of Staff Prompt.md)",
+      "Bash(./cli.sh sync)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

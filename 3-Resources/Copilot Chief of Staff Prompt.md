@@ -3,7 +3,7 @@
 > Your daily executive briefing system for Microsoft 365 Copilot
 
 **Created:** 2026-01-18
-**Updated:** 2026-01-18 (v2 — noise filtering, double-book detection, delegation logic)
+**Updated:** 2026-01-18 (v3 — team structure, Dallas location, HIVE delegation)
 **Purpose:** Generate a morning briefing to paste into your [[Templates/Daily|Daily Note]]
 **Model:** Use **Think Deeper** mode (GPT-5.2 Thinking) for best results
 
@@ -45,10 +45,30 @@ I have 8 direct reports and ~65 people in my org. I should NOT be in the weeds o
 ### Key Stakeholders (Flag ANY communication from these people)
 - **Byron Clymer** — Global CIO (my boss) — ALWAYS surface
 - **Claude Yoder** — Chief Digital Officer (innovation partner for G2)
-- **Glen Fellman** — East CIO (peer)
+- **Glen Feldman** — East CIO (peer)
+- **Darren Isaacs** — UK stakeholder for HIVE + Pace programs (G2)
 - **Incoming West CIO** — Transition handoff (G3)
 - **Chennai/Trivandrum leads** — GCC operations
-- Direct reports: James, Jennifer, Shanna, Nate, and others in 1:1s
+
+### My Direct Reports (8) — Flag emails, prep 1:1s
+- James Solko
+- Nandini Gopinath
+- Rajesh Paul *(leads HIVE operations — I attend Steering Committee only)*
+- Lis Fannin
+- Shanna Sommers
+- David George *(UK-based)*
+- Martin Thomas *(UK-based)*
+- Megan Matile
+
+### My Peers — Important for relationship maintenance
+- TJ Mann, Glenn Feldman, Julia Klaas, Brandon Pennington, Bret Reimer, Jennifer Bryant
+- Jack *(UK-based, medium priority)*
+
+### Location Context
+- I am based in **DALLAS, TX**
+- Lockton HQ is in **Kansas City (KC)**
+- Meetings with "KC-" locations = typically dial-in from Dallas unless traveling
+- UK contacts (David, Martin, Jack, Darren) = potential early AM / late PM calls
 
 ### Current Q1 Priorities
 1. Complete West CIO operational handoff
@@ -78,6 +98,7 @@ I have 8 direct reports and ~65 people in my org. I should NOT be in the weeds o
 - Security patch coordination — delegate to Security team
 - Platform training logistics — delegate to project leads
 - Routine vendor syncs (Moveworks, M-Files, etc.) — delegate unless contract/budget issue
+- HIVE operational meetings — delegate to Rajesh Paul (he leads HIVE)
 
 ### Calendar Noise (exclude from analysis):
 - "IT Daily Stand Up" — recurring operational standup (skip)
@@ -297,15 +318,15 @@ These require physical presence — factor in travel time.
 |-----|------|---------|----------|------|
 | Tue | 10:00-12:00 | IT Staff Meeting (extended + Lockton Listens) | G3 | Review team updates, transition items |
 | Tue | PM | Shanna 1:1 | Relationship | Check recent threads, career development |
-| Wed | AM | US/UK IT Talent Review Calibration | G3 | **IN-PERSON KC-3** — Review talent data, succession planning |
+| Wed | AM | US/UK IT Talent Review Calibration | G3 | **Dial-in to KC-3** — Review talent data, succession planning |
 | Wed | PM | US AI Training Weekly Touch Point | G2 | AI adoption metrics, pilot candidates |
-| Thu | 10:00-10:45 | **Hackathon Winners Next Steps** | **G2** | **IN-PERSON Green Enclave** — Key innovation moment, bring pilot selection criteria |
+| Thu | 10:00-10:45 | **Hackathon Winners Next Steps** | **G2** | **Dial-in to KC-5** — Key innovation moment, bring pilot selection criteria |
 | Thu | AM | James / Karthik 1:1 | Relationship | Prep topics from recent emails |
 | Thu | AM | Jennifer / Karthik 1:1 | Relationship | Prep topics |
 | Thu | PM | HIVE - Finalize Steerco Deck | G2 | Review deck, ensure innovation narrative |
 | Fri | 09:30-10:30 | **HIVE Steering Committee** | **G2** | Present deck, drive decisions |
 | Fri | PM | Global Architect Planning - TouchBase | G1/G2 | Architecture visibility, global team alignment |
-| Fri | PM | Karthik / Darren Monthly Connect | Relationship | |
+| Fri | PM | Karthik / Darren Monthly Connect | **G2** | HIVE + Pace stakeholder — strategic sync |
 
 **⚠️ Double-Booking Alerts:**
 | Day | Conflict | Option A | Option B | Recommendation |
@@ -313,9 +334,9 @@ These require physical presence — factor in travel time.
 | Fri | 11:00-13:00 | Real Estate Platform Training | Lunch + Focus Time | **Skip training** — delegate to project lead. Not your job to attend platform training. |
 | Thu | Multiple slots | Real Estate Platform Training (Session #1) | Revenue Optimization, Focus Time | **Skip training** — operational, delegate |
 
-**📍 In-Person Required:**
-- **Wed AM:** US/UK IT Talent Review Calibration @ KC-3 Southwest Conference Room
-- **Thu 10:00:** Hackathon Winners Next Steps @ KC-5 Green Enclave — *This is a key G2 moment!*
+**📍 KC Meetings (Dialing In This Week):**
+- **Wed AM:** US/UK IT Talent Review Calibration @ KC-3 — *Dial-in from Dallas*
+- **Thu 10:00:** Hackathon Winners Next Steps @ KC-5 — *Dial-in from Dallas; key G2 moment!*
 
 **👥 1:1 Prep Notes:**
 | Day | With | Suggested Topics |

@@ -47,11 +47,15 @@ The gap isn't *input* — I consume plenty of research and material. The gap is 
 
 ## 2026 Focus
 
+> **Theme:** *"The year I turned learning into teaching."*
+
 | Priority | Target | Status |
 |----------|--------|--------|
 | 1 | Complete MIT CTO Program | Not started (March) |
-| 2 | Read 6 books + publish reviews | In progress (1 active) |
+| 2 | Read 6 books + publish 6 reviews | In progress (1 active) |
 | 3 | AI skill development — stay current, build solutions | Ongoing |
+
+**→ [[2026 Education Goals]]** — Full cascade: goals, quarterly intentions, book tracker
 
 ---
 

@@ -683,3 +683,82 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* ============================================
+   Milkdown Editor Styles
+   ============================================ */
+
+.editor-container {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.milkdown-editor {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--bg-primary);
+}
+
+.milkdown .editor {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  padding: 0 !important;
+  outline: none !important;
+}
+
+.milkdown h1, .milkdown h2, .milkdown h3,
+.milkdown h4, .milkdown h5, .milkdown h6 {
+  color: var(--text-heading) !important;
+  font-weight: 600 !important;
+  margin-top: 1.5em !important;
+  margin-bottom: 0.5em !important;
+}
+
+.milkdown h1 { font-size: 2em !important; border-bottom: 1px solid var(--border) !important; padding-bottom: 0.3em !important; }
+.milkdown h2 { font-size: 1.5em !important; border-bottom: 1px solid var(--border-light) !important; padding-bottom: 0.2em !important; }
+.milkdown h3 { font-size: 1.25em !important; }
+.milkdown p { margin-bottom: 1em !important; }
+.milkdown a { color: var(--accent) !important; text-decoration: none !important; }
+.milkdown a:hover { text-decoration: underline !important; }
+.milkdown strong { color: var(--text-heading) !important; font-weight: 600 !important; }
+
+.milkdown blockquote {
+  margin: 1em 0 !important;
+  padding: 0.5em 1em !important;
+  border-left: 4px solid var(--accent) !important;
+  background: var(--bg-surface) !important;
+  border-radius: 0 4px 4px 0 !important;
+}
+
+.milkdown ul, .milkdown ol { margin: 1em 0 !important; padding-left: 2em !important; }
+.milkdown li { margin: 0.25em 0 !important; }
+
+.milkdown code {
+  font-family: var(--font-mono) !important;
+  font-size: 0.9em !important;
+  padding: 0.2em 0.4em !important;
+  background: var(--bg-surface) !important;
+  border-radius: 4px !important;
+}
+
+.milkdown pre {
+  margin: 1em 0 !important;
+  padding: 1em !important;
+  background: var(--bg-surface) !important;
+  border-radius: 8px !important;
+  overflow-x: auto !important;
+}
+
+.milkdown pre code { padding: 0 !important; background: transparent !important; }
+.milkdown hr { margin: 2em 0 !important; border: none !important; border-top: 1px solid var(--border) !important; }
+
+.milkdown table { width: 100% !important; margin: 1em 0 !important; border-collapse: collapse !important; }
+.milkdown th, .milkdown td { padding: var(--space-sm) var(--space-md) !important; border: 1px solid var(--border) !important; }
+.milkdown th { background: var(--bg-surface) !important; font-weight: 600 !important; color: var(--text-heading) !important; }
+.milkdown input[type="checkbox"] { margin-right: var(--space-sm) !important; accent-color: var(--accent) !important; }
+.milkdown .ProseMirror-selectednode { outline: 2px solid var(--accent) !important; }

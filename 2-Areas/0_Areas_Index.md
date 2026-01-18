@@ -77,7 +77,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 > Growing into a well-rounded leader who communicates and articulates with clarity, treats people with empathy and thoughtfulness, shows up fully present in every conversation, and continuously learns how to be the best version of myself across all areas of life
 
-**Index:** [[0_Education_Learning_Index]] · **Status:** 🟢 Active
+**Index:** [[0_Education_Learning_Index]] · **Status:** 🟢 Active · **Goals:** [[2026 Education Goals]]
 
 ---
 
@@ -139,7 +139,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 | **Health – Mind, Body & Spirit** | 🟢 Active | [[2026 Health Goals]] — "Intentionally turned my health around" |
 | **Relationships & Social Life** | 🟢 Active | [[2026 Relationships Goals]] — "The year of perfect balance" |
 | **Finances & Security** | 🟢 Active | [[2026 Finances Goals]] — "Minimalism and saving more" |
-| **Education & Learning** | 🟢 Active | MIT CTO Program, synthesis over consumption, 6 books |
+| **Education & Learning** | 🟢 Active | [[2026 Education Goals]] — "Learning into teaching" |
 | **Joy, Creativity & Play** | 🟢 Active | Protect motorcycle trip, India/Dubai, local trips with Jamie |
 | **Home & Environment** | 🟢 Active | KonMari declutter, guest bedroom cleanout |
 | **Contribution & Legacy** | 🟢 Active | Thought leadership, GPA Hero with Vinay, mentoring |

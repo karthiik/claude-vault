@@ -1,20 +1,16 @@
 // ============================================
-// Vision Dashboard — Frontend App
+// Vision Dashboard — Frontend App (Milkdown)
 // ============================================
 
-// State
 let currentFile = null;
 let saveTimeout = null;
 let recentFiles = [];
 
-// DOM Elements
 const fileTree = document.getElementById('fileTree');
 const visionPanel = document.getElementById('visionPanel');
 const visionContent = document.getElementById('visionContent');
 const editorPanel = document.getElementById('editorPanel');
 const editorPath = document.getElementById('editorPath');
-const editorPreview = document.getElementById('editorPreview');
-const editorInput = document.getElementById('editorInput');
 const saveStatus = document.getElementById('saveStatus');
 const currentView = document.getElementById('currentView');
 const todayBtn = document.getElementById('todayBtn');
@@ -23,16 +19,11 @@ const recentList = document.getElementById('recentList');
 const closeEditor = document.getElementById('closeEditor');
 const tabs = document.querySelectorAll('.tab');
 
-// ============================================
-// Initialize
-// ============================================
-
 document.addEventListener('DOMContentLoaded', () => {
   loadFileTree();
   loadVision('karthik');
   loadRecent();
 
-  // Tab switching
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
@@ -41,53 +32,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Today's note button
   todayBtn.addEventListener('click', openTodaysNote);
-
-  // Vision button (logo) - go back to vision view
   visionBtn.addEventListener('click', showVisionPanel);
-
-  // Close editor button
   closeEditor.addEventListener('click', showVisionPanel);
 
-  // Editor input — auto-save on change + live preview
-  editorInput.addEventListener('input', () => {
-    updatePreview();
-    scheduleSave();
-  });
-
-  // Keyboard shortcuts
   document.addEventListener('keydown', (e) => {
-    // Cmd/Ctrl + S to save
     if ((e.metaKey || e.ctrlKey) && e.key === 's') {
       e.preventDefault();
-      if (currentFile) {
-        saveFile();
-      }
+      if (currentFile) saveFile();
     }
-    // Escape to close editor and go back to vision
-    if (e.key === 'Escape') {
-      showVisionPanel();
-    }
+    if (e.key === 'Escape') showVisionPanel();
   });
 });
 
-// ============================================
-// View Management
-// ============================================
-
 function showVisionPanel() {
-  // Save before switching if there's content
-  if (currentFile && editorInput.value) {
+  if (currentFile) {
     saveFile();
+    MilkdownEditor.destroyEditor();
   }
-
   visionPanel.classList.remove('hidden');
   editorPanel.classList.add('hidden');
   currentFile = null;
   currentView.textContent = '';
-
-  // Remove active state from tree
   document.querySelectorAll('.tree-file').forEach(f => f.classList.remove('active'));
 }
 
@@ -97,39 +63,23 @@ function showEditorPanel(filePath) {
   currentView.textContent = filePath;
 }
 
-// ============================================
-// Vision Documents
-// ============================================
-
 async function loadVision(person) {
   try {
     const res = await fetch(`/api/vision/${person}`);
     const data = await res.json();
-
     if (data.error) {
       visionContent.innerHTML = `<p class="error">${data.error}</p>`;
       return;
     }
-
-    // Strip HTML tags and render as markdown
-    const cleanContent = stripHtml(data.content);
+    const cleanContent = data.content
+      .replace(/<div[^>]*>/gi, '')
+      .replace(/<\/div>/gi, '')
+      .replace(/style="[^"]*"/gi, '');
     visionContent.innerHTML = `<div class="markdown-body">${renderMarkdown(cleanContent)}</div>`;
   } catch (err) {
     visionContent.innerHTML = `<p class="error">Failed to load vision document</p>`;
   }
 }
-
-function stripHtml(content) {
-  // Remove HTML div tags and style attributes but keep content
-  return content
-    .replace(/<div[^>]*>/gi, '')
-    .replace(/<\/div>/gi, '')
-    .replace(/style="[^"]*"/gi, '');
-}
-
-// ============================================
-// File Tree
-// ============================================
 
 async function loadFileTree() {
   try {
@@ -144,86 +94,56 @@ async function loadFileTree() {
 
 function renderTree(items, level = 0) {
   let html = '';
-
   for (const item of items) {
     if (item.type === 'folder') {
-      html += `
-        <div class="tree-node" data-path="${item.path}">
-          <div class="tree-item tree-folder" style="padding-left: ${level * 12}px">
-            <span class="tree-icon">▶</span>
-            <span class="tree-name">${item.name}</span>
-          </div>
-          <div class="tree-children">
-            ${renderTree(item.children, level + 1)}
-          </div>
+      html += `<div class="tree-node" data-path="${item.path}">
+        <div class="tree-item tree-folder" style="padding-left: ${level * 12}px">
+          <span class="tree-icon">▶</span>
+          <span class="tree-name">${item.name}</span>
         </div>
-      `;
+        <div class="tree-children">${renderTree(item.children, level + 1)}</div>
+      </div>`;
     } else {
-      html += `
-        <div class="tree-item tree-file" data-path="${item.path}" style="padding-left: ${(level * 12) + 16}px">
-          <span class="tree-icon">📄</span>
-          <span class="tree-name">${item.name.replace('.md', '')}</span>
-        </div>
-      `;
+      html += `<div class="tree-item tree-file" data-path="${item.path}" style="padding-left: ${(level * 12) + 16}px">
+        <span class="tree-icon">📄</span>
+        <span class="tree-name">${item.name.replace('.md', '')}</span>
+      </div>`;
     }
   }
-
   return html;
 }
 
 function attachTreeListeners() {
-  // Folder toggle
   document.querySelectorAll('.tree-folder').forEach(folder => {
-    folder.addEventListener('click', (e) => {
+    folder.addEventListener('click', () => {
       const node = folder.closest('.tree-node');
       const children = node.querySelector('.tree-children');
       const icon = folder.querySelector('.tree-icon');
-
-      if (children.classList.contains('open')) {
-        children.classList.remove('open');
-        icon.textContent = '▶';
-      } else {
-        children.classList.add('open');
-        icon.textContent = '▼';
-      }
+      children.classList.toggle('open');
+      icon.textContent = children.classList.contains('open') ? '▼' : '▶';
     });
   });
-
-  // File click
   document.querySelectorAll('.tree-file').forEach(file => {
     file.addEventListener('click', () => {
-      const path = file.dataset.path;
-      openFile(path);
-
-      // Update active state
+      openFile(file.dataset.path);
       document.querySelectorAll('.tree-file').forEach(f => f.classList.remove('active'));
       file.classList.add('active');
     });
   });
 }
 
-// ============================================
-// File Operations
-// ============================================
-
 async function openFile(filePath) {
   try {
     const res = await fetch(`/api/file?path=${encodeURIComponent(filePath)}`);
     const data = await res.json();
-
-    if (data.error) {
-      alert(data.error);
-      return;
-    }
+    if (data.error) { alert(data.error); return; }
 
     currentFile = filePath;
     editorPath.textContent = filePath;
-    editorInput.value = data.content;
-    updatePreview();
     showEditorPanel(filePath);
     saveStatus.textContent = '';
 
-    // Refresh recent list
+    await MilkdownEditor.createEditor('#milkdownEditor', data.content, () => scheduleSave());
     loadRecent();
   } catch (err) {
     alert('Failed to open file');
@@ -232,7 +152,7 @@ async function openFile(filePath) {
 
 async function saveFile() {
   if (!currentFile) return;
-
+  const content = MilkdownEditor.getMarkdown();
   saveStatus.textContent = 'Saving...';
   saveStatus.className = 'save-status saving';
 
@@ -240,20 +160,13 @@ async function saveFile() {
     const res = await fetch('/api/file', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        path: currentFile,
-        content: editorInput.value
-      })
+      body: JSON.stringify({ path: currentFile, content })
     });
-
     const data = await res.json();
-
     if (data.success) {
       saveStatus.textContent = 'Saved';
       saveStatus.className = 'save-status saved';
-      setTimeout(() => {
-        saveStatus.textContent = '';
-      }, 2000);
+      setTimeout(() => { saveStatus.textContent = ''; }, 2000);
     } else {
       saveStatus.textContent = 'Save failed';
       saveStatus.className = 'save-status';
@@ -265,59 +178,36 @@ async function saveFile() {
 }
 
 function scheduleSave() {
-  if (saveTimeout) {
-    clearTimeout(saveTimeout);
-  }
+  if (saveTimeout) clearTimeout(saveTimeout);
   saveStatus.textContent = 'Typing...';
   saveStatus.className = 'save-status';
-
-  saveTimeout = setTimeout(() => {
-    saveFile();
-  }, 1000);
+  saveTimeout = setTimeout(() => saveFile(), 1000);
 }
-
-// ============================================
-// Today's Note
-// ============================================
 
 async function openTodaysNote() {
   try {
     const res = await fetch('/api/daily');
     const data = await res.json();
-
-    if (data.error) {
-      alert(data.error);
-      return;
-    }
+    if (data.error) { alert(data.error); return; }
 
     currentFile = data.path;
     editorPath.textContent = data.path;
-    editorInput.value = data.content;
-    updatePreview();
     showEditorPanel(data.path);
+
+    await MilkdownEditor.createEditor('#milkdownEditor', data.content, () => scheduleSave());
 
     if (data.created) {
       saveStatus.textContent = 'Created new note';
       saveStatus.className = 'save-status saved';
+      loadFileTree();
     } else {
       saveStatus.textContent = '';
     }
-
-    // Refresh file tree to show new file
-    if (data.created) {
-      loadFileTree();
-    }
-
-    // Refresh recent
     loadRecent();
   } catch (err) {
-    alert('Failed to open today\'s note');
+    alert("Failed to open today's note");
   }
 }
-
-// ============================================
-// Recent Files (Sidebar)
-// ============================================
 
 async function loadRecent() {
   try {
@@ -334,60 +224,26 @@ function renderRecent() {
     recentList.innerHTML = '<div class="recent-empty">No recent files</div>';
     return;
   }
-
   recentList.innerHTML = recentFiles.map(path => `
     <button class="recent-item" data-path="${path}" title="${path}">
       📄 ${path.split('/').pop().replace('.md', '')}
     </button>
   `).join('');
-
-  // Attach click listeners
   recentList.querySelectorAll('.recent-item').forEach(item => {
-    item.addEventListener('click', () => {
-      openFile(item.dataset.path);
-    });
+    item.addEventListener('click', () => openFile(item.dataset.path));
   });
-}
-
-// ============================================
-// Markdown Rendering
-// ============================================
-
-function updatePreview() {
-  const content = editorInput.value;
-  editorPreview.innerHTML = `<div class="markdown-body">${renderMarkdown(content)}</div>`;
 }
 
 function renderMarkdown(content) {
-  // Configure marked
-  marked.setOptions({
-    breaks: true,
-    gfm: true
-  });
-
-  // Pre-process: Convert Obsidian wiki-links to regular links
+  marked.setOptions({ breaks: true, gfm: true });
   let processed = content
-    // [[link|text]] -> [text](#)
     .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, '[$2](#)')
-    // [[link]] -> [link](#)
-    .replace(/\[\[([^\]]+)\]\]/g, '[$1](#)');
-
-  // Convert Obsidian callouts to HTML
-  processed = processed.replace(
-    /> \[!(\w+)\](-?)\s*([^\n]*)\n((?:>.*\n?)*)/g,
-    (match, type, collapsed, title, content) => {
-      const calloutContent = content.replace(/^> ?/gm, '').trim();
-      return `<div class="callout callout-${type}">
-        <div class="callout-title">${title || type}</div>
-        <div class="callout-content">${marked.parse(calloutContent)}</div>
-      </div>`;
-    }
-  );
-
-  // Handle checkbox lists
-  processed = processed
+    .replace(/\[\[([^\]]+)\]\]/g, '[$1](#)')
+    .replace(/> \[!(\w+)\](-?)\s*([^\n]*)\n((?:>.*\n?)*)/g, (m, type, c, title, cont) => {
+      const cc = cont.replace(/^> ?/gm, '').trim();
+      return `<div class="callout callout-${type}"><div class="callout-title">${title || type}</div><div class="callout-content">${marked.parse(cc)}</div></div>`;
+    })
     .replace(/- \[ \]/g, '- <input type="checkbox" disabled>')
     .replace(/- \[x\]/gi, '- <input type="checkbox" checked disabled>');
-
   return marked.parse(processed);
 }

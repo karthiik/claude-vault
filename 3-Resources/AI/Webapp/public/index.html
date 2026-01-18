@@ -5,47 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vision Dashboard</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- Marked.js for markdown rendering -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
   <div class="app">
-    <!-- Header -->
     <header class="header">
       <div class="header-left">
-        <button id="visionBtn" class="btn btn-ghost logo-btn">
-          🏠 Vision Dashboard
-        </button>
+        <button id="visionBtn" class="btn btn-ghost logo-btn">🏠 Vision Dashboard</button>
       </div>
       <div class="header-center">
         <span id="currentView" class="current-view"></span>
       </div>
       <div class="header-right">
         <button id="todayBtn" class="btn btn-primary">
-          <span class="btn-icon">📅</span>
-          Today's Note
+          <span class="btn-icon">📅</span> Today's Note
         </button>
       </div>
     </header>
-
-    <!-- Main Layout -->
     <div class="main">
-      <!-- Sidebar -->
       <aside class="sidebar">
         <div class="sidebar-section sidebar-files">
           <h3 class="sidebar-title">📁 Vault</h3>
           <div id="fileTree" class="file-tree"></div>
         </div>
-
         <div class="sidebar-section sidebar-recent">
           <h3 class="sidebar-title">🕐 Recent</h3>
           <div id="recentList" class="recent-list"></div>
         </div>
       </aside>
-
-      <!-- Content Area -->
       <main class="content">
-        <!-- Vision Panel (default view) -->
         <div id="visionPanel" class="vision-panel">
           <div class="tabs">
             <button class="tab active" data-tab="karthik">Karthik</button>
@@ -53,29 +41,22 @@
           </div>
           <div id="visionContent" class="vision-content"></div>
         </div>
-
-        <!-- Editor Panel (replaces vision when editing) -->
         <div id="editorPanel" class="editor-panel hidden">
           <div class="editor-header">
             <span id="editorPath" class="editor-path"></span>
             <div class="editor-actions">
               <span id="saveStatus" class="save-status"></span>
-              <button id="closeEditor" class="btn btn-secondary btn-sm">
-                ← Back to Vision
-              </button>
+              <button id="closeEditor" class="btn btn-secondary btn-sm">← Back to Vision</button>
             </div>
           </div>
-          <div class="editor-split">
-            <div id="editorPreview" class="editor-preview"></div>
-            <div class="editor-input-wrapper">
-              <textarea id="editorInput" class="editor-input" placeholder="Start writing..."></textarea>
-            </div>
+          <div class="editor-container">
+            <div id="milkdownEditor" class="milkdown-editor"></div>
           </div>
         </div>
       </main>
     </div>
   </div>
-
+  <script src="editor.bundle.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
