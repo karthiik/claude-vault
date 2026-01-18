@@ -87,9 +87,19 @@ All .md files should be connected and navigable through Obsidian.
 
 ---
 
-## Tasks
+## Task Management
 
-Standard markdown checkboxes with tags:
+**Philosophy:** Obsidian holds context and strategy. Things 3 holds execution.
+
+### Two Systems, Clear Separation
+
+| Layer | Tool | What Lives There |
+|-------|------|------------------|
+| **Knowledge & Context** | Obsidian | Projects, areas, goals, someday/maybe, waiting-on |
+| **Execution** | Things 3 | Daily tasks, deadlines, recurring habits, mobile capture |
+| **Completion History** | Both | Things Logbook syncs → Daily Notes |
+
+### Task Format in Obsidian
 
 ```markdown
 - [ ] Call dentist #area/health #task/call #next
@@ -98,7 +108,72 @@ Standard markdown checkboxes with tags:
 - [x] Completed task
 ```
 
-Query via grep or Obsidian Dataview plugin.
+**With due dates (Tasks plugin):**
+```markdown
+- [ ] Submit MIT assignment 📅 2026-01-25
+- [ ] Weekly review 🔁 every Sunday
+```
+
+### Where Tasks Go
+
+| Task Type | Location | Why |
+|-----------|----------|-----|
+| Needs date/reminder | Things 3 | Mobile notifications, Siri capture |
+| Strategic/context-heavy | Obsidian | Linked to projects, areas, notes |
+| Waiting on someone | Obsidian `#waiting` | Reference, not actionable |
+| Someday/maybe | Obsidian `#someday` | Review during weekly scan |
+| Recurring habits | Things 3 | Auto-regenerates |
+| Quick mobile capture | Things 3 Inbox | Process later |
+
+### Things 3 Structure
+
+Areas mirror Full Circle:
+```
+🏃 Health · 💛 Relationships · 🚀 Career · 💰 Finances
+📚 Learning · 🎨 Joy & Play · 🏠 Home · 🌟 Contribution
+```
+
+### Plugins Installed
+
+- **Tasks** — Query tasks with due dates across vault
+- **Things Logbook** — Syncs completed tasks → Daily Notes
+- **Things3 Sync** — Push tasks from Obsidian → Things (optional)
+- **Things3 Today** — Shows today's Things tasks in sidebar
+
+### Daily Notes
+
+**Location:** `Daily/YYYY-MM-DD.md`
+**Template:** `Templates/Daily.md`
+
+Daily notes auto-populate:
+- Overdue tasks (red callout)
+- Due today tasks (yellow callout)
+- Habits checklist
+- Things Logbook completed items
+
+**Create via:** Sidebar calendar icon or `Cmd+P` → "Open today's daily note"
+
+### Query Examples
+
+```tasks
+not done
+due before today
+short mode
+```
+
+```tasks
+not done
+due on today
+short mode
+```
+
+### When User Says "Add a Task"
+
+- **Needs date/reminder** → Suggest adding to Things 3
+- **Someday/waiting/strategic** → Add to Obsidian with appropriate tag
+- **Quick action, no context needed** → Things 3
+
+Query via grep, Tasks plugin, or `./cli.sh tasks`.
 
 ---
 

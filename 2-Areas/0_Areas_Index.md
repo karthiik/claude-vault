@@ -18,6 +18,7 @@ The 8 areas of life that require ongoing attention. No end date — these are ma
 
 ---
 
+
 ## The Full Circle
 
 ```
@@ -44,7 +45,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 > Transforming my body to be lean and energized, sharpening focus and clarity, grounding in mindfulness over materialism
 
-**Index:** [[0_Health_Mind_Body_Spirit_Index]] · **Status:** ⬜ To build
+**Index:** [[0_Health_Mind_Body_Spirit_Index]] · **Status:** 🟢 Active
 
 ---
 
@@ -52,7 +53,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 > Deepening my bond with Vinay so he sees me as someone to look up to, showing up fully for Jamie as we enter this new chapter, and finding the rhythm that honors work, family, and partnership without sacrifice
 
-**Index:** [[0_Relationships_Social_Life_Index]] · **Status:** ⬜ To build
+**Index:** [[0_Relationships_Social_Life_Index]] · **Status:** 🟢 Active
 
 ---
 
@@ -68,7 +69,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 > Building toward freedom at 55-60 — the ability to travel, stay active, pursue passion projects, and leave a legacy that sets Vinay up for life
 
-**Index:** [[0_Finances_Security_Index]] · **Status:** ⬜ To build
+**Index:** [[0_Finances_Security_Index]] · **Status:** 🟢 Active
 
 ---
 
@@ -76,7 +77,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 > Growing into a well-rounded leader who communicates and articulates with clarity, treats people with empathy and thoughtfulness, shows up fully present in every conversation, and continuously learns how to be the best version of myself across all areas of life
 
-**Index:** [[0_Education_Learning_Index]] · **Status:** ⬜ To build
+**Index:** [[0_Education_Learning_Index]] · **Status:** 🟢 Active
 
 ---
 
@@ -84,7 +85,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 > Chasing aliveness — through the spark of problem-solving with a team, the exhilaration of riding my motorcycle in breathtaking environments, and immersing in nature's beauty to refresh my mind and gain new perspective on life and the world
 
-**Index:** [[0_Joy_Creativity_Play_Index]] · **Status:** ⬜ To build
+**Index:** [[0_Joy_Creativity_Play_Index]] · **Status:** 🟢 Active
 
 ---
 
@@ -92,7 +93,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 > Creating a home that sparks creativity and encourages healthy eating and active living — a comfortable safe haven for Vinay, and a space that feels like Jamie's home too when she visits, bridging our separate lives into shared belonging
 
-**Index:** [[0_Home_Environment_Index]] · **Status:** ⬜ To build
+**Index:** [[0_Home_Environment_Index]] · **Status:** 🟢 Active
 
 ---
 
@@ -100,7 +101,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 > Contributing to the community and the people I work with by sharing my learnings and experiences, being the one who looks around the corner into the future and brings it back to reality for now — while becoming an inspirational figure for Vinay, showing him through my story that anything is possible
 
-**Index:** [[0_Contribution_Legacy_Index]] · **Status:** ⬜ To build
+**Index:** [[0_Contribution_Legacy_Index]] · **Status:** 🟢 Active
 
 ---
 
@@ -135,13 +136,13 @@ Joy, Creativity & Play ---+--- Finances & Security
 | Area | Status | 2026 Focus |
 |------|--------|------------|
 | **Career & Purpose** | 🟢 Active | [[2026 Goals]] — "Visible outside Lockton" |
-| **Health – Mind, Body & Spirit** | ⬜ To build | Physical wellness, stress management |
-| **Relationships & Social Life** | ⬜ To build | Jamie, EJ's transition to college, Vinay |
-| **Finances & Security** | ⬜ To build | Value-based budgeting, retirement planning |
-| **Education & Learning** | ⬜ To build | MIT CTO Program, leadership growth |
-| **Joy, Creativity & Play** | ⬜ To build | Travel, motorcycling, nature |
-| **Home & Environment** | ⬜ To build | Home as sanctuary |
-| **Contribution & Legacy** | ⬜ To build | Mentoring, thought leadership, Vinay |
+| **Health – Mind, Body & Spirit** | 🟢 Active | AT 100 by 50, creation over consumption, evening ritual |
+| **Relationships & Social Life** | 🟢 Active | Jamie (rhythm + travel), Vinay (1:1 time + adventures) |
+| **Finances & Security** | 🟢 Active | Freedom at 55-60, income growth, Vinay financial education |
+| **Education & Learning** | 🟢 Active | MIT CTO Program, synthesis over consumption, 6 books |
+| **Joy, Creativity & Play** | 🟢 Active | Protect motorcycle trip, India/Dubai, local trips with Jamie |
+| **Home & Environment** | 🟢 Active | KonMari declutter, guest bedroom cleanout |
+| **Contribution & Legacy** | 🟢 Active | Thought leadership, GPA Hero with Vinay, mentoring |
 
 ---
 
@@ -196,10 +197,10 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 ## Open Tasks
 
-- [ ] Build out Health – Mind, Body & Spirit index #area/health #p2
-- [ ] Build out Relationships & Social Life index #area/relationships #p2
-- [ ] Build out Finances & Security index #area/finance #p3
-- [ ] Build out Education & Learning index #area/learning #p3
-- [ ] Build out Joy, Creativity & Play index #area/recreation #p3
-- [ ] Build out Home & Environment index #area/environment #p3
-- [ ] Build out Contribution & Legacy index #area/contribution #p3
+- [x] Build out Health – Mind, Body & Spirit index #area/health #p2
+- [x] Build out Relationships & Social Life index #area/relationships #p2
+- [x] Build out Finances & Security index #area/finance #p3
+- [x] Build out Education & Learning index #area/learning #p3
+- [x] Build out Joy, Creativity & Play index #area/recreation #p3
+- [x] Build out Home & Environment index #area/environment #p3
+- [x] Build out Contribution & Legacy index #area/contribution #p3

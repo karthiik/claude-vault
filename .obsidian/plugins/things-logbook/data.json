@@ -1,0 +1,12 @@
+{
+  "hasAcceptedDisclaimer": false,
+  "latestSyncTime": 1768743211,
+  "doesSyncNoteBody": true,
+  "doesSyncProject": false,
+  "doesAddNewlineBeforeHeadings": false,
+  "isSyncEnabled": false,
+  "syncInterval": 1800,
+  "sectionHeading": "## Logbook",
+  "tagPrefix": "logbook/",
+  "canceledMark": "c"
+}
