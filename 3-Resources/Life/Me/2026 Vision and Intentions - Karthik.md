@@ -103,7 +103,7 @@
 
 *I am deepening my bond with Vinay so he sees me as someone to look up to, showing up fully for Jamie as we enter this new chapter, and finding the rhythm that honors work, family, and partnership without sacrifice.*
 
-- **Jamie:** Ensure she never feels alone despite the distance — re-establish weekly FaceTime rhythm
+- **Jamie:** Ensure she feels loved and supported by me as a partner despite the distance — re-establish weekly FaceTime rhythm
 - **Plan and execute** 1 international trip + 1 national park visit with Jamie
 - **Vinay:** Create quality 1:1 time, not just logistics — block weekly intentional time together
 - **Travel with Vinay** — Ireland trip (March), personal trip, teach driving

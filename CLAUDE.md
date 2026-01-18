@@ -136,36 +136,69 @@ Areas mirror Full Circle:
 ### Plugins Installed
 
 - **Tasks** — Query tasks with due dates across vault
+- **Templater** — Template engine for daily notes (JavaScript, randomization)
+- **Dataview** — Query and display data from notes
+- **Heatmap Calendar** — GitHub-style habit visualization
+- **Tracker** — Additional habit tracking visualizations
 - **Things Logbook** — Syncs completed tasks → Daily Notes
 - **Things3 Sync** — Push tasks from Obsidian → Things (optional)
-- **Things3 Today** — Shows today's Things tasks in sidebar
 
 ### Daily Notes
 
 **Location:** `Daily/YYYY-MM-DD.md`
 **Template:** `Templates/Daily.md`
-
-Daily notes auto-populate:
-- Overdue tasks (red callout)
-- Due today tasks (yellow callout)
-- Habits checklist
-- Things Logbook completed items
+**Dashboard:** [[Habit Dashboard]] (heatmaps + stats)
 
 **Create via:** Sidebar calendar icon or `Cmd+P` → "Open today's daily note"
 
-### Query Examples
+### Daily Note Structure
 
-```tasks
-not done
-due before today
-short mode
+| Section | Purpose |
+|---------|---------|
+| **Daily Spark** | Randomized quote/nudge/goal reminder (Templater) |
+| **Habits** | 5 identity-based habits with inline fields for tracking |
+| **📅 Today** | Calendar events via icalBuddy |
+| **🎯 #1 Priority** | The ONE thing for the day |
+| **Overdue / Due Today** | Task queries (collapsed) |
+| **Workspace** | Deep Work / Meeting Notes / Capture |
+| **Logbook** | Things 3 completed items sync |
+| **Habit Trends** | Last 7 days summary + link to dashboard |
+| **Evening Close** | Win / Better / Grateful / Tomorrow's #1 |
+
+### Habit Tracking System
+
+**5 Identity-Based Habits (Atomic Habits framework):**
+
+| Identity | Habit | 2-Min Version |
+|----------|-------|---------------|
+| 🏃 Lean & Energized | Move my body | 10 pushups |
+| 🧠 Clear-Minded | Create before consume | Write before phone |
+| 📚 Always Learning | Feed my mind | 5 min MIT or 1 page |
+| ✍️ Thought Leader | Build visibility | 1 sentence toward article |
+| 💛 Present for My People | Connect with intent | Text Jamie or moment with Vinay |
+
+**Tracking format:** Inline fields in daily notes
+```
+Lean:: false  →  Lean:: true (when complete)
 ```
 
-```tasks
-not done
-due on today
-short mode
-```
+**Visualization:** Heatmap Calendar plugin → [[Habit Dashboard]]
+
+### How Claudian Helps with Daily Notes
+
+**Morning:**
+- "Good morning" → Open/review daily note, surface key items
+- Help set #1 priority based on goals and calendar
+
+**During day:**
+- "Add to capture: [thought]" → I add to Workspace > Capture
+- "Log meeting notes for [meeting]" → I format and add to Meeting Notes
+- Quick thinking/processing → I help work through it
+
+**Evening:**
+- "Let's do evening close" → I prompt Win/Better/Grateful/Tomorrow
+- "Update habits" → I flip completed habits from false to true
+- "How'd I do this week?" → I analyze habit completion trends
 
 ### When User Says "Add a Task"
 
