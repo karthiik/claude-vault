@@ -45,10 +45,16 @@ I have 8 direct reports and ~65 people in my org. I should NOT be in the weeds o
 ### Key Stakeholders (Flag ANY communication from these people)
 - **Byron Clymer** — Global CIO (my boss) — ALWAYS surface
 - **Claude Yoder** — Chief Digital Officer (innovation partner for G2)
+- **Charles Whitfield** — PMO lead, oversees Associate Hub (I am IT face for this G2 transformation project with Claude Yoder)
 - **Glen Feldman** — East CIO (peer)
 - **Darren Isaacs** — UK stakeholder for HIVE + Pace programs (G2)
 - **Incoming West CIO** — Transition handoff (G3)
 - **Chennai/Trivandrum leads** — GCC operations
+
+### Key Recurring Meetings (ALWAYS include in analysis)
+- **IT Staff Meeting** — Byron's leadership meeting, every **Tuesday 10:00 AM CT**. Always surface. Always analyze last 3 transcripts for my action items.
+- **HIVE Steering Committee** — G2 governance, Fridays. Rajesh leads ops; I attend for strategic oversight.
+- **Global Architect Planning** — My architecture community, G1/G2 visibility.
 
 ### My Direct Reports (8) — Flag emails, prep 1:1s
 - James Solko *(leads Global Cloud Architecture)*
@@ -435,21 +441,38 @@ I'm Karthik Ramadoss, SVP of Architecture & Delivery at Lockton. Based in Dallas
 ### Key Stakeholders
 - Byron Clymer (Global CIO, my boss)
 - Claude Yoder (CDO, innovation partner)
+- Charles Whitfield (PMO lead, Associate Hub — I am IT face for this G2 project)
 - Glen Feldman (East CIO, peer)
 - Darren Isaacs (UK stakeholder, HIVE + Pace programs)
+
+### Key Recurring Meetings (ALWAYS include)
+- **IT Staff Meeting** — Byron's leadership meeting, every **Tuesday 10:00 AM CT**. ALWAYS include. ALWAYS analyze last 3 transcripts.
+- **HIVE Steering Committee** — G2 governance, Fridays
+- **Global Architect Planning** — G1/G2 visibility
 
 ---
 
 ## TASK 1: Calendar Analysis
 
-Analyze my calendar for the upcoming week. For each day:
+Analyze my calendar for the upcoming week. **Scan ALL events, not a sample.**
+
+### ALWAYS include these meetings (even if recurring):
+- IT Staff Meeting (Tuesday 10:00 AM)
+- HIVE Steering Committee
+- Global Architect Planning
+- Any 1:1 with my 8 direct reports
+- Any meeting with a Key Stakeholder
 
 ### Exclude from analysis:
-- IT Daily Stand Up
+- IT Daily Stand Up (this is different from IT Staff Meeting!)
 - Lunch blocks
 - Focus time blocks
 - CANCELED meetings
 - Platform training sessions (delegate)
+
+### Check Byron's calendar explicitly:
+- Look for "OOO", "Out of Office", "Limited", "Vacation", or "PTO" in any calendar event or meeting title
+- This is CRITICAL for escalation timing
 
 ### For each strategic meeting, provide:
 | Day | Time | Meeting | G1/G2/G3 | Prep Required | Location |
@@ -543,9 +566,17 @@ If Byron is OOO any days this week, note:
 
 ---
 
-## Output Format
+## Output Formatting Rules (IMPORTANT)
 
-Produce the full analysis in markdown format I can paste into my weekly planning note. Use tables where specified. Be specific — reference actual meeting names, people, and action items from transcripts.
+1. **Minimize inline links** — Do NOT put links inside table cells. Put all reference links in an **Appendix** section at the very end. Keep the main briefing clean for pasting into Obsidian.
+
+2. **Simple markdown** — Use basic tables. Avoid complex nested formatting.
+
+3. **Be specific** — Reference actual meeting names, people, and action items from transcripts.
+
+4. **Clean format for Obsidian** — The output should paste cleanly into a markdown note without broken formatting.
+
+Produce the full analysis in markdown format I can paste into my weekly planning note.
 ```
 
 ---
