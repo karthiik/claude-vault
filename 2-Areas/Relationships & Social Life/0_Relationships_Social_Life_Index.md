@@ -87,6 +87,8 @@
 
 ## 2026 Focus
 
+> **Theme:** *"The year of perfect balance."*
+
 | Priority | Target | Status |
 |----------|--------|--------|
 | 1 | Re-establish FaceTime rhythm with Jamie | Not started |
@@ -94,6 +96,8 @@
 | 3 | Ireland trip with Vinay (March) | Planned |
 | 4 | Personal trip with Vinay | Not started |
 | 5 | Weekly 1:1 time with Vinay | Not started |
+
+**→ [[2026 Relationships Goals]]** — Full cascade: goals, quarterly intentions, monthly milestones
 
 ---
 

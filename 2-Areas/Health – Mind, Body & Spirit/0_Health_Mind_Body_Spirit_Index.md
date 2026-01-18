@@ -58,11 +58,15 @@ The specific slips:
 
 ## 2026 Focus
 
+> **Theme:** *"The year I intentionally turned my health around."*
+
 | Dimension | Focus | Target |
 |-----------|-------|--------|
 | **Body** | Eat less salty/restaurant food | Meal prep habit, pre-stock before travel |
 | **Mind** | Time blocks for creation vs. consumption | Morning + weekend creation blocks |
 | **Spirit** | Add evening ritual | AI-assisted quick reflection in Obsidian |
+
+**→ [[2026 Health Goals]]** — Full cascade: goals, quarterly intentions, monthly milestones
 
 ---
 

@@ -9,14 +9,16 @@ let recentFiles = [];
 
 // DOM Elements
 const fileTree = document.getElementById('fileTree');
+const visionPanel = document.getElementById('visionPanel');
 const visionContent = document.getElementById('visionContent');
 const editorPanel = document.getElementById('editorPanel');
 const editorPath = document.getElementById('editorPath');
 const editorPreview = document.getElementById('editorPreview');
 const editorInput = document.getElementById('editorInput');
 const saveStatus = document.getElementById('saveStatus');
+const currentView = document.getElementById('currentView');
 const todayBtn = document.getElementById('todayBtn');
-const recentBtn = document.getElementById('recentBtn');
+const visionBtn = document.getElementById('visionBtn');
 const recentList = document.getElementById('recentList');
 const closeEditor = document.getElementById('closeEditor');
 const tabs = document.querySelectorAll('.tab');
@@ -42,21 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Today's note button
   todayBtn.addEventListener('click', openTodaysNote);
 
-  // Recent dropdown
-  recentBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    recentList.classList.toggle('show');
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener('click', () => {
-    recentList.classList.remove('show');
-  });
+  // Vision button (logo) - go back to vision view
+  visionBtn.addEventListener('click', showVisionPanel);
 
   // Close editor button
-  closeEditor.addEventListener('click', closeEditorPanel);
+  closeEditor.addEventListener('click', showVisionPanel);
 
-  // Editor input — auto-save on change
+  // Editor input — auto-save on change + live preview
   editorInput.addEventListener('input', () => {
     updatePreview();
     scheduleSave();
@@ -71,12 +65,37 @@ document.addEventListener('DOMContentLoaded', () => {
         saveFile();
       }
     }
-    // Escape to close editor
+    // Escape to close editor and go back to vision
     if (e.key === 'Escape') {
-      closeEditorPanel();
+      showVisionPanel();
     }
   });
 });
+
+// ============================================
+// View Management
+// ============================================
+
+function showVisionPanel() {
+  // Save before switching if there's content
+  if (currentFile && editorInput.value) {
+    saveFile();
+  }
+
+  visionPanel.classList.remove('hidden');
+  editorPanel.classList.add('hidden');
+  currentFile = null;
+  currentView.textContent = '';
+
+  // Remove active state from tree
+  document.querySelectorAll('.tree-file').forEach(f => f.classList.remove('active'));
+}
+
+function showEditorPanel(filePath) {
+  visionPanel.classList.add('hidden');
+  editorPanel.classList.remove('hidden');
+  currentView.textContent = filePath;
+}
 
 // ============================================
 // Vision Documents
@@ -201,7 +220,7 @@ async function openFile(filePath) {
     editorPath.textContent = filePath;
     editorInput.value = data.content;
     updatePreview();
-    editorPanel.classList.remove('hidden');
+    showEditorPanel(filePath);
     saveStatus.textContent = '';
 
     // Refresh recent list
@@ -257,19 +276,6 @@ function scheduleSave() {
   }, 1000);
 }
 
-function closeEditorPanel() {
-  // Save before closing if there's content
-  if (currentFile && editorInput.value) {
-    saveFile();
-  }
-
-  editorPanel.classList.add('hidden');
-  currentFile = null;
-
-  // Remove active state from tree
-  document.querySelectorAll('.tree-file').forEach(f => f.classList.remove('active'));
-}
-
 // ============================================
 // Today's Note
 // ============================================
@@ -288,7 +294,7 @@ async function openTodaysNote() {
     editorPath.textContent = data.path;
     editorInput.value = data.content;
     updatePreview();
-    editorPanel.classList.remove('hidden');
+    showEditorPanel(data.path);
 
     if (data.created) {
       saveStatus.textContent = 'Created new note';
@@ -310,7 +316,7 @@ async function openTodaysNote() {
 }
 
 // ============================================
-// Recent Files
+// Recent Files (Sidebar)
 // ============================================
 
 async function loadRecent() {
@@ -325,22 +331,20 @@ async function loadRecent() {
 
 function renderRecent() {
   if (recentFiles.length === 0) {
-    recentList.innerHTML = '<div class="dropdown-empty">No recent files</div>';
+    recentList.innerHTML = '<div class="recent-empty">No recent files</div>';
     return;
   }
 
   recentList.innerHTML = recentFiles.map(path => `
-    <button class="dropdown-item" data-path="${path}">
+    <button class="recent-item" data-path="${path}" title="${path}">
       📄 ${path.split('/').pop().replace('.md', '')}
-      <small style="display: block; color: var(--text-muted); font-size: 11px;">${path}</small>
     </button>
   `).join('');
 
   // Attach click listeners
-  recentList.querySelectorAll('.dropdown-item').forEach(item => {
+  recentList.querySelectorAll('.recent-item').forEach(item => {
     item.addEventListener('click', () => {
       openFile(item.dataset.path);
-      recentList.classList.remove('show');
     });
   });
 }

@@ -60,11 +60,15 @@ The fundamentals are solid. The path forward is:
 
 ## 2026 Focus
 
+> **Theme:** *"The year of minimalism and saving more."*
+
 | Priority | Target | Status |
 |----------|--------|--------|
 | **Income growth** | 20-25% increase over current | In progress |
-| **Monthly finance reviews** | Establish consistent habit | Not started |
-| **Vinay financial education** | Regular money conversations | Ongoing |
+| **Monthly finance reviews** | 12 of 12 months | Not started |
+| **Vinay financial education** | Introduce ETF trading | Ongoing |
+
+**→ [[2026 Finances Goals]]** — Full cascade: goals, quarterly intentions, monthly milestones
 
 ### How Income Growth Happens
 

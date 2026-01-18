@@ -45,7 +45,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 > Transforming my body to be lean and energized, sharpening focus and clarity, grounding in mindfulness over materialism
 
-**Index:** [[0_Health_Mind_Body_Spirit_Index]] · **Status:** 🟢 Active
+**Index:** [[0_Health_Mind_Body_Spirit_Index]] · **Status:** 🟢 Active · **Goals:** [[2026 Health Goals]]
 
 ---
 
@@ -53,7 +53,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 > Deepening my bond with Vinay so he sees me as someone to look up to, showing up fully for Jamie as we enter this new chapter, and finding the rhythm that honors work, family, and partnership without sacrifice
 
-**Index:** [[0_Relationships_Social_Life_Index]] · **Status:** 🟢 Active
+**Index:** [[0_Relationships_Social_Life_Index]] · **Status:** 🟢 Active · **Goals:** [[2026 Relationships Goals]]
 
 ---
 
@@ -69,7 +69,7 @@ Joy, Creativity & Play ---+--- Finances & Security
 
 > Building toward freedom at 55-60 — the ability to travel, stay active, pursue passion projects, and leave a legacy that sets Vinay up for life
 
-**Index:** [[0_Finances_Security_Index]] · **Status:** 🟢 Active
+**Index:** [[0_Finances_Security_Index]] · **Status:** 🟢 Active · **Goals:** [[2026 Finances Goals]]
 
 ---
 
@@ -136,9 +136,9 @@ Joy, Creativity & Play ---+--- Finances & Security
 | Area | Status | 2026 Focus |
 |------|--------|------------|
 | **Career & Purpose** | 🟢 Active | [[2026 Career Goals]] — "Visible outside Lockton" |
-| **Health – Mind, Body & Spirit** | 🟢 Active | AT 100 by 50, creation over consumption, evening ritual |
-| **Relationships & Social Life** | 🟢 Active | Jamie (rhythm + travel), Vinay (1:1 time + adventures) |
-| **Finances & Security** | 🟢 Active | Freedom at 55-60, income growth, Vinay financial education |
+| **Health – Mind, Body & Spirit** | 🟢 Active | [[2026 Health Goals]] — "Intentionally turned my health around" |
+| **Relationships & Social Life** | 🟢 Active | [[2026 Relationships Goals]] — "The year of perfect balance" |
+| **Finances & Security** | 🟢 Active | [[2026 Finances Goals]] — "Minimalism and saving more" |
 | **Education & Learning** | 🟢 Active | MIT CTO Program, synthesis over consumption, 6 books |
 | **Joy, Creativity & Play** | 🟢 Active | Protect motorcycle trip, India/Dubai, local trips with Jamie |
 | **Home & Environment** | 🟢 Active | KonMari declutter, guest bedroom cleanout |
