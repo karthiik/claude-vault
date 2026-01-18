@@ -762,3 +762,14 @@ body {
 .milkdown th { background: var(--bg-surface) !important; font-weight: 600 !important; color: var(--text-heading) !important; }
 .milkdown input[type="checkbox"] { margin-right: var(--space-sm) !important; accent-color: var(--accent) !important; }
 .milkdown .ProseMirror-selectednode { outline: 2px solid var(--accent) !important; }
+
+/* Obsidian Plugin Notice */
+.obsidian-plugin-notice {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--bg-surface);
+  border-radius: 4px;
+  margin: var(--space-xs) 0;
+}

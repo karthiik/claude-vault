@@ -238,12 +238,17 @@ function renderRecent() {
 function renderMarkdown(content) {
   marked.setOptions({ breaks: true, gfm: true });
   let processed = content
+    // Remove Obsidian plugin code blocks (tasks, tracker, dataview)
+    .replace(/```(?:tasks|tracker|dataview)\n[\s\S]*?```/g, '<div class="obsidian-plugin-notice">📋 Obsidian plugin content</div>')
+    // Wiki-links
     .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, '[$2](#)')
     .replace(/\[\[([^\]]+)\]\]/g, '[$1](#)')
+    // Callouts
     .replace(/> \[!(\w+)\](-?)\s*([^\n]*)\n((?:>.*\n?)*)/g, (m, type, c, title, cont) => {
       const cc = cont.replace(/^> ?/gm, '').trim();
       return `<div class="callout callout-${type}"><div class="callout-title">${title || type}</div><div class="callout-content">${marked.parse(cc)}</div></div>`;
     })
+    // Checkboxes
     .replace(/- \[ \]/g, '- <input type="checkbox" disabled>')
     .replace(/- \[x\]/gi, '- <input type="checkbox" checked disabled>');
   return marked.parse(processed);
