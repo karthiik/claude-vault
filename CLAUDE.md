@@ -89,15 +89,16 @@ All .md files should be connected and navigable through Obsidian.
 
 ## Task Management
 
-**Philosophy:** Obsidian holds context and strategy. Things 3 holds execution.
+**Philosophy:** Each tool does what it's best at. No duplication.
 
-### Two Systems, Clear Separation
+### Three Systems, Clear Separation
 
 | Layer | Tool | What Lives There |
 |-------|------|------------------|
 | **Knowledge & Context** | Obsidian | Projects, areas, goals, someday/maybe, waiting-on |
-| **Execution** | Things 3 | Daily tasks, deadlines, recurring habits, mobile capture |
-| **Completion History** | Both | Things Logbook syncs → Daily Notes |
+| **Task Execution** | Things 3 | Daily tasks, deadlines, mobile capture |
+| **Habit Tracking** | Habitify | Daily habits, streaks, analytics |
+| **Completion History** | Things 3 → Daily Notes | Things Logbook syncs completed tasks |
 
 ### Task Format in Obsidian
 
@@ -122,7 +123,7 @@ All .md files should be connected and navigable through Obsidian.
 | Strategic/context-heavy | Obsidian | Linked to projects, areas, notes |
 | Waiting on someone | Obsidian `#waiting` | Reference, not actionable |
 | Someday/maybe | Obsidian `#someday` | Review during weekly scan |
-| Recurring habits | Things 3 | Auto-regenerates |
+| Daily habits | Habitify | Streaks, analytics, mobile-first |
 | Quick mobile capture | Things 3 Inbox | Process later |
 
 ### Things 3 Structure
@@ -138,8 +139,6 @@ Areas mirror Full Circle:
 - **Tasks** — Query tasks with due dates across vault
 - **Templater** — Template engine for daily notes (JavaScript, randomization)
 - **Dataview** — Query and display data from notes
-- **Heatmap Calendar** — GitHub-style habit visualization
-- **Tracker** — Additional habit tracking visualizations
 - **Things Logbook** — Syncs completed tasks → Daily Notes
 - **Things3 Sync** — Push tasks from Obsidian → Things (optional)
 
@@ -147,7 +146,6 @@ Areas mirror Full Circle:
 
 **Location:** `Daily/YYYY-MM-DD.md`
 **Template:** `Templates/Daily.md`
-**Dashboard:** [[Habit Dashboard]] (heatmaps + stats)
 
 **Create via:** Sidebar calendar icon or `Cmd+P` → "Open today's daily note"
 
@@ -156,33 +154,12 @@ Areas mirror Full Circle:
 | Section | Purpose |
 |---------|---------|
 | **Daily Spark** | Randomized quote/nudge/goal reminder (Templater) |
-| **Habits** | 5 identity-based habits with inline fields for tracking |
 | **📅 Today** | Calendar events via icalBuddy |
 | **🎯 #1 Priority** | The ONE thing for the day |
 | **Overdue / Due Today** | Task queries (collapsed) |
 | **Workspace** | Deep Work / Meeting Notes / Capture |
 | **Logbook** | Things 3 completed items sync |
-| **Habit Trends** | Last 7 days summary + link to dashboard |
 | **Evening Close** | Win / Better / Grateful / Tomorrow's #1 |
-
-### Habit Tracking System
-
-**5 Identity-Based Habits (Atomic Habits framework):**
-
-| Identity | Habit | 2-Min Version |
-|----------|-------|---------------|
-| 🏃 Lean & Energized | Move my body | 10 pushups |
-| 🧠 Clear-Minded | Create before consume | Write before phone |
-| 📚 Always Learning | Feed my mind | 5 min MIT or 1 page |
-| ✍️ Thought Leader | Build visibility | 1 sentence toward article |
-| 💛 Present for My People | Connect with intent | Text Jamie or moment with Vinay |
-
-**Tracking format:** Inline fields in daily notes
-```
-Lean:: false  →  Lean:: true (when complete)
-```
-
-**Visualization:** Heatmap Calendar plugin → [[Habit Dashboard]]
 
 ### How Claudian Helps with Daily Notes
 
@@ -197,8 +174,6 @@ Lean:: false  →  Lean:: true (when complete)
 
 **Evening:**
 - "Let's do evening close" → I prompt Win/Better/Grateful/Tomorrow
-- "Update habits" → I flip completed habits from false to true
-- "How'd I do this week?" → I analyze habit completion trends
 
 ### When User Says "Add a Task"
 

@@ -42,13 +42,39 @@ const areaNudges = [
 ];
 
 const goalReminders = [
-  "G1 Visibility: What moves you toward being known outside Lockton today?",
-  "G1 Visibility: One sentence toward the article. That's all it takes.",
-  "G1 Visibility: Who should know your name that doesn't yet?",
-  "G2 Innovation: What's your sharpest insight on the thesis right now?",
-  "G2 Innovation: Which pilot could prove your point this quarter?",
-  "G3 Transition: Is the handoff protected? What needs attention?",
-  "2026 Theme — EMERGENCE: Are you stepping into visibility today?"
+  // Career
+  "🚀 C1 Visibility: What moves you toward being known outside Lockton today?",
+  "🚀 C1 Visibility: One sentence toward the article. That's all it takes.",
+  "🚀 C2 Innovation: What's your sharpest insight on the thesis right now?",
+  "🚀 C3 Transition: Is the handoff protected? What needs attention?",
+  // Health
+  "🏃 H1 AT Ready: Did you ruck or train today? Foundation year.",
+  "🏃 H2 Creation: Create before you consume. Morning is for building.",
+  "🏃 H3 Evening Ritual: Close the day intentionally tonight.",
+  // Relationships
+  "💛 R1 Jamie: When's the next FaceTime? Connection needs rhythm.",
+  "💛 R2 Vinay: What's one thing you can teach him this week?",
+  "💛 R3 GPA Hero: When's the next building session with Vinay?",
+  // Finances
+  "💰 F1 Income: External visibility = market leverage. Build it.",
+  "💰 F2 Reviews: Did you do your monthly finance review?",
+  "💰 F3 Vinay: One money conversation — it compounds.",
+  // Learning
+  "📚 L1 MIT: What's one framework you can apply at Lockton?",
+  "📚 L2 Books: Progress on the current book? Synthesis matters.",
+  "📚 L3 AI Skills: What did you experiment with today?",
+  // Contribution
+  "🌟 X1 Substack: One post per week. Consistency over perfection.",
+  "🌟 X2 Speaking: Which conference or podcast is next on the list?",
+  "🌟 X3 Mentoring: Who can you uplift today?",
+  // Joy
+  "🎨 J1 Motorcycle: When's the ride? Don't let it get squeezed.",
+  "🎨 J2 India/Dubai: Planning progress? Summer will come fast.",
+  "🎨 J3 Local: What would make today feel alive?",
+  // Home
+  "🏠 E1 Declutter: Does your space spark creativity right now?",
+  // Theme
+  "⭐ 2026 Theme — EMERGENCE: Are you stepping into visibility today?"
 ];
 
 const relationshipPings = [
@@ -91,20 +117,6 @@ const randomSpark = allSparks[Math.floor(Math.random() * allSparks.length)];
 _%>
 > [!quote] ✨ Daily Spark
 > <% randomSpark %>
-
----
-
-## Habits
-
-> [!check] Who I showed up as today
->
-> | | Identity | Atomic Action | Done |
-> |:-:|:--|:--|:-:|
-> | 🏃 | **Lean & Energized** | Move my body *(10 pushups counts)* | Lean:: false |
-> | 🧠 | **Clear-Minded** | Create before consume *(write before phone)* | Clear:: false |
-> | 📚 | **Always Learning** | Feed my mind *(5 min MIT or 1 page)* | Learning:: false |
-> | ✍️ | **Thought Leader** | Build visibility *(1 sentence toward article)* | Visible:: false |
-> | 💛 | **Present for My People** | Connect with intent *(Jamie or Vinay)* | Present:: false |
 
 ---
 
@@ -160,8 +172,9 @@ _%>
 
 ---
 
-> [!success]- Logbook (Things 3)
-> <!-- Completed tasks sync here -->
+## Logbook
+
+<!-- Things 3 completed tasks sync here automatically -->
 
 > [!abstract]- Next 7 Days
 > ```tasks
@@ -170,22 +183,6 @@ _%>
 > due before <% tp.date.now("YYYY-MM-DD", 7) %>
 > group by due
 > short mode
-> ```
-
-> [!example]- 📊 Habit Trends
-> **→ [[Habit Dashboard]]** for full heatmaps
->
-> ```dataviewjs
-> const habits = ['Lean', 'Clear', 'Learning', 'Visible', 'Present'];
-> const pages = dv.pages('"Daily"').where(p => p.file.name.match(/^\d{4}-\d{2}-\d{2}$/));
-> const last7 = pages.sort(p => p.file.name, 'desc').slice(0, 7);
->
-> let summary = "**Last 7 days:** ";
-> habits.forEach(h => {
->   const done = last7.filter(p => p[h] === true).length;
->   summary += `${h}: ${done}/7 · `;
-> });
-> dv.paragraph(summary.slice(0, -3));
 > ```
 
 > [!tip]- 🌙 Evening Close
@@ -199,4 +196,4 @@ _%>
 
 ---
 
-**Nav:** [[<% tp.date.now("YYYY-MM-DD", -1) %>|← Yesterday]] · [[<% tp.date.now("YYYY-MM-DD", 1) %>|Tomorrow →]] · [[0_Areas_Index|Areas]] · [[AGENDA]] · [[0_Areas_Index|2026 Goals]]
+**Nav:** [[<% tp.date.now("YYYY-MM-DD", -1) %>|← Yesterday]] · [[<% tp.date.now("YYYY-MM-DD", 1) %>|Tomorrow →]] · [[0_Areas_Index|Areas]] · [[Goals-Reference|Goals]] · [[AGENDA]]

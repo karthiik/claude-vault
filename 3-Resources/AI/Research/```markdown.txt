@@ -1,0 +1,34 @@
+```markdown
+# Microsoft Clipchamp: A Year in Review of Cohesive, AI-Powered Video Creation and Editing
+
+## Introduction
+- Overview of Clipchamp's integration into Microsoft 365 in 2021.
+- Its evolution into a preferred tool for creators, educators, and businesses for efficient, on-brand video creation.
+
+## Enhancements in Customization and Design
+- Introduction of the refreshed brand kit for storing logos, fonts, and key elements for organization-specific content.
+- New color picker for precise color matching from media files.
+- Expansion of stock images, text styles, vector shapes, and gradient backgrounds to enhance design elements and audience engagement.
+- Ability to create and share video templates to facilitate collaboration and efficiency. 
+
+## Interface Improvements for Seamless Editing
+- Introduction of dark and light modes to suit user preferences.
+- Collapsible sidebar and timeline for a more intuitive editing experience.
+- Simplified common actions like zooming in and out of the timeline, undoing and redoing edits, and changing video aspect ratios. 
+
+## AI-Powered Productivity Features
+- Integration with Microsoft 365 Copilot Create experience for video creation from prompts, adding files, and utilizing the organization's brand kit for dynamic information sharing.
+- Access to company updates, including missed meetings and town halls, all in one place.
+- Use of Copilot to summarize videos and answer questions about content, enhancing productivity. 
+
+## Integration of OpenAI's Sora 2 in Microsoft 365 Copilot
+- Announcement of OpenAI's Sora 2 availability in Frontier during Ignite 2025, bringing advanced video generation capabilities to Microsoft 365 Copilot licensed users. 
+
+## Looking Ahead: Strengthening Video Creation and Consumption
+- Focus on simplifying high-quality video creation within everyday tools.
+- Enabling videos to be discovered, shared, and reused across organizations to accelerate learning, collaboration, and impact within Microsoft 365. 
+
+## Conclusion
+- Recap of Clipchamp's advancements in customization, interface design, AI-powered features, and integration with Microsoft 365 Copilot.
+- Emphasis on its role in enhancing video creation and editing experiences for users worldwide.
+```
