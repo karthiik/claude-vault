@@ -24,6 +24,7 @@
 | **C1** | External Visibility | 1+ speaking, 2+ articles, thesis articulated | [[0_Career_Purpose_Index#2026 Theme]] |
 | **C2** | Innovation Leadership | Innovation thesis tested with external audiences | [[0_Career_Purpose_Index#Innovation Thesis]] |
 | **C3** | Role Transition | Smooth handoff to West CIO, innovation focus solidified | [[0_Career_Purpose_Index#Current Focus]] |
+| **C4** | Global EA Practice | Establish EA function for Lockton — Year 1 pitch approved | [[C4 Establish Global EA Practice/Byron Requirements]] |
 
 ---
 
@@ -99,7 +100,7 @@
 ## Quick Reference Card
 
 ```
-CAREER:       C1 Visibility | C2 Innovation | C3 Transition
+CAREER:       C1 Visibility | C2 Innovation | C3 Transition | C4 EA Practice
 HEALTH:       H1 AT Ready   | H2 Creation   | H3 Evening Ritual
 RELATIONSHIPS: R1 Jamie     | R2 Vinay      | R3 GPA Hero
 FINANCES:     F1 Income     | F2 Reviews    | F3 Vinay Ed

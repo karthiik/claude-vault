@@ -322,6 +322,7 @@ Internal credibility is established (GAS Summit, AI expert, GCC expansion). The 
 
 *Career-specific projects:*
 
+- [[C4 Establish Global EA Practice/Byron Requirements|C4: Global EA Practice]] — Establish EA function for Lockton
 - [[2026 GAS Summit Reflection]]
 - [[2026 Global Hackathon - Jan]]
 
