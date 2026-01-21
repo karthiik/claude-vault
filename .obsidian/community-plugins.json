@@ -3,10 +3,10 @@
   "claudian",
   "obsidian-things3-sync",
   "things3-today",
-  "things-logbook",
   "obsidian-tasks-plugin",
   "templater-obsidian",
   "obsidian-tracker",
   "dataview",
-  "heatmap-calendar"
+  "heatmap-calendar",
+  "things-logbook"
 ]

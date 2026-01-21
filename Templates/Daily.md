@@ -174,7 +174,29 @@ _%>
 
 ## Logbook
 
-<!-- Things 3 completed tasks sync here automatically -->
+<!-- Things 3 completed tasks sync here -->
+
+> [!success]- 📋 Last 7 Days Completed
+> ```dataviewjs
+> const days = dv.pages('"Daily"')
+>   .where(p => p.file.name.match(/^\d{4}-\d{2}-\d{2}$/))
+>   .sort(p => p.file.name, 'desc')
+>   .slice(0, 7);
+>
+> for (const day of days) {
+>   const content = await dv.io.load(day.file.path);
+>   const logbookMatch = content.match(/## Logbook\n([\s\S]*?)(?=\n##|\n> \[!|$)/);
+>   if (logbookMatch) {
+>     const tasks = logbookMatch[1].match(/^- \[x\].+$/gm);
+>     if (tasks && tasks.length > 0) {
+>       dv.header(4, day.file.name);
+>       dv.list(tasks.map(t => t.replace(/^- \[x\] /, '')));
+>     }
+>   }
+> }
+> ```
+
+---
 
 > [!abstract]- Next 7 Days
 > ```tasks
