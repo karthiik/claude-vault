@@ -3,8 +3,8 @@
   "title": "Build Personal User Preferences Framework",
   "titleGenerationStatus": "success",
   "createdAt": 1768665703029,
-  "updatedAt": 1768753235432,
-  "lastResponseAt": 1768676903810,
+  "updatedAt": 1769090585992,
+  "lastResponseAt": 1769090585992,
   "sessionId": "b4c1eb46-c675-4813-9d6b-9afa524faa84",
   "sdkSessionId": "b4c1eb46-c675-4813-9d6b-9afa524faa84",
   "externalContextPaths": [
@@ -12,11 +12,11 @@
   ],
   "usage": {
     "model": "claude-opus-4-5-20251101",
-    "inputTokens": 4452,
-    "cacheCreationInputTokens": 795175,
-    "cacheReadInputTokens": 9582875,
+    "inputTokens": 94,
+    "cacheCreationInputTokens": 37160,
+    "cacheReadInputTokens": 422694,
     "contextWindow": 200000,
-    "contextTokens": 10382502,
+    "contextTokens": 459948,
     "percentage": 100
   },
   "toolDiffData": {

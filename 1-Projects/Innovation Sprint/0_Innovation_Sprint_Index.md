@@ -17,13 +17,20 @@
 
 ---
 
+## Goal Alignment
+
+| Code | Goal | How This Project Contributes |
+|------|------|------------------------------|
+| **[[Goals-Reference#C2\|C2]]** | Innovation Leadership | Establishes repeatable innovation rhythm — sprint framework becomes proof of innovation value |
+| **[[Goals-Reference#C1\|C1]]** | External Visibility | Success story for speaking/articles — "How we built an innovation culture at Lockton" |
+
+---
+
 ## Context
 
 Coming out of the 2026 GAS Summit and Hackathon, Byron asked for:
 1. **Synthesis** of Summit & Hackathon survey results → executive deck
 2. **Innovation Sprint plan** — a repeatable framework for driving innovation
-
-This project supports **G2: Innovation Leadership** in the [[2-Areas/Career & Purpose/2026 Career Goals|2026 Career Goals]].
 
 ---
 
