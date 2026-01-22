@@ -371,6 +371,78 @@ cmd_tasks() {
   echo "Total: $total tasks"
 }
 
+cmd_things() {
+  local list="${1:-today}"
+
+  case "$list" in
+    today)
+      echo "=== Things 3: Today ==="
+      osascript -e 'tell application "Things3"
+        set output to ""
+        repeat with t in to dos of list "Today"
+          set taskName to name of t
+          set taskArea to ""
+          set taskDue to ""
+          try
+            set taskArea to name of area of t
+          end try
+          try
+            set taskDue to due date of t as string
+          end try
+          if taskArea is not "" then
+            set output to output & "[" & taskArea & "] "
+          end if
+          set output to output & taskName
+          if taskDue is not "" then
+            set output to output & " 📅 " & taskDue
+          end if
+          set output to output & "\n"
+        end repeat
+        return output
+      end tell'
+      ;;
+    anytime)
+      echo "=== Things 3: Anytime ==="
+      osascript -e 'tell application "Things3"
+        set output to ""
+        repeat with t in to dos of list "Anytime"
+          set taskName to name of t
+          set taskArea to ""
+          try
+            set taskArea to name of area of t
+          end try
+          if taskArea is not "" then
+            set output to output & "[" & taskArea & "] "
+          end if
+          set output to output & taskName & "\n"
+        end repeat
+        return output
+      end tell' | head -30
+      ;;
+    areas)
+      echo "=== Things 3: Tasks by Area ==="
+      osascript -e 'tell application "Things3"
+        set output to ""
+        repeat with a in areas
+          set areaName to name of a
+          set areaTasks to to dos of a
+          if (count of areaTasks) > 0 then
+            set output to output & "\n" & areaName & ":\n"
+            repeat with t in areaTasks
+              set taskName to name of t
+              set output to output & "  - " & taskName & "\n"
+            end repeat
+          end if
+        end repeat
+        return output
+      end tell'
+      ;;
+    *)
+      echo "Usage: ./cli.sh things [today|anytime|areas]"
+      ;;
+  esac
+}
+
 cmd_status() {
   cd "$SCRIPT_DIR"
 
@@ -415,6 +487,10 @@ case "${1:-}" in
     shift
     cmd_tasks "$@"
     ;;
+  things)
+    shift
+    cmd_things "$@"
+    ;;
   help|--help|-h)
     echo "Usage: ./cli.sh <command>"
     echo ""
@@ -425,6 +501,10 @@ case "${1:-}" in
     echo "  tasks [path]      List open tasks"
     echo "        --p1/p2/p3  Filter by priority"
     echo "        --next      Filter by #next tag"
+    echo "  things [list]     Query Things 3"
+    echo "        today       Today list (default)"
+    echo "        anytime     Anytime list"
+    echo "        areas       Tasks grouped by area"
     echo ""
     echo "Obsidian commands:"
     ensure_binary
