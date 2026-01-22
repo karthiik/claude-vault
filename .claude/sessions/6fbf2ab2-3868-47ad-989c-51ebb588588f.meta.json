@@ -3,18 +3,18 @@
   "title": "Fix daily note calendar population",
   "titleGenerationStatus": "success",
   "createdAt": 1769002959362,
-  "updatedAt": 1769003392732,
-  "lastResponseAt": 1769003392732,
+  "updatedAt": 1769024411112,
+  "lastResponseAt": 1769005829649,
   "sessionId": "6fbf2ab2-3868-47ad-989c-51ebb588588f",
   "sdkSessionId": "6fbf2ab2-3868-47ad-989c-51ebb588588f",
   "usage": {
     "model": "claude-opus-4-5-20251101",
-    "inputTokens": 10,
-    "cacheCreationInputTokens": 1528,
-    "cacheReadInputTokens": 28322,
+    "inputTokens": 64,
+    "cacheCreationInputTokens": 44379,
+    "cacheReadInputTokens": 200044,
     "contextWindow": 200000,
-    "contextTokens": 29860,
-    "percentage": 15
+    "contextTokens": 244487,
+    "percentage": 100
   },
   "toolDiffData": {
     "toolu_01MRHKX7DdU2ZBGn1oSnmQMS": {

@@ -1,0 +1,20 @@
+{
+  "id": "3b5e2ffd-0185-4be2-aad9-a384fd4a802a",
+  "title": "Close Daily Evening Wrap",
+  "titleGenerationStatus": "success",
+  "createdAt": 1769040445848,
+  "updatedAt": 1769040447379,
+  "lastResponseAt": 1769040445849,
+  "sessionId": "3b5e2ffd-0185-4be2-aad9-a384fd4a802a",
+  "sdkSessionId": "3b5e2ffd-0185-4be2-aad9-a384fd4a802a",
+  "currentNote": "Daily/2026-01-21.md",
+  "usage": {
+    "model": "claude-opus-4-5-20251101",
+    "inputTokens": 18,
+    "cacheCreationInputTokens": 12764,
+    "cacheReadInputTokens": 30636,
+    "contextWindow": 200000,
+    "contextTokens": 43418,
+    "percentage": 22
+  }
+}
