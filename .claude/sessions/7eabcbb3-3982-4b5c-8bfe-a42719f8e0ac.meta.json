@@ -3,11 +3,10 @@
   "title": "Start Day Morning Brief",
   "titleGenerationStatus": "success",
   "createdAt": 1769090021256,
-  "updatedAt": 1769092381189,
+  "updatedAt": 1769176627297,
   "lastResponseAt": 1769092381189,
   "sessionId": "7eabcbb3-3982-4b5c-8bfe-a42719f8e0ac",
   "sdkSessionId": "7eabcbb3-3982-4b5c-8bfe-a42719f8e0ac",
-  "currentNote": "Daily/2026-01-22.md",
   "usage": {
     "model": "claude-opus-4-5-20251101",
     "inputTokens": 107,

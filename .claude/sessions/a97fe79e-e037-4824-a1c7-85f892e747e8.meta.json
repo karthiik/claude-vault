@@ -1,0 +1,27 @@
+{
+  "id": "a97fe79e-e037-4824-a1c7-85f892e747e8",
+  "title": "Connect Innovation Sprint goals and Things 3 setup",
+  "titleGenerationStatus": "success",
+  "createdAt": 1769095283689,
+  "updatedAt": 1769095286007,
+  "lastResponseAt": 1769095283691,
+  "sessionId": "a97fe79e-e037-4824-a1c7-85f892e747e8",
+  "sdkSessionId": "a97fe79e-e037-4824-a1c7-85f892e747e8",
+  "currentNote": "1-Projects/Innovation Sprint/0_Innovation_Sprint_Index.md",
+  "usage": {
+    "model": "claude-opus-4-5-20251101",
+    "inputTokens": 103,
+    "cacheCreationInputTokens": 17280,
+    "cacheReadInputTokens": 161160,
+    "contextWindow": 200000,
+    "contextTokens": 178543,
+    "percentage": 89
+  },
+  "toolDiffData": {
+    "toolu_01TbbFXJkTabYvrZEbnjha7W": {
+      "filePath": "/Users/karthik/Documents/3 - Resources/Vaults/SecondBrain26/1-Projects/Innovation Sprint/0_Innovation_Sprint_Index.md",
+      "originalContent": "# Innovation Sprint\n\n#project/innovation-sprint #area/career\n\n> **Goal:** Establish Lockton's innovation rhythm — turning hackathon energy into sustained, visible progress.\n\n---\n\n## Status\n\n| | |\n|---|---|\n| **Owner** | Karthik Ramadoss |\n| **Sponsor** | Byron |\n| **Started** | January 2026 |\n| **Target** | Q1 2026 |\n\n---\n\n## Context\n\nComing out of the 2026 GAS Summit and Hackathon, Byron asked for:\n1. **Synthesis** of Summit & Hackathon survey results → executive deck\n2. **Innovation Sprint plan** — a repeatable framework for driving innovation\n\nThis project supports **G2: Innovation Leadership** in the [[2-Areas/Career & Purpose/2026 Career Goals|2026 Career Goals]].\n\n---\n\n## Key Deliverables\n\n- [ ] Synthesize Summit & Hackathon survey results → deck for Byron #p1\n- [ ] Create Innovation Sprint plan/framework → deliver to Byron #p1\n- [ ] Define sprint cadence and governance model\n- [ ] Identify pilot teams and initial sprint scope\n\n---\n\n## Open Questions\n\n- What's the ideal sprint duration? (2 weeks? 4 weeks?)\n- How do we balance innovation work with BAU delivery?\n- Who are the innovation champions in each region?\n- How do we measure innovation outcomes?\n\n---\n\n## Related\n\n- [[1-Projects/2026 GAS Summit/2026 GAS Summit Reflection|2026 GAS Summit Reflection]]\n- [[HIVE]] — potential pilot for innovation sprint model\n\n---\n\n## Log\n\n### 2026-01-21\n- Project created\n- Tomorrow's #1 priority: Rally the troops around the sprint framework\n\n",
+      "newContent": "# Innovation Sprint\n\n#project/innovation-sprint #area/career\n\n> **Goal:** Establish Lockton's innovation rhythm — turning hackathon energy into sustained, visible progress.\n\n---\n\n## Status\n\n| | |\n|---|---|\n| **Owner** | Karthik Ramadoss |\n| **Sponsor** | Byron |\n| **Started** | January 2026 |\n| **Target** | Q1 2026 |\n\n---\n\n## Goal Alignment\n\n| Code | Goal | How This Project Contributes |\n|------|------|------------------------------|\n| **[[Goals-Reference#C2\\|C2]]** | Innovation Leadership | Establishes repeatable innovation rhythm — sprint framework becomes proof of innovation value |\n| **[[Goals-Reference#C1\\|C1]]** | External Visibility | Success story for speaking/articles — \"How we built an innovation culture at Lockton\" |\n\n---\n\n## Context\n\nComing out of the 2026 GAS Summit and Hackathon, Byron asked for:\n1. **Synthesis** of Summit & Hackathon survey results → executive deck\n2. **Innovation Sprint plan** — a repeatable framework for driving innovation\n\n---\n\n## Key Deliverables\n\n- [ ] Synthesize Summit & Hackathon survey results → deck for Byron #p1\n- [ ] Create Innovation Sprint plan/framework → deliver to Byron #p1\n- [ ] Define sprint cadence and governance model\n- [ ] Identify pilot teams and initial sprint scope\n\n---\n\n## Open Questions\n\n- What's the ideal sprint duration? (2 weeks? 4 weeks?)\n- How do we balance innovation work with BAU delivery?\n- Who are the innovation champions in each region?\n- How do we measure innovation outcomes?\n\n---\n\n## Related\n\n- [[1-Projects/2026 GAS Summit/2026 GAS Summit Reflection|2026 GAS Summit Reflection]]\n- [[HIVE]] — potential pilot for innovation sprint model\n\n---\n\n## Log\n\n### 2026-01-21\n- Project created\n- Tomorrow's #1 priority: Rally the troops around the sprint framework\n\n"
+    }
+  }
+}

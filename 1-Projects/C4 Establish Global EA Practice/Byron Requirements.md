@@ -98,3 +98,27 @@ Requirements and guidance from Byron for building the EA Practice proposal.
 > - Last year we convinced PO, PM and an Architect
 > - Conversation with the 3 Amigos - Nick
 > - Pick an organization who has worked with our competitors
+
+
+
+### **Perficient** 
+- Maturity assessment - current state
+- Operating Model 
+- Setting it up and Lean 
+- Havent done this with Insurance Broker 
+- Have worked with Carriers
+- Benchmarks - will need to build a custom ones 
+	- Market and consultant driven 
+- Lockton input
+	- Questionnaire 
+	- 3 patterns 
+		- ask for data 
+	- Business stakeholders
+		- Key stakeholder interviews 
+	- IT stakeholders 
+		- Key stakeholder interviews 
+	- Surveys 
+- LeanIX implementation
+
+![[Pasted image 20260122141408.png]]
+![[Pasted image 20260122142034.png]]![[Pasted image 20260122142118.png]]![[Pasted image 20260122142832.png]]
