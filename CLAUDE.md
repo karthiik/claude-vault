@@ -300,7 +300,7 @@ When invoked, spawn multiple subagents in parallel to analyze an idea from oppos
 2. **Spawn subagents in parallel** (configs in root folder):
    - **Optimist Agent** (`[[subagent_advocate]]`) — Strategic maximalist. Extrapolates the best outcome and maps what must be true to get there.
    - **Pessimist Agent** (`[[subagent_skeptic]]`) — Strategic minimalist. Extrapolates the worst outcome and maps what would cause it.
-   - **Neutral Agent** (`[[subagent_neutral]]`) — Objective analysis. Maps tradeoffs, surfaces unknowns, clarifies the real decision.
+   - **Realist Agent** (`[[subagent_neutral]]`) — Strategic probabilist. Extrapolates the most likely outcome and maps the pivot points that determine it.
 3. **Each agent documents in `shared_reasoning.md`:**
    - Their assigned perspective
    - Key decision points and logic chain
@@ -344,19 +344,17 @@ Both agents write to `shared_reasoning.md` throughout their analysis:
 
 ---
 
-### Neutral Agent
-**Perspective:** Objective analysis
+### Realist Agent
+**Perspective:** Most-likely extrapolation
 
-**Initial Framing:** [What is this idea, precisely?]
+**The Probable Outcome:** [Expected case]
 
-**Key Tradeoffs:**
-| Option | Gain | Lose |
-|--------|------|------|
-| [A] | [Benefit] | [Cost] |
+**Pivot Points:**
+1. [Factor] — [If good → X; if bad → Y]
 
-**Open Questions:** [What's unclear?]
+**The Real Decision:** [What's actually being decided?]
 
-**Conclusion:** [What the decision really comes down to]
+**Conclusion:** [Most likely outcome + what shifts it]
 ```
 
 ### Extensibility
