@@ -297,9 +297,10 @@ When invoked, spawn multiple subagents in parallel to analyze an idea from oppos
 ### How It Works
 
 1. **User submits an idea** with the trigger phrase
-2. **Spawn subagents in parallel:**
-   - **Advocate Agent** — Builds the case FOR the idea. Finds where it could work, why it's promising, what conditions enable success.
-   - **Skeptic Agent** — Builds the case AGAINST. Finds failure modes, risks, why it might not work, what could go wrong.
+2. **Spawn subagents in parallel** (configs in root folder):
+   - **Advocate Agent** (`[[subagent_advocate]]`) — Builds the case FOR. Finds success conditions, promise, enabling factors.
+   - **Skeptic Agent** (`[[subagent_skeptic]]`) — Builds the case AGAINST. Finds failure modes, risks, hidden costs.
+   - **Neutral Agent** (`[[subagent_neutral]]`) — Objective analysis. Maps tradeoffs, surfaces unknowns, clarifies the real decision.
 3. **Each agent documents in `shared_reasoning.md`:**
    - Their assigned perspective
    - Key decision points and logic chain
@@ -340,6 +341,22 @@ Both agents write to `shared_reasoning.md` throughout their analysis:
 - Identified risk X, severity because...
 
 **Conclusion:** [Summary]
+
+---
+
+### Neutral Agent
+**Perspective:** Objective analysis
+
+**Initial Framing:** [What is this idea, precisely?]
+
+**Key Tradeoffs:**
+| Option | Gain | Lose |
+|--------|------|------|
+| [A] | [Benefit] | [Cost] |
+
+**Open Questions:** [What's unclear?]
+
+**Conclusion:** [What the decision really comes down to]
 ```
 
 ### Extensibility
