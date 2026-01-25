@@ -159,14 +159,17 @@ Internal credibility is established (GAS Summit, AI expert, GCC expansion). The 
 
 *Your point of view on where technology is going — and what others are getting wrong.*
 
-### The Belief (draft)
+**Full thesis:** [[Innovation Thesis]]
 
-> *[Fill in: What do you believe about AI/technology in insurance that most people don't yet understand?]*
+### The Belief (v0.1)
 
-**Prompt questions to develop this:**
-- What's the biggest mistake insurance companies make with AI?
-- What will insurance tech look like in 5 years that people aren't preparing for?
-- What have you learned from 20+ years that the industry keeps ignoring?
+> **"AI in insurance isn't a technology project — it's a workforce transformation. Our digital investments create the foundation; now we scale by enabling every person to use it."**
+
+### Three Pillars
+
+1. **From Pilots to Production** — Build the infrastructure (governance, middleware, agent tracing) that lets experiments scale beyond the sandbox
+2. **Workforce Enablement** — AI is a capability you embed into people, not just processes. Everyone needs to build AI intuition.
+3. **Innovation Discipline** — Every experiment ties to outcomes (optimize, retain, grow). Define success criteria upfront. Measure, kill, or scale.
 
 ### Innovation Portfolio
 
