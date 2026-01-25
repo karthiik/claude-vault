@@ -299,7 +299,7 @@ When invoked, spawn multiple subagents in parallel to analyze an idea from oppos
 1. **User submits an idea** with the trigger phrase
 2. **Spawn subagents in parallel** (configs in root folder):
    - **Optimist Agent** (`[[subagent_advocate]]`) — Strategic maximalist. Extrapolates the best outcome and maps what must be true to get there.
-   - **Skeptic Agent** (`[[subagent_skeptic]]`) — Builds the case AGAINST. Finds failure modes, risks, hidden costs.
+   - **Pessimist Agent** (`[[subagent_skeptic]]`) — Strategic minimalist. Extrapolates the worst outcome and maps what would cause it.
    - **Neutral Agent** (`[[subagent_neutral]]`) — Objective analysis. Maps tradeoffs, surfaces unknowns, clarifies the real decision.
 3. **Each agent documents in `shared_reasoning.md`:**
    - Their assigned perspective
@@ -330,17 +330,17 @@ Both agents write to `shared_reasoning.md` throughout their analysis:
 
 ---
 
-### Skeptic Agent
-**Perspective:** Building the case AGAINST
+### Pessimist Agent
+**Perspective:** Worst-case extrapolation
 
-**Reasoning Chain:**
-1. [First concern] → [implication]
-2. [Second concern] → [implication]
+**The Downside:** [Full scale failure]
 
-**Key Decision Points:**
-- Identified risk X, severity because...
+**For This to Fail:**
+1. [Condition] — [Why it's dangerous]
 
-**Conclusion:** [Summary]
+**Kill Shots:** [1-2 things that would doom it]
+
+**Conclusion:** [Worst way this could go + what would cause it]
 
 ---
 
