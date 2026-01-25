@@ -20,7 +20,7 @@ Read these sources to understand the current state:
 - Run `./cli.sh things areas` — tasks grouped by life area (Health, Career, Learning, etc.)
 
 **Career Goals:**
-- Read `2-Areas/Career & Purpose/2026 Career Goals.md` for G1/G2/G3 alignment
+- Read `2-Areas/Career & Purpose/2026 Career Goals.md` for G1/G2/G3/G4 alignment
 
 ### 2. Cross-Reference: Things 3 ↔ Meetings ↔ Action Items
 
@@ -53,7 +53,15 @@ Look for patterns and connections:
 - What project threads are active right now?
 - Any deadlines approaching?
 
-### 5. Generate Morning Brief
+### 5. Filter Low-Value Meetings
+
+**Exclude from the meetings table:**
+- Daily standups (IT Daily Stand Up, Arch & Delivery Standup, or any meeting with "standup" / "stand up" in the name)
+- These are routine, no-prep, no-context meetings that add noise
+
+**Keep:** 1:1s, project meetings, strategic discussions, external calls, focus blocks — anything with decision-making, relationship, or deliverable value.
+
+### 6. Generate Morning Brief
 
 Present a concise morning brief with:
 
@@ -86,16 +94,17 @@ Present a concise morning brief with:
 - [Deadlines this week]
 ```
 
-### 6. Set #1 Priority
+### 7. Set #1 Priority
 
 Ask the user to confirm or adjust the suggested #1 priority, then update today's daily note in the `## 🎯 #1 Priority` section.
 
-### 7. Career Goal Check
+### 8. Career Goal Check
 
-Quick reminder of which career goals (G1/G2/G3) today's activities support:
+Quick reminder of which career goals today's activities support:
 - G1: External Visibility
 - G2: Innovation Leadership
 - G3: Role Transition
+- G4: Global EA Practice
 
 ## CLI Commands Used
 

@@ -288,6 +288,78 @@ You are a brilliant and patient assistant.
 
 ---
 
+## Agents Gather (Multi-Agent Counsel)
+
+**Trigger phrase:** "Agents gather" or "Counsel, evaluate this"
+
+When invoked, spawn multiple subagents in parallel to analyze an idea from opposing perspectives. Each agent documents their reasoning process in `[[shared_reasoning.md]]`.
+
+### How It Works
+
+1. **User submits an idea** with the trigger phrase
+2. **Spawn subagents in parallel:**
+   - **Advocate Agent** — Builds the case FOR the idea. Finds where it could work, why it's promising, what conditions enable success.
+   - **Skeptic Agent** — Builds the case AGAINST. Finds failure modes, risks, why it might not work, what could go wrong.
+3. **Each agent documents in `shared_reasoning.md`:**
+   - Their assigned perspective
+   - Key decision points and logic chain
+   - Evidence and reasoning
+   - Insights discovered along the way
+4. **Each agent delivers a final report** with their conclusion
+5. **Synthesize** — Compare the two perspectives, surface the tensions, recommend a path forward
+
+### Shared Reasoning Protocol
+
+Both agents write to `shared_reasoning.md` throughout their analysis:
+
+```markdown
+## Session: [Timestamp] — [Idea Summary]
+
+### Advocate Agent
+**Perspective:** Building the case FOR
+
+**Reasoning Chain:**
+1. [First insight] → [implication]
+2. [Second insight] → [implication]
+
+**Key Decision Points:**
+- Considered X vs Y, chose X because...
+
+**Conclusion:** [Summary]
+
+---
+
+### Skeptic Agent
+**Perspective:** Building the case AGAINST
+
+**Reasoning Chain:**
+1. [First concern] → [implication]
+2. [Second concern] → [implication]
+
+**Key Decision Points:**
+- Identified risk X, severity because...
+
+**Conclusion:** [Summary]
+```
+
+### Extensibility
+
+This pattern scales to additional agents:
+- **Pragmatist Agent** — What's the minimum viable version?
+- **Futurist Agent** — What does this look like in 5 years?
+- **Stakeholder Agent** — Who wins, who loses, who needs to be convinced?
+
+Each new agent follows the same protocol: document reasoning in `shared_reasoning.md`, deliver a final report.
+
+### Why This Matters
+
+- **Transparency** — See HOW conclusions were reached, not just WHAT they are
+- **Better decisions** — Forced consideration of opposing views
+- **Persistent record** — Learn from past analyses
+- **Collaborative AI thinking** — Multiple perspectives, single conversation
+
+---
+
 ## AI Documentation
 
 When we do coaching or vault-building sessions, document the process for future reference and tutorial creation.

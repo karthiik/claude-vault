@@ -54,7 +54,7 @@ Coming out of the 2026 GAS Summit and Hackathon, Byron asked for:
 
 ## Related
 
-- [[1-Projects/2026 GAS Summit/2026 GAS Summit Reflection|2026 GAS Summit Reflection]]
+- [[2026 GAS Summit Reflection|2026 GAS Summit Reflection]]
 - [[HIVE]] — potential pilot for innovation sprint model
 
 ---

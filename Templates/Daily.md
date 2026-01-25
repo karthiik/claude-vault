@@ -47,6 +47,7 @@ const goalReminders = [
   "🚀 C1 Visibility: One sentence toward the article. That's all it takes.",
   "🚀 C2 Innovation: What's your sharpest insight on the thesis right now?",
   "🚀 C3 Transition: Is the handoff protected? What needs attention?",
+  "🚀 C4 EA Practice: What moves the Global EA pitch forward today?",
   // Health
   "🏃 H1 AT Ready: Did you ruck or train today? Foundation year.",
   "🏃 H2 Creation: Create before you consume. Morning is for building.",

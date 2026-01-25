@@ -1,0 +1,20 @@
+{
+  "id": "e38b7856-b453-43dc-8f43-108f5f523d14",
+  "title": "Update C4 Strategy Initiatives Project Structure",
+  "titleGenerationStatus": "success",
+  "createdAt": 1769189249871,
+  "updatedAt": 1769266990704,
+  "lastResponseAt": 1769266990704,
+  "sessionId": "e38b7856-b453-43dc-8f43-108f5f523d14",
+  "sdkSessionId": "e38b7856-b453-43dc-8f43-108f5f523d14",
+  "currentNote": "1-Projects/0_Project _Index.md",
+  "usage": {
+    "model": "claude-opus-4-5-20251101",
+    "inputTokens": 855,
+    "cacheCreationInputTokens": 28180,
+    "cacheReadInputTokens": 76018,
+    "contextWindow": 200000,
+    "contextTokens": 105053,
+    "percentage": 53
+  }
+}

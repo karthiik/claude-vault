@@ -10,6 +10,8 @@ status: draft
 
 # Byron Requirements: Global EA Practice Pitch
 
+**Goal:** [[2026 Career Goals|G4: Global EA Practice]] · **Code:** C4
+
 Requirements and guidance from Byron for building the EA Practice proposal.
 
 ---

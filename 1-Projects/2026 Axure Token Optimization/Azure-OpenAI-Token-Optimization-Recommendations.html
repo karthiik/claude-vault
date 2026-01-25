@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure OpenAI Token Optimization | Lockton Recommendations</title>
+    <style>
+        :root {
+            --primary: #0078D4;
+            --primary-dark: #005A9E;
+            --accent: #00B7C3;
+            --accent-green: #107C10;
+            --accent-orange: #FF8C00;
+            --accent-red: #D13438;
+            --bg-light: #F5F7FA;
+            --bg-card: #FFFFFF;
+            --text-dark: #1B1B1B;
+            --text-muted: #605E5C;
+            --border: #EDEBE9;
+            --gradient-blue: linear-gradient(135deg, #0078D4, #00B7C3);
+            --gradient-dark: linear-gradient(135deg, #1B1B1B, #323130);
+            --gradient-purple: linear-gradient(135deg, #5C2D91, #0078D4);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0,120,212,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0,183,195,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: var(--gradient-blue);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            font-size: 1rem;
+        }
+
+        /* Callout Boxes */
+        .callout {
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .callout::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+        }
+        .callout-critical {
+            background: linear-gradient(135deg, #FDE8E8, #FFF5F5);
+            border: 1px solid #F5C6CB;
+        }
+        .callout-critical::before { background: var(--accent-red); }
+        .callout-insight {
+            background: linear-gradient(135deg, #E8F4FD, #F0FAFF);
+            border: 1px solid #BEE3F8;
+        }
+        .callout-insight::before { background: var(--primary); }
+        .callout-success {
+            background: linear-gradient(135deg, #E6F9E6, #F0FFF0);
+            border: 1px solid #C6F0C6;
+        }
+        .callout-success::before { background: var(--accent-green); }
+        .callout-warning {
+            background: linear-gradient(135deg, #FFF8E1, #FFFDE7);
+            border: 1px solid #FFE082;
+        }
+        .callout-warning::before { background: var(--accent-orange); }
+
+        .callout-icon {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        .callout-title {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+        .callout-body {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .card-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-blue);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+        .card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .card ul li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .card ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 32px;
+            font-size: 0.88rem;
+        }
+        .comparison-table thead {
+            background: var(--gradient-dark);
+            color: white;
+        }
+        .comparison-table th {
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .comparison-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tbody tr:hover { background: #F8F9FA; }
+
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .tag-best { background: #D4EDDA; color: #155724; }
+        .tag-good { background: #D1ECF1; color: #0C5460; }
+        .tag-caution { background: #FFF3CD; color: #856404; }
+        .tag-limited { background: #F8D7DA; color: #721C24; }
+
+        /* Metric Cards */
+        .metric-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .metric-card {
+            flex: 1;
+            min-width: 200px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+        .metric-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .metric-label {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* Architecture Diagram */
+        .arch-diagram {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+        .arch-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 20px 0;
+        }
+        .arch-node {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            min-width: 120px;
+        }
+        .arch-node.secondary {
+            background: linear-gradient(135deg, #F3F2F1, #FAF9F8);
+            color: var(--text-dark);
+            border: 2px solid var(--border);
+        }
+        .arch-arrow {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Cost Savings Visual */
+        .savings-bar {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+        .savings-bar-label {
+            min-width: 140px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .savings-bar-track {
+            flex: 1;
+            height: 28px;
+            background: #EDEBE9;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+        }
+        .savings-bar-fill {
+            height: 100%;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Source links */
+        .source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.78rem;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 2px 8px;
+            background: rgba(0,120,212,0.06);
+            border-radius: 4px;
+            margin: 2px 4px 2px 0;
+        }
+        .source-link:hover { background: rgba(0,120,212,0.12); }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border), transparent);
+            margin: 48px 0;
+        }
+
+        /* Decision Matrix */
+        .decision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+        .decision-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 24px;
+            border: 2px solid var(--border);
+        }
+        .decision-card.recommended {
+            border-color: var(--accent-green);
+            position: relative;
+        }
+        .decision-card.recommended::after {
+            content: 'RECOMMENDED';
+            position: absolute;
+            top: -10px;
+            right: 16px;
+            background: var(--accent-green);
+            color: white;
+            padding: 2px 12px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+        .decision-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+        }
+        .decision-card .price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .decision-card .price-unit {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gradient-blue);
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        .timeline-phase {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .timeline-title {
+            font-weight: 600;
+            margin: 4px 0;
+        }
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .card-grid { grid-template-columns: 1fr; }
+            .decision-grid { grid-template-columns: 1fr; }
+            .metric-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>Azure OpenAI Token Optimization</h1>
+    <div class="subtitle">Strategic Recommendations for Lockton's Document Extraction Workloads</div>
+    <div class="badge">January 2026 | GPT-4.1 Data Zone Standard</div>
+</div>
+
+<div class="container">
+
+<!-- Current Situation -->
+<div class="callout callout-critical">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-title">THE PROBLEM: TPM Throttling from Quota Contention</div>
+    <div class="callout-body">
+        Lockton's document extraction utility is hitting <strong>HTTP 429 rate limit errors</strong> on GPT-4.1 Data Zone Standard deployments.
+        Individual requests consume <strong>40K–150K tokens</strong> from documents ranging 50–150 pages. The subscription operates under an <strong>MCA-E (MACC) agreement</strong> with access to 2M TPM, but the <strong>250K TPM allocation is shared across multiple use cases</strong> — even 2 concurrent extraction requests exhaust the shared capacity. Microsoft has confirmed <strong>no additional Data Zone Standard capacity available</strong> — the request remains on a waitlist with no ETA.
+    </div>
+</div>
+
+<!-- Key Metrics -->
+<div class="metric-row">
+    <div class="metric-card">
+        <div class="metric-value">250K</div>
+        <div class="metric-label">Shared TPM Allocation</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value">2M</div>
+        <div class="metric-label">Requested TPM</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value">150K</div>
+        <div class="metric-label">Max Tokens/Request</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value">429</div>
+        <div class="metric-label">Error Code (Rate Limited)</div>
+    </div>
+</div>
+
+
+<div class="divider"></div>
+
+<!-- Section 1: Model Comparison -->
+<h2 class="section-title">Model Cost & Capability Comparison</h2>
+<p class="section-subtitle">All pricing is per 1 million tokens, Global Standard Pay-As-You-Go</p>
+
+<table class="comparison-table">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Input</th>
+            <th>Cached Input</th>
+            <th>Output</th>
+            <th>Context Window</th>
+            <th>Data Zone TPM</th>
+            <th>Extraction Fit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>GPT-4.1</strong></td>
+            <td>$2.00</td>
+            <td>$0.50 <span style="color:var(--accent-green);font-weight:700">(-75%)</span></td>
+            <td>$8.00</td>
+            <td>1M tokens</td>
+            <td>2,000,000</td>
+            <td><span class="tag tag-best">Best</span></td>
+        </tr>
+        <tr>
+            <td><strong>GPT-4.1-mini</strong></td>
+            <td>$0.40</td>
+            <td>$0.10 <span style="color:var(--accent-green);font-weight:700">(-75%)</span></td>
+            <td>$1.60</td>
+            <td>1M tokens</td>
+            <td>50,000,000</td>
+            <td><span class="tag tag-good">Strong</span></td>
+        </tr>
+        <tr>
+            <td><strong>GPT-4.1-nano</strong></td>
+            <td>$0.10</td>
+            <td>$0.025 <span style="color:var(--accent-green);font-weight:700">(-75%)</span></td>
+            <td>$0.40</td>
+            <td>1M tokens</td>
+            <td>50,000,000</td>
+            <td><span class="tag tag-caution">Simple Tasks</span></td>
+        </tr>
+        <tr>
+            <td><strong>GPT-4o</strong></td>
+            <td>$2.50</td>
+            <td>$1.25 <span style="color:var(--accent-orange);font-weight:700">(-50%)</span></td>
+            <td>$10.00</td>
+            <td>128K tokens</td>
+            <td>2,000,000</td>
+            <td><span class="tag tag-good">Good</span></td>
+        </tr>
+        <tr>
+            <td><strong>GPT-4o-mini</strong></td>
+            <td>$0.15</td>
+            <td>$0.075 <span style="color:var(--accent-orange);font-weight:700">(-50%)</span></td>
+            <td>$0.60</td>
+            <td>128K tokens</td>
+            <td>50,000,000</td>
+            <td><span class="tag tag-caution">Basic Only</span></td>
+        </tr>
+        <tr>
+            <td><strong>GPT-5</strong></td>
+            <td>$1.25</td>
+            <td>—</td>
+            <td>$10.00</td>
+            <td>1M tokens</td>
+            <td>TBD</td>
+            <td><span class="tag tag-good">Premium</span></td>
+        </tr>
+        <tr>
+            <td><strong>Mistral OCR</strong></td>
+            <td colspan="3" style="text-align:center">Serverless API (MaaS pricing)</td>
+            <td>30 pages max</td>
+            <td>Serverless</td>
+            <td><span class="tag tag-good">OCR-First</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="source-links" style="margin-bottom:32px">
+    <a href="https://azure.microsoft.com/en-us/pricing/details/ai-foundry-models/aoai/" class="source-link">📄 Azure AI Foundry Pricing</a>
+    <a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/quotas-limits" class="source-link">📄 Quotas & Limits</a>
+</div>
+
+<!-- Cost Savings Visualization -->
+<h3 style="margin-bottom:16px; font-size:1.1rem;">Cost Savings: GPT-4.1 vs. Alternatives (per 1M input tokens)</h3>
+<div style="background:var(--bg-card); border-radius:12px; padding:24px; box-shadow:var(--shadow-sm); margin-bottom:32px;">
+    <div class="savings-bar">
+        <div class="savings-bar-label">GPT-4o</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:100%; background:var(--accent-red);">$2.50</div>
+        </div>
+    </div>
+    <div class="savings-bar">
+        <div class="savings-bar-label">GPT-4.1</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:80%; background:var(--primary);">$2.00 (20% savings)</div>
+        </div>
+    </div>
+    <div class="savings-bar">
+        <div class="savings-bar-label">GPT-4.1 + Cache</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:20%; background:var(--accent-green);">$0.50 (80% savings)</div>
+        </div>
+    </div>
+    <div class="savings-bar">
+        <div class="savings-bar-label">GPT-4.1-mini</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:16%; background:var(--accent);">$0.40 (84% savings)</div>
+        </div>
+    </div>
+    <div class="savings-bar">
+        <div class="savings-bar-label">GPT-4.1-nano</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:4%; background:#5C2D91;">$0.10 (96% savings)</div>
+        </div>
+    </div>
+    <div class="savings-bar">
+        <div class="savings-bar-label">Batch API (4.1)</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:40%; background:linear-gradient(90deg, var(--primary), var(--accent));">$1.00 (60% savings)</div>
+        </div>
+    </div>
+</div>
+
+<div class="callout callout-warning">
+    <div class="callout-icon">⚡</div>
+    <div class="callout-title">CRITICAL: Prompt Caching Does NOT Reduce Throttling</div>
+    <div class="callout-body">
+        Cached tokens <strong>still count toward TPM rate limits</strong>. Caching saves <strong>cost</strong> (75% on GPT-4.1 input) but does not solve the 429 error problem. You need architecture-level changes to address TPM throttling.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Section 2: Optimization Options -->
+<h2 class="section-title">All Available Optimization Levers</h2>
+<p class="section-subtitle">Ranked by impact on your specific TPM throttling problem</p>
+
+<div class="card-grid">
+    <div class="card">
+        <div class="card-number">1</div>
+        <h3>🔀 Multi-Model Routing</h3>
+        <ul>
+            <li><strong>Impact: HIGH</strong> — reduces TPM pressure on GPT-4.1 by 60-80%</li>
+            <li>Use GPT-4.1 only for complex, multi-page reasoning tasks</li>
+            <li>Azure Model Router can deliver <strong>up to 60% cost savings</strong></li>
+            <li>Pre-process with <strong>Azure Document Intelligence</strong> to reduce token consumption before model inference</li>
+        </ul>
+    </div>
+    <div class="card">
+        <div class="card-number">2</div>
+        <h3>📦 Batch API Processing</h3>
+        <ul>
+            <li><strong>Impact: HIGH</strong> — completely eliminates TPM throttling for async work</li>
+            <li>Results within 24 hours, <strong>50% cost discount</strong></li>
+            <li>Separate quota from standard deployments</li>
+            <li>Ideal for bulk quote/binder processing pipelines</li>
+            <li>Supports GPT-4.1, 4.1-mini, 4.1-nano</li>
+        </ul>
+    </div>
+    <div class="card">
+        <div class="card-number">3</div>
+        <h3>⚡ Provisioned Throughput (PTU)</h3>
+        <ul>
+            <li><strong>Impact: HIGH</strong> — guaranteed capacity, no throttling</li>
+            <li>Dedicated compute, not subject to PayGo constraints</li>
+            <li>Break-even at ~60-70% sustained utilization</li>
+            <li>Annual reservation: <strong>up to 85% savings</strong> vs. hourly</li>
+            <li>Microsoft actively recommending for Lockton's case</li>
+        </ul>
+    </div>
+    <div class="card">
+        <div class="card-number">4</div>
+        <h3>🌐 Multi-Region Distribution</h3>
+        <ul>
+            <li><strong>Impact: MEDIUM</strong> — multiplies available TPM by region count</li>
+            <li>Deploy same model across East US + additional regions</li>
+            <li>APIM gateway routes based on capacity/latency</li>
+            <li>Each region gets its own TPM quota independently</li>
+            <li>Data Zone Standard limits processing within data zone</li>
+        </ul>
+    </div>
+    <div class="card">
+        <div class="card-number">5</div>
+        <h3>📄 Document Chunking Strategy</h3>
+        <ul>
+            <li><strong>Impact: MEDIUM</strong> — reduces per-request token count</li>
+            <li>Pre-process with Azure Document Intelligence (OCR + layout)</li>
+            <li>Send structured text instead of raw document images</li>
+            <li>Split 150-page docs into targeted section extractions</li>
+            <li>Reduces tokens from 150K to 20-40K per chunk</li>
+        </ul>
+    </div>
+    <div class="card">
+        <div class="card-number">6</div>
+        <h3>💾 Prompt Caching Optimization</h3>
+        <ul>
+            <li><strong>Impact: COST ONLY</strong> — saves 75% on cached input tokens</li>
+            <li>System prompt + schema definitions cached automatically</li>
+            <li>Requires first 1,024 tokens identical across requests</li>
+            <li>Does NOT reduce TPM consumption (still counts)</li>
+            <li>Best for cost reduction, not throttle mitigation</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Section 3: Recommended Architecture -->
+<h2 class="section-title">Recommended Target Architecture</h2>
+<p class="section-subtitle">APIM Gateway with intelligent routing, PTU primary, PayGo overflow</p>
+
+<div class="arch-diagram">
+    <h4 style="margin-bottom:20px; text-align:center; color:var(--text-muted);">Request Flow: Document Extraction Pipeline</h4>
+    <div class="arch-flow">
+        <div class="arch-node">Incoming<br>Document</div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node secondary">Azure Doc<br>Intelligence<br><small>(OCR + Layout)</small></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node secondary">Complexity<br>Classifier<br><small>(nano model)</small></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">APIM<br>Gateway<br><small>(Smart Router)</small></div>
+    </div>
+    <div class="arch-flow" style="margin-top:20px;">
+        <div style="display:flex; flex-direction:column; gap:12px; align-items:center;">
+            <div class="arch-node" style="background:linear-gradient(135deg, #107C10, #00B7C3);">PTU: GPT-4.1<br><small>Complex extractions</small></div>
+            <div class="arch-node" style="background:var(--gradient-purple);">PayGo: GPT-4.1-mini<br><small>Standard extractions</small></div>
+            <div class="arch-node" style="background:linear-gradient(135deg, #FF8C00, #D13438);">Batch API: GPT-4.1<br><small>Non-urgent bulk processing</small></div>
+        </div>
+    </div>
+</div>
+
+<div class="callout callout-success">
+    <div class="callout-icon">🎯</div>
+    <div class="callout-title">Architecture Benefits Summary</div>
+    <div class="callout-body">
+        <strong>Throughput:</strong> PTU eliminates throttling for critical path • <strong>Cost:</strong> Model routing saves 60%+ on simple tasks • <strong>Reliability:</strong> APIM retry/failover across regions • <strong>Compliance:</strong> All processing stays within Data Zone
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Section 4: Document Extraction Benchmarks -->
+<h2 class="section-title">Document Extraction Accuracy Benchmarks</h2>
+<p class="section-subtitle">Field-level accuracy from published benchmarks and case studies</p>
+
+<table class="comparison-table">
+    <thead>
+        <tr>
+            <th>Approach</th>
+            <th>Accuracy</th>
+            <th>Latency</th>
+            <th>Cost Profile</th>
+            <th>Best For</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>GPT-4.1 + Azure Doc Intelligence</strong></td>
+            <td><span style="color:var(--accent-green);font-weight:700">98%</span></td>
+            <td>~16s/page</td>
+            <td>$2.00/1M input</td>
+            <td>Complex layouts, high-value docs</td>
+        </tr>
+        <tr>
+            <td><strong>GPT-4.1-mini + Structured Output</strong></td>
+            <td><span style="color:var(--accent-green);font-weight:700">95-97%</span></td>
+            <td>~8s/page</td>
+            <td>$0.40/1M input</td>
+            <td>Standard forms, quotes</td>
+        </tr>
+        <tr>
+            <td><strong>Azure Document Intelligence (standalone)</strong></td>
+            <td><span style="color:var(--primary);font-weight:700">95-97%</span></td>
+            <td>~3s/page</td>
+            <td>$0.01/page</td>
+            <td>Structured forms, known layouts</td>
+        </tr>
+        <tr>
+            <td><strong>Mistral Document AI (OCR)</strong></td>
+            <td><span style="color:var(--accent-green);font-weight:700">99%+</span></td>
+            <td>~2000 pgs/min</td>
+            <td>Serverless MaaS</td>
+            <td>High-volume OCR, annotations</td>
+        </tr>
+        <tr>
+            <td><strong>GPT-4.1-nano + prompt engineering</strong></td>
+            <td><span style="color:var(--accent-orange);font-weight:700">88-92%</span></td>
+            <td>~4s/page</td>
+            <td>$0.10/1M input</td>
+            <td>Simple field lookups</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="source-links" style="margin-bottom:32px">
+    <a href="https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/best-practices-for-structured-extraction-from-documents-using-azure-openai/4397282" class="source-link">📄 MS Best Practices: Structured Extraction</a>
+    <a href="https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/choosing-right-ai-tool" class="source-link">📄 Choose the Right AI Tool</a>
+</div>
+
+<div class="callout callout-insight">
+    <div class="callout-icon">📊</div>
+    <div class="callout-title">GPT-4.1 vs. GPT-4o for Document Extraction (Carlyle Case Study)</div>
+    <div class="callout-body">
+        GPT-4.1 demonstrated <strong>50% better performance on long-document tasks</strong> compared to GPT-4o while costing 20% less per token. GPT-4.1-mini <strong>matches or exceeds GPT-4o</strong> at 83% lower cost with half the latency. The 1M token context window eliminates chunking needs for most insurance documents.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Section 5: PTU vs PayGo Decision -->
+<h2 class="section-title">PTU vs. Pay-As-You-Go Decision Matrix</h2>
+<p class="section-subtitle">For Lockton's document extraction workload profile</p>
+
+<div class="decision-grid">
+    <div class="decision-card recommended">
+        <h4>Provisioned Throughput (PTU)</h4>
+        <div class="price">~$2/hr</div>
+        <div class="price-unit">per PTU (Data Zone) • annual reservation saves up to 70%</div>
+        <ul style="list-style:none; padding:0; font-size:0.88rem; color:var(--text-muted);">
+            <li style="padding:4px 0;">✅ Guaranteed capacity — no 429 errors</li>
+            <li style="padding:4px 0;">✅ Predictable monthly cost</li>
+            <li style="padding:4px 0;">✅ Not subject to PayGo waitlists</li>
+            <li style="padding:4px 0;">✅ Model-independent reservations</li>
+            <li style="padding:4px 0;">⚠️ No long context (>128K) support on PTU</li>
+            <li style="padding:4px 0;">⚠️ Minimum commitment required</li>
+        </ul>
+    </div>
+    <div class="decision-card">
+        <h4>Pay-As-You-Go (Current)</h4>
+        <div class="price">$2.00</div>
+        <div class="price-unit">per 1M input tokens • no commitment</div>
+        <ul style="list-style:none; padding:0; font-size:0.88rem; color:var(--text-muted);">
+            <li style="padding:4px 0;">✅ No upfront cost</li>
+            <li style="padding:4px 0;">✅ Supports long context (1M tokens)</li>
+            <li style="padding:4px 0;">✅ Scale to zero when idle</li>
+            <li style="padding:4px 0;">❌ Subject to TPM quotas and throttling</li>
+            <li style="padding:4px 0;">❌ Capacity constraints on waitlist</li>
+            <li style="padding:4px 0;">❌ Variable costs with spiky workloads</li>
+        </ul>
+    </div>
+</div>
+
+<div class="callout callout-warning">
+    <div class="callout-icon">🔍</div>
+    <div class="callout-title">PTU Long Context Limitation</div>
+    <div class="callout-body">
+        PTU does <strong>NOT support prompts exceeding 128K tokens</strong> for GPT-4.1 series. Since Lockton's documents can consume up to 150K tokens per request, a <strong>hybrid approach is required</strong>: PTU for pre-chunked extractions (<128K) and PayGo for full-document processing that exceeds the PTU limit.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Section 6: Structured Output Support -->
+<h2 class="section-title">Structured Output Support by Model</h2>
+<p class="section-subtitle">Critical for schema-enforced extraction (preventing hallucinated fields)</p>
+
+<table class="comparison-table">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>JSON Schema (strict)</th>
+            <th>JSON Object Mode</th>
+            <th>Function Calling</th>
+            <th>Verdict</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>GPT-4.1 / GPT-4.1-mini / nano</strong></td>
+            <td>✅ Full support</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td><span class="tag tag-best">Production Ready</span></td>
+        </tr>
+        <tr>
+            <td><strong>GPT-4o / GPT-4o-mini</strong></td>
+            <td>✅ Full support</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td><span class="tag tag-best">Production Ready</span></td>
+        </tr>
+        <tr>
+            <td><strong>GPT-5</strong></td>
+            <td>✅ Full support</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td><span class="tag tag-best">Production Ready</span></td>
+        </tr>
+        <tr>
+            <td><strong>Mistral Document AI</strong></td>
+            <td>❌ (use annotations API)</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td><span class="tag tag-good">OCR-First Workflow</span></td>
+        </tr>
+        <tr>
+            <td><strong>Mistral Large 3</strong></td>
+            <td>❌ (Azure limitation)</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td><span class="tag tag-caution">Workarounds Needed</span></td>
+        </tr>
+        <tr>
+            <td><strong>Phi-4 / Phi-4-mini</strong></td>
+            <td>❌</td>
+            <td>Partial</td>
+            <td>✅</td>
+            <td><span class="tag tag-caution">Dev/Test Only</span></td>
+        </tr>
+        <tr>
+            <td><strong>Meta Llama 4</strong></td>
+            <td>❌</td>
+            <td>❌ (unreliable)</td>
+            <td>Partial</td>
+            <td><span class="tag tag-limited">Not Recommended</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="source-links" style="margin-bottom:32px">
+    <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/use-structured-outputs?view=foundry-classic" class="source-link">📄 Structured Outputs on Azure AI Foundry</a>
+</div>
+
+<div class="divider"></div>
+
+<!-- Section 7: Implementation Roadmap -->
+<h2 class="section-title">Implementation Roadmap</h2>
+<p class="section-subtitle">Phased approach to resolve throttling while optimizing cost</p>
+
+<div class="timeline">
+    <div class="timeline-item">
+        <div class="timeline-phase">Week 1-2 | Quick Wins</div>
+        <div class="timeline-title">Batch API + Document Intelligence</div>
+        <div class="timeline-desc">
+            • Move non-urgent bulk processing to Batch API (50% cost savings, no throttle)<br>
+            • Add Azure Document Intelligence pre-processing to reduce token consumption by 60-80%
+        </div>
+    </div>
+    <div class="timeline-item">
+        <div class="timeline-phase">Week 3-4 | Architecture Foundation</div>
+        <div class="timeline-title">APIM Gateway + Document Intelligence Pipeline</div>
+        <div class="timeline-desc">
+            • Deploy APIM as front-door with priority-based routing<br>
+            • Integrate Azure Document Intelligence for OCR/layout pre-processing<br>
+            • Implement document chunking to reduce per-request token consumption<br>
+            • Add complexity classifier to route requests to appropriate model tier
+        </div>
+    </div>
+    <div class="timeline-item">
+        <div class="timeline-phase">Month 2 | Capacity Guarantee</div>
+        <div class="timeline-title">PTU Deployment + Hybrid Architecture</div>
+        <div class="timeline-desc">
+            • Complete PTU sizing analysis based on actual usage data (3-month lookback)<br>
+            • Deploy PTU for GPT-4.1 complex extraction workloads (<128K tokens)<br>
+            • Configure APIM: PTU-first → PayGo overflow → Batch fallback<br>
+            • Maintain PayGo for long-context requests (>128K tokens)
+        </div>
+    </div>
+    <div class="timeline-item">
+        <div class="timeline-phase">Month 3+ | Scale & Optimize</div>
+        <div class="timeline-title">Multi-Region + Prompt Caching + Monitoring</div>
+        <div class="timeline-desc">
+            • Add secondary region deployment for DR and overflow capacity<br>
+            • Optimize system prompts for maximum prompt cache hit rate<br>
+            • Implement token usage dashboards and alerting<br>
+            • Evaluate Mistral Document AI for high-volume OCR pre-processing<br>
+            • Annual PTU reservation once utilization patterns are stable
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Section 8: Cost Projection -->
+<h2 class="section-title">Estimated Cost Impact</h2>
+<p class="section-subtitle">Stacking optimization levers for document extraction workloads</p>
+
+<div style="background:var(--bg-card); border-radius:16px; padding:32px; box-shadow:var(--shadow-sm); margin-bottom:32px;">
+    <h4 style="margin-bottom:20px;">Cumulative Savings (assuming 100M tokens/month baseline on GPT-4.1)</h4>
+    <div class="savings-bar" style="margin:12px 0;">
+        <div class="savings-bar-label" style="min-width:200px;">Current (GPT-4.1 only)</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:100%; background:var(--accent-red);">$1,000/mo</div>
+        </div>
+    </div>
+    <div class="savings-bar" style="margin:12px 0;">
+        <div class="savings-bar-label" style="min-width:200px;">+ Model Routing (60/40 split)</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:55%; background:var(--accent-orange);">~$550/mo</div>
+        </div>
+    </div>
+    <div class="savings-bar" style="margin:12px 0;">
+        <div class="savings-bar-label" style="min-width:200px;">+ Prompt Caching</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:35%; background:var(--primary);">~$350/mo</div>
+        </div>
+    </div>
+    <div class="savings-bar" style="margin:12px 0;">
+        <div class="savings-bar-label" style="min-width:200px;">+ Batch API (bulk work)</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:25%; background:var(--accent-green);">~$250/mo</div>
+        </div>
+    </div>
+    <p style="margin-top:16px; font-size:0.85rem; color:var(--text-muted);">
+        * Illustrative based on 100M tokens/month. Actual savings depend on workload mix, cache hit rates, and batch eligibility.
+        At Lockton's scale with multiple use cases, absolute savings will be proportionally larger.
+    </p>
+</div>
+
+<div class="divider"></div>
+
+<!-- Section: Data Privacy & Compliance -->
+<h2 class="section-title">Data Privacy & Compliance by Model</h2>
+<p class="section-subtitle">Critical for Legal/InfoSec review — who processes your data and where it stays</p>
+
+<div class="callout callout-critical">
+    <div class="callout-icon">🔒</div>
+    <div class="callout-title">KEY FINDING: Not All Azure AI Foundry Models Have Equal Data Boundaries</div>
+    <div class="callout-body">
+        There is a <strong>fundamental architectural difference</strong> between how Azure handles first-party models (GPT, DeepSeek, Mistral Doc AI) vs. Anthropic Claude. For most models, <strong>Microsoft is the data processor</strong> and data never leaves Azure infrastructure. For Claude, <strong>Anthropic is the data processor</strong> and data may be processed anywhere in the world. This distinction is critical for insurance client data.
+    </div>
+</div>
+
+<!-- Data Sovereignty Hierarchy -->
+<h3 style="margin-bottom:16px; font-size:1.1rem;">Data Sovereignty Hierarchy (Strongest → Weakest)</h3>
+<div style="background:var(--bg-card); border-radius:12px; padding:24px; box-shadow:var(--shadow-sm); margin-bottom:32px;">
+    <div class="savings-bar" style="margin:12px 0;">
+        <div class="savings-bar-label" style="min-width:220px;">Standard (Regional)</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:100%; background:var(--accent-green);">Data stays in YOUR specific Azure region</div>
+        </div>
+    </div>
+    <div class="savings-bar" style="margin:12px 0;">
+        <div class="savings-bar-label" style="min-width:220px;">Data Zone Standard</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:80%; background:var(--primary);">Data stays within US or EU zone</div>
+        </div>
+    </div>
+    <div class="savings-bar" style="margin:12px 0;">
+        <div class="savings-bar-label" style="min-width:220px;">Global Standard (Azure-native)</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:55%; background:var(--accent-orange);">Data may go anywhere Azure operates; Microsoft is processor</div>
+        </div>
+    </div>
+    <div class="savings-bar" style="margin:12px 0;">
+        <div class="savings-bar-label" style="min-width:220px;">Serverless/MaaS (Partners)</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:45%; background:var(--accent-orange);">Within deployment geography; Microsoft is processor</div>
+        </div>
+    </div>
+    <div class="savings-bar" style="margin:12px 0;">
+        <div class="savings-bar-label" style="min-width:220px;">Anthropic Claude</div>
+        <div class="savings-bar-track">
+            <div class="savings-bar-fill" style="width:25%; background:var(--accent-red);">Data may go ANYWHERE in world; Anthropic is processor</div>
+        </div>
+    </div>
+</div>
+
+<!-- Full Model Privacy Comparison Table -->
+<h3 style="margin-bottom:16px; font-size:1.1rem;">Complete Model Privacy Comparison — Azure AI Foundry</h3>
+
+<table class="comparison-table">
+    <thead>
+        <tr>
+            <th>Model Family</th>
+            <th>Data Zone Standard?</th>
+            <th>Data Processor</th>
+            <th>Training on Data?</th>
+            <th>Data Leaves Azure?</th>
+            <th>Governing Terms</th>
+            <th>Privacy Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Azure OpenAI</strong><br><small>GPT-4.1, GPT-4o, GPT-5, o-series</small></td>
+            <td>✅ YES</td>
+            <td>Microsoft</td>
+            <td>❌ Never</td>
+            <td>❌ No (within zone)</td>
+            <td>Microsoft DPA</td>
+            <td><span class="tag tag-best">Strongest</span></td>
+        </tr>
+        <tr>
+            <td><strong>DeepSeek</strong><br><small>V3.1, R1, R1-0528</small></td>
+            <td>✅ YES (some variants)</td>
+            <td>Microsoft</td>
+            <td>❌ Never</td>
+            <td>❌ No (within zone)</td>
+            <td>Microsoft DPA</td>
+            <td><span class="tag tag-best">Strongest</span></td>
+        </tr>
+        <tr>
+            <td><strong>Mistral Document AI</strong><br><small>mistral-document-ai-2505</small></td>
+            <td>✅ YES (US & EU)</td>
+            <td>Microsoft</td>
+            <td>❌ Never</td>
+            <td>❌ No (within zone)</td>
+            <td>Microsoft DPA</td>
+            <td><span class="tag tag-best">Strongest</span></td>
+        </tr>
+        <tr>
+            <td><strong>xAI Grok</strong><br><small>Grok-3, Grok-3-mini, Grok-4</small></td>
+            <td>✅ YES (some variants)</td>
+            <td>Microsoft</td>
+            <td>❌ Never</td>
+            <td>❌ No (within zone)</td>
+            <td>Microsoft DPA</td>
+            <td><span class="tag tag-best">Strongest</span></td>
+        </tr>
+        <tr>
+            <td><strong>Meta Llama</strong><br><small>Llama-4-Maverick, Llama-3.3-70B</small></td>
+            <td>❌ Global Standard only</td>
+            <td>Microsoft</td>
+            <td>❌ Never</td>
+            <td>⚠️ Any Azure region</td>
+            <td>Microsoft DPA</td>
+            <td><span class="tag tag-good">Strong</span></td>
+        </tr>
+        <tr>
+            <td><strong>Microsoft Phi</strong><br><small>Phi-4, Phi-4-mini</small></td>
+            <td>⚠️ Varies by rollout</td>
+            <td>Microsoft</td>
+            <td>❌ Never</td>
+            <td>Depends on type</td>
+            <td>Microsoft DPA</td>
+            <td><span class="tag tag-good">Strong</span></td>
+        </tr>
+        <tr>
+            <td><strong>Mistral Large/Small</strong><br><small>Large 3, Small, Codestral, OCR</small></td>
+            <td>❌ Serverless only</td>
+            <td>Microsoft</td>
+            <td>❌ Never</td>
+            <td>⚠️ Within geography</td>
+            <td>Mistral Terms + MS DPA</td>
+            <td><span class="tag tag-good">Strong</span></td>
+        </tr>
+        <tr>
+            <td><strong>Cohere</strong><br><small>Command R, Embed, Rerank</small></td>
+            <td>❌ Serverless only</td>
+            <td>Microsoft</td>
+            <td>❌ Never</td>
+            <td>⚠️ Within geography</td>
+            <td>Cohere Terms + MS DPA</td>
+            <td><span class="tag tag-good">Strong</span></td>
+        </tr>
+        <tr style="background:#FFF5F5;">
+            <td><strong>Anthropic Claude</strong><br><small>Opus 4.5, Sonnet 4.5, Haiku 4.5</small></td>
+            <td>❌ Coming soon (US only)</td>
+            <td><strong style="color:var(--accent-red);">Anthropic</strong></td>
+            <td>❌ Not by default</td>
+            <td><strong style="color:var(--accent-red);">✅ YES — anywhere globally</strong></td>
+            <td><strong style="color:var(--accent-red);">Anthropic's Terms</strong></td>
+            <td><span class="tag tag-limited">Weakest</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="source-links" style="margin-bottom:32px">
+    <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/concept-data-privacy" class="source-link">📄 Model Catalog Data Privacy</a>
+    <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/claude-models/data-privacy?view=foundry-classic" class="source-link">📄 Claude Data Privacy</a>
+    <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/data-privacy?view=foundry-classic" class="source-link">📄 Azure OpenAI Data Privacy</a>
+    <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types?view=foundry-classic" class="source-link">📄 Deployment Types Explained</a>
+    <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure?view=foundry-classic" class="source-link">📄 Models Sold Directly by Azure</a>
+    <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners?view=foundry-classic" class="source-link">📄 Partner Models</a>
+</div>
+
+<!-- Detailed Privacy Notes -->
+<div class="card-grid">
+    <div class="card" style="border-top: 4px solid var(--accent-green);">
+        <h3>🛡️ Models Sold Directly by Azure</h3>
+        <ul>
+            <li><strong>Microsoft is data processor</strong> — full DPA coverage</li>
+            <li>Data <strong>never shared</strong> with model providers at runtime</li>
+            <li>Models are <strong>stateless</strong> — no prompts/outputs stored</li>
+            <li>No training on customer data by Microsoft, provider, or third parties</li>
+            <li><strong>Abuse monitoring:</strong> 30-day retention (opt-out via ZDR for EA/MCA)</li>
+            <li>Containers scanned for <strong>data exfiltration vulnerabilities</strong></li>
+        </ul>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--accent-orange);">
+        <h3>🤝 Partner Models (Serverless/MaaS)</h3>
+        <ul>
+            <li><strong>Microsoft is data processor</strong> for serverless API deployments</li>
+            <li>Data NOT shared with model providers (Mistral, Cohere, etc.)</li>
+            <li>Models are <strong>stateless</strong> — prompts/outputs not stored</li>
+            <li>Processing within deployment <strong>geography</strong> (may cross regions within it)</li>
+            <li>Governed by non-Microsoft product terms + Microsoft DPA for hosting</li>
+            <li>Microsoft may share <strong>contact/transaction info</strong> with providers (not prompt data)</li>
+        </ul>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--accent-red);">
+        <h3>⚠️ Anthropic Claude (Exception)</h3>
+        <ul>
+            <li><strong>Anthropic is data processor</strong> — NOT Microsoft</li>
+            <li>Data runs on <strong>Anthropic's infrastructure</strong>, not Azure-managed</li>
+            <li>May be processed <strong>anywhere in the world</strong> (US, EU, Asia, Australia)</li>
+            <li>Stored only in <strong>US data centers</strong> (not your Azure geography)</li>
+            <li><strong>Preview status</strong> — reduced DPA protections apply</li>
+            <li><strong>Excluded from EU Data Boundary</strong> — disabled by default for EU/UK</li>
+            <li>Anthropic commits to not training on commercial API data <strong>by default</strong></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Data Zone Availability Detail -->
+<div class="callout callout-insight">
+    <div class="callout-icon">📋</div>
+    <div class="callout-title">Data Zone Standard Availability for Lockton's Use Cases</div>
+    <div class="callout-body">
+        For the document extraction workload, the <strong>safest models with Data Zone support</strong> are: GPT-4.1 family (best extraction accuracy), DeepSeek R1 (reasoning), and Mistral Document AI (OCR). All three have Microsoft as data processor with full DPA coverage. Mistral Large/Small and Cohere are serverless-only (no Data Zone) but Microsoft still acts as processor. Claude is the only model where data leaves Azure entirely.
+    </div>
+</div>
+
+<!-- Compliance Certifications -->
+<h3 style="margin-bottom:16px; margin-top:32px; font-size:1.1rem;">Azure AI Foundry Compliance Certifications</h3>
+
+<div class="metric-row">
+    <div class="metric-card">
+        <div class="metric-value" style="font-size:1.4rem;">ISO 42001</div>
+        <div class="metric-label">AI Management System (first AI-specific standard)</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value" style="font-size:1.4rem;">SOC 2</div>
+        <div class="metric-label">Type 2 Audit</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value" style="font-size:1.4rem;">ISO 27001</div>
+        <div class="metric-label">Information Security</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value" style="font-size:1.4rem;">HIPAA</div>
+        <div class="metric-label">Healthcare Compliance</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-value" style="font-size:1.4rem;">50+</div>
+        <div class="metric-label">Regional Certifications</div>
+    </div>
+</div>
+
+<div class="source-links" style="margin-bottom:32px">
+    <a href="https://azure.microsoft.com/en-us/blog/microsoft-azure-ai-foundry-models-and-microsoft-security-copilot-achieve-iso-iec-420012023-certification/" class="source-link">📄 ISO 42001 Certification</a>
+    <a href="https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/azure-ai-foundry-security-baseline" class="source-link">📄 AI Foundry Security Baseline</a>
+    <a href="https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA" class="source-link">📄 Microsoft DPA</a>
+    <a href="https://learn.microsoft.com/en-us/azure/compliance/" class="source-link">📄 Azure Compliance Docs</a>
+</div>
+
+<!-- Recommendation for Legal -->
+<div class="callout callout-success">
+    <div class="callout-icon">✅</div>
+    <div class="callout-title">RECOMMENDATION FOR LEGAL/COMPLIANCE TEAM</div>
+    <div class="callout-body">
+        For insurance client data processing, use <strong>Azure OpenAI models (GPT-4.1 family) with Data Zone Standard</strong> as the primary choice — Microsoft is processor, data stays in US zone, full DPA coverage, ZDR available. <strong>Mistral Document AI</strong> is safe for OCR pre-processing (same protections). <strong>Avoid Claude on Azure AI Foundry</strong> for sensitive client data until it exits preview and offers Data Zone support. If Claude is needed, negotiate a Zero Data Retention agreement directly with Anthropic and confirm the arrangement covers Azure Foundry deployments.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Action Items -->
+<h2 class="section-title">Immediate Action Items</h2>
+
+<div class="card-grid" style="grid-template-columns: 1fr;">
+    <div class="card" style="border-left: 4px solid var(--accent-red);">
+        <h3>🔴 This Week — Discuss with Microsoft at Redmond</h3>
+        <ul>
+            <li><strong>Request PTU sizing walkthrough</strong> — Monica offered this; schedule the call</li>
+            <li><strong>Ask about Global Standard as interim</strong> — while Data Zone waitlist clears (if compliance allows)</li>
+            <li><strong>Provide 3-month token consumption data</strong> — Srikanta's ask; needed for PTU right-sizing</li>
+        </ul>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--accent-orange);">
+        <h3>🟠 Next Sprint — Engineering Quick Wins</h3>
+        <ul>
+            <li><strong>Implement Batch API pipeline</strong> — move all non-real-time processing off the TPM-constrained deployment</li>
+            <li><strong>Add Azure Document Intelligence</strong> — pre-process docs to reduce token count by 60-80%</li>
+            <li><strong>Standardize system prompt prefix</strong> — enable prompt caching (first 1,024 tokens must be identical)</li>
+        </ul>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--accent-green);">
+        <h3>🟢 Month 2 — Architecture Implementation</h3>
+        <ul>
+            <li><strong>APIM gateway deployment</strong> — smart routing with PTU-first, PayGo-overflow pattern</li>
+            <li><strong>PTU provisioning</strong> — once sizing data is available and Microsoft confirms capacity</li>
+            <li><strong>Multi-region exploration</strong> — additional East US 2 or other US Data Zone region</li>
+            <li><strong>Formal compliance guidance</strong> — follow up with David Collins on Global vs. Data Zone policy</li>
+        </ul>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Footer -->
+<div style="text-align:center; padding:40px 0; color:var(--text-muted); font-size:0.85rem;">
+    <p><strong>Prepared for Lockton Architecture & App Delivery</strong></p>
+    <p>Sources: Microsoft Learn, Azure AI Foundry Documentation, Azure Pricing Calculator, Microsoft Tech Community</p>
+    <p style="margin-top:8px;">Last updated: January 23, 2026</p>
+</div>
+
+</div>
+</body>
+</html>
