@@ -309,6 +309,10 @@ When invoked, spawn subagents in parallel to analyze an idea. Each agent documen
    - Doubts, uncertainties, revised thinking
 4. **Each agent delivers a final report** with their conclusion
 5. **Synthesize** — Compare perspectives, surface tensions, recommend path forward
+6. **Archive the research** — Save synthesis to `3-Resources/Research/YYYY-MM-DD [Topic] - Council Analysis.md`
+   - Include: idea summary, council consensus, key tensions, kill shots, leverage points, recommendations
+   - Update `shared_reasoning.md` to archive the session with a link to the research file
+   - Sync changes
 
 ### Critical Behavior: Live Documentation
 
