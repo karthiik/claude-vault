@@ -90,7 +90,7 @@ This commits and pushes everything to main.
 
 ```
 ├── CLAUDE.md      # Agent instructions
-├── AGENDA.md      # Current context and open threads
+├── Memory.md      # Long-term context across sessions
 ├── 0-Inbox/       # Quick capture
 ├── 1-Projects/    # Active work with artifacts
 ├── 2-Areas/       # Life areas (health, career, etc.)

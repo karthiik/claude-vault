@@ -65,7 +65,7 @@
 □ Review [[Habit Dashboard]]
 □ Check each Area — any neglected?
 □ Review 1-Projects/ — still active?
-□ Update [[AGENDA]]
+□ Update [[Memory]]
 □ Set next week's #1 focus
 ```
 
@@ -131,7 +131,7 @@
 | [[0_Areas_Index]] | Life Areas (Full Circle) |
 | [[0_Areas_Index\|2026 Goals]] | Annual goals cascade |
 | [[Habit Dashboard]] | Heatmaps + stats |
-| [[AGENDA]] | Current focus |
+| [[Memory]] | Long-term context |
 
 ---
 

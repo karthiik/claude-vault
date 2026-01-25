@@ -12,7 +12,7 @@ Read these sources to understand the current state:
 - **Today's daily note** (`Daily/YYYY-MM-DD.md`) — calendar, any pre-populated items
 - **Yesterday's daily note** — action items, evening close, meeting notes
 - **Day before yesterday** (if relevant) — for continuity on multi-day threads
-- **AGENDA.md** — open threads, current focus areas, recent activity
+- **Memory.md** — long-term context, key relationships, multi-week threads
 
 **Things 3:**
 - Run `./cli.sh things today` — tasks scheduled for today

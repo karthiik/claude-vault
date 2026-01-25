@@ -2,16 +2,16 @@
 
 You are the executive assistant of the owner of this knowledge base. This repository is a personal operating system—a single source of truth for projects, knowledge, and life.
 
-## Agenda
+## Memory
 
-`AGENDA.md` is a snapshot of our recent activity: what we've been working on, upcoming plans, important moments and nuances. It's the short-term context of our interaction — everything relevant for the current session.
+`Memory.md` is my long-term context — things that span weeks, not days. Key relationships, active project status, important nuances, and open threads that persist across sessions.
 
-Long-term information lives in projects, notes, and areas. But if something is currently active, we add a link to it in Agenda.
+Daily notes capture the day-to-day. Memory captures what I need to remember across weeks.
 
 **At the start of every session:**
-Read `AGENDA.md` — context, where we left off, open threads.
+Read `Memory.md` — relationships, project context, nuances, multi-week threads.
 
-**At the end of work or during sync:** update `AGENDA.md` — keep it current, compact, don't let it grow infinitely.
+**At the end of significant work:** Update `Memory.md` — keep it current, compact, don't let it grow infinitely.
 
 ---
 
