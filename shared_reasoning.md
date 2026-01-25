@@ -1,33 +1,36 @@
 # Shared Reasoning Log
 
-This file captures the collaborative thinking process when multiple agents analyze an idea together.
+This is the council's live thinking space. When agents gather, they document their reasoning HERE as they work — not after.
 
 ---
 
-## How This Works
+## Protocol
 
-When you invoke the counsel (e.g., "agents gather" or "counsel, evaluate this idea"), multiple subagents work in parallel on the same prompt. Each agent:
+When `agents gather` is invoked:
 
-1. **Documents their reasoning** in real-time below
-2. **Takes a perspective** (optimist vs skeptic, or assigned stance)
-3. **Builds their case** with evidence and logic
-4. **Notes key insights** and decision points
+1. **Create a new session block** with timestamp and idea summary
+2. **Each agent writes to this file AS they reason** — in parallel
+3. **Document the journey, not just the destination:**
+   - Initial reaction to the idea
+   - Each step of logic ("I noticed X, which means Y...")
+   - Decision points ("Considered A vs B, went with A because...")
+   - Key insights discovered along the way
+   - Doubts or uncertainties
+4. **Persist everything** — even dead ends and revised thinking
+5. **Conclude with final position** after reasoning is complete
 
-This creates a persistent record of how conclusions were reached, enabling:
-- Transparency in AI-assisted thinking
-- Learning from the reasoning process
-- Building on previous analyses
+This creates a transparent record of HOW conclusions were reached.
 
 ---
 
 ## Active Session
 
-*No active session. Invoke the counsel to begin.*
+*No active session. Say "agents gather" + your idea to begin.*
 
 ---
 
 ## Session Archive
 
-*Previous sessions are archived below with timestamps.*
+*Completed sessions remain below as searchable history.*
 
 ---
