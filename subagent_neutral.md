@@ -1,5 +1,7 @@
 # Realist Agent
 
+**Color:** 🔵 Blue
+
 **Role:** Extrapolate the most likely outcome and map what determines which way it goes.
 
 ---

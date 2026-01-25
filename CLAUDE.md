@@ -298,9 +298,9 @@ When invoked, spawn subagents in parallel to analyze an idea. Each agent documen
 
 1. **User submits an idea** with the trigger phrase
 2. **Spawn subagents in parallel** (configs in root folder):
-   - **Optimist Agent** (`[[subagent_advocate]]`) — Strategic maximalist. Extrapolates the best outcome and maps what must be true to get there.
-   - **Pessimist Agent** (`[[subagent_skeptic]]`) — Strategic minimalist. Extrapolates the worst outcome and maps what would cause it.
-   - **Realist Agent** (`[[subagent_neutral]]`) — Strategic probabilist. Extrapolates the most likely outcome and maps the pivot points that determine it.
+   - 🟢 **Optimist Agent** (`[[subagent_advocate]]`) — Strategic maximalist. Extrapolates the best outcome and maps what must be true to get there.
+   - 🔴 **Pessimist Agent** (`[[subagent_skeptic]]`) — Strategic minimalist. Extrapolates the worst outcome and maps what would cause it.
+   - 🔵 **Realist Agent** (`[[subagent_neutral]]`) — Strategic probabilist. Extrapolates the most likely outcome and maps the pivot points that determine it.
 3. **Each agent writes to `shared_reasoning.md` AS THEY WORK:**
    - Initial reaction to the idea
    - Each step of logic ("I noticed X, which means Y...")
@@ -322,50 +322,61 @@ The goal is transparency — you should be able to read `shared_reasoning.md` an
 
 ### Shared Reasoning Format
 
-Each agent writes to `shared_reasoning.md` throughout their analysis:
+Each agent writes to `shared_reasoning.md` using Obsidian callouts for visual differentiation:
 
 ```markdown
 ## Session: [Timestamp] — [Idea Summary]
 
-### Optimist Agent
-**Perspective:** Best-case extrapolation
+> [!success] 🟢 Optimist Agent
+> **Perspective:** Best-case extrapolation
+>
+> **Thinking aloud:**
+> - [Live reasoning as it happens...]
+> - "I noticed X, which means Y..."
+> - "This reminds me of Z, where..."
+>
+> **The Upside:** [Full potential success]
+>
+> **For This to Work:**
+> 1. [Condition] — [Why it matters]
+>
+> **Leverage Points:** [1-2 things that unlock everything]
+>
+> **Conclusion:** [Best way this could go + what it requires]
 
-**The Upside:** [Full potential success]
+> [!danger] 🔴 Pessimist Agent
+> **Perspective:** Worst-case extrapolation
+>
+> **Thinking aloud:**
+> - [Live reasoning as it happens...]
+> - "The risk here is..."
+> - "I've seen this fail when..."
+>
+> **The Downside:** [Full scale failure]
+>
+> **For This to Fail:**
+> 1. [Condition] — [Why it's dangerous]
+>
+> **Kill Shots:** [1-2 things that would doom it]
+>
+> **Conclusion:** [Worst way this could go + what would cause it]
 
-**For This to Work:**
-1. [Condition] — [Why it matters]
-
-**Leverage Points:** [1-2 things that unlock everything]
-
-**Conclusion:** [Best way this could go + what it requires]
-
----
-
-### Pessimist Agent
-**Perspective:** Worst-case extrapolation
-
-**The Downside:** [Full scale failure]
-
-**For This to Fail:**
-1. [Condition] — [Why it's dangerous]
-
-**Kill Shots:** [1-2 things that would doom it]
-
-**Conclusion:** [Worst way this could go + what would cause it]
-
----
-
-### Realist Agent
-**Perspective:** Most-likely extrapolation
-
-**The Probable Outcome:** [Expected case]
-
-**Pivot Points:**
-1. [Factor] — [If good → X; if bad → Y]
-
-**The Real Decision:** [What's actually being decided?]
-
-**Conclusion:** [Most likely outcome + what shifts it]
+> [!info] 🔵 Realist Agent
+> **Perspective:** Most-likely extrapolation
+>
+> **Thinking aloud:**
+> - [Live reasoning as it happens...]
+> - "The base rate for this is..."
+> - "The key variable is..."
+>
+> **The Probable Outcome:** [Expected case]
+>
+> **Pivot Points:**
+> 1. [Factor] — [If good → X; if bad → Y]
+>
+> **The Real Decision:** [What's actually being decided?]
+>
+> **Conclusion:** [Most likely outcome + what shifts it]
 ```
 
 ### Extensibility
