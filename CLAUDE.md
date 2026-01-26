@@ -163,6 +163,11 @@ Daily/
 
 **Create via:** Sidebar calendar icon or `Cmd+P` → "Open today's daily note"
 
+**Maintenance:** When a new month starts, Claudian should create the `Briefs/` subfolder:
+```bash
+mkdir -p Daily/YYYY/MM/Briefs
+```
+
 ### Daily Note Structure
 
 | Section | Purpose |

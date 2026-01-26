@@ -3,17 +3,17 @@
   "title": "Migrate Daily notes to nested folder structure",
   "titleGenerationStatus": "success",
   "createdAt": 1769434952770,
-  "updatedAt": 1769435109750,
-  "lastResponseAt": 1769435109750,
+  "updatedAt": 1769435161510,
+  "lastResponseAt": 1769435161510,
   "sessionId": "24784a59-d200-4007-88cc-55e988e6058b",
   "sdkSessionId": "24784a59-d200-4007-88cc-55e988e6058b",
   "usage": {
     "model": "claude-opus-4-5-20251101",
-    "inputTokens": 3615,
-    "cacheCreationInputTokens": 39606,
-    "cacheReadInputTokens": 817781,
+    "inputTokens": 3633,
+    "cacheCreationInputTokens": 42335,
+    "cacheReadInputTokens": 922329,
     "contextWindow": 200000,
-    "contextTokens": 861002,
+    "contextTokens": 968297,
     "percentage": 100
   },
   "toolDiffData": {
