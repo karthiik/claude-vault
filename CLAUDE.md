@@ -144,8 +144,22 @@ Areas mirror Full Circle:
 
 ### Daily Notes
 
-**Location:** `Daily/YYYY-MM-DD.md`
+**Location:** `Daily/YYYY/MM/YYYY-MM-DD.md`
 **Template:** `Templates/Daily.md`
+
+**Structure:**
+```
+Daily/
+├── 2026/
+│   ├── 01/
+│   │   ├── 2026-01-01.md
+│   │   ├── 2026-01-02.md
+│   │   └── Briefs/          # Morning briefs for this month
+│   ├── 02/
+│   │   └── Briefs/
+│   └── ...
+└── ...
+```
 
 **Create via:** Sidebar calendar icon or `Cmd+P` → "Open today's daily note"
 

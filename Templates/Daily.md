@@ -229,4 +229,4 @@ _%>
 
 ---
 
-**Nav:** [[<% tp.date.now("YYYY-MM-DD", -1) %>|← Yesterday]] · [[<% tp.date.now("YYYY-MM-DD", 1) %>|Tomorrow →]] · [[0_Areas_Index|Areas]] · [[Goals-Reference|Goals]] · [[Memory]]
+**Nav:** [[Daily/<% tp.date.now("YYYY", -1) %>/<% tp.date.now("MM", -1) %>/<% tp.date.now("YYYY-MM-DD", -1) %>|← Yesterday]] · [[Daily/<% tp.date.now("YYYY", 1) %>/<% tp.date.now("MM", 1) %>/<% tp.date.now("YYYY-MM-DD", 1) %>|Tomorrow →]] · [[0_Areas_Index|Areas]] · [[Goals-Reference|Goals]] · [[Memory]]

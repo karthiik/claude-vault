@@ -17,6 +17,10 @@
     {
       "folder": "Daily",
       "template": "Templates/Daily.md"
+    },
+    {
+      "folder": "Daily/2026",
+      "template": "Templates/Daily.md"
     }
   ],
   "enable_file_templates": false,
