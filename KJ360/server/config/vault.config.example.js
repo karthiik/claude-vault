@@ -1,8 +1,10 @@
 /**
- * Vault Configuration
+ * Vault Configuration Template
  *
- * Edit this file to match your Obsidian vault structure.
- * The app will use these settings to find your folders.
+ * Copy this file to vault.config.js and edit to match your vault.
+ *
+ * IMPORTANT: vault.config.js is git-ignored so each vault can have
+ * its own settings without conflicts.
  */
 
 export default {
@@ -134,8 +136,10 @@ export default {
 
   // ===========================================
   // SERVER
+  // Change this if running multiple instances
+  // Dev: 3600, Prod: 3700, etc.
   // ===========================================
   server: {
-    port: 3700  // Prod uses 3700 (dev uses 3600)
+    port: 3600
   }
 };

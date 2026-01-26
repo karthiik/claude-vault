@@ -757,18 +757,79 @@ async function fetchVaultTasks(vaultRoot) {
     const { join } = await import('path');
 
     const tasks = [];
-    const projectFiles = await glob(join(vaultRoot, folders.projects, '**/*.md'));
-    const dailyFiles = await glob(join(vaultRoot, folders.daily, '**/*.md'));
-    const allFiles = [...projectFiles.slice(0, 20), ...dailyFiles.slice(0, 10)];
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    const sevenDaysAgoMs = sevenDaysAgo.getTime();
 
-    for (const file of allFiles) {
+    // === 1. Scan Daily files from last 7 days (by filename date) ===
+    const dailyFiles = await glob(join(vaultRoot, folders.daily, '**/*.md'));
+
+    const recentDailyFiles = dailyFiles.filter(file => {
+      const fileName = file.split('/').pop();
+
+      // Skip _Index files
+      if (fileName.includes('_Index') || fileName.includes('_index')) {
+        return false;
+      }
+
+      // Extract date from filename (expects format like 2026-01-26.md)
+      const dateMatch = fileName.match(/(\d{4}-\d{2}-\d{2})/);
+      if (!dateMatch) return false;
+
+      const fileDate = new Date(dateMatch[1]);
+      return fileDate >= sevenDaysAgo;
+    });
+
+    // Sort daily files by date descending (most recent first)
+    recentDailyFiles.sort((a, b) => {
+      const dateA = a.match(/(\d{4}-\d{2}-\d{2})/)?.[1] || '';
+      const dateB = b.match(/(\d{4}-\d{2}-\d{2})/)?.[1] || '';
+      return dateB.localeCompare(dateA);
+    });
+
+    // === 2. Scan Project files modified in last 7 days (by mtime) ===
+    const projectFiles = await glob(join(vaultRoot, folders.projects, '**/*.md'));
+
+    const recentProjectFiles = [];
+    for (const file of projectFiles) {
+      const fileName = file.split('/').pop();
+
+      // Skip _Index files
+      if (fileName.includes('_Index') || fileName.includes('_index')) {
+        continue;
+      }
+
+      // Check file modification time
+      try {
+        const stat = await fs.stat(file);
+        if (stat.mtimeMs >= sevenDaysAgoMs) {
+          recentProjectFiles.push({ file, mtime: stat.mtimeMs });
+        }
+      } catch {
+        // Skip files that can't be stat'd
+      }
+    }
+
+    // Sort project files by modification time descending
+    recentProjectFiles.sort((a, b) => b.mtime - a.mtime);
+
+    // === 3. Process all files and extract tasks ===
+    const allFiles = [
+      ...recentDailyFiles.map(f => ({ file: f, sourceType: 'daily' })),
+      ...recentProjectFiles.map(f => ({ file: f.file, sourceType: 'project' }))
+    ];
+
+    for (const { file, sourceType } of allFiles) {
       try {
         const content = await fs.readFile(file, 'utf-8');
         const { content: body } = matter(content);
         const relativePath = file.replace(vaultRoot + '/', '');
+        const fileName = file.split('/').pop().replace('.md', '');
 
         const lines = body.split('\n');
         lines.forEach((line, index) => {
+          // Match unchecked tasks: - [ ] task text
+          // Exclude already triaged tasks: - [>] or - [x]
           const taskMatch = line.match(/^(\s*)-\s*\[\s*\]\s*(.+)$/);
           if (taskMatch) {
             const taskText = taskMatch[2];
@@ -780,8 +841,8 @@ async function fetchVaultTasks(vaultRoot) {
               deadline: deadlineMatch ? deadlineMatch[1] : null,
               filePath: relativePath,
               lineNumber: index,
-              sourceType: relativePath.includes(folders.daily) ? 'daily' : 'project',
-              projectName: relativePath.split('/').pop().replace('.md', '')
+              sourceType,
+              projectName: fileName
             });
           }
         });
@@ -790,7 +851,7 @@ async function fetchVaultTasks(vaultRoot) {
       }
     }
 
-    return tasks.slice(0, 10);
+    return tasks;
   } catch (error) {
     console.error('[SmartNow] Vault scan error:', error.message);
     return [];

@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Heart, Users, Rocket, DollarSign, GraduationCap,
   Palette, Home, Star, HelpCircle

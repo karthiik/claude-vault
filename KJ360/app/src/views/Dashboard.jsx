@@ -1,4 +1,4 @@
-import { useState, useEffect, memo, useCallback } from 'react'
+import React, { useState, useEffect, memo, useCallback } from 'react'
 import {
   Calendar, CheckCircle2, AlertCircle, Inbox, ChevronDown, ChevronRight,
   Settings, ChevronLeft, Star, Clock, Zap, Palette, Brain, Target,

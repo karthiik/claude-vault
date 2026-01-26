@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, forwardRef } from 'react'
+import React, { useState, useRef, useEffect, forwardRef } from 'react'
 import { Star, Send, X, Loader2, Terminal, GripVertical } from 'lucide-react'
 
 export default function TheStar({ isOpen, onToggle, width, onWidthChange }) {

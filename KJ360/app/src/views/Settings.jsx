@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Settings as SettingsIcon, Save, RotateCcw, ChevronDown, ChevronRight,
   FileText, Calendar, Sun, Moon, AlertCircle, CheckCircle2, Loader2,

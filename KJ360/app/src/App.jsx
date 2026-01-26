@@ -1,10 +1,11 @@
-import { useState, useEffect, Suspense, lazy } from 'react'
+import React, { useState, useEffect, Suspense, lazy } from 'react'
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import { Home, ListTodo, Star, Settings, Menu, X, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react'
 
 // Lazy-loaded views for code splitting (reduces initial bundle size ~30-40%)
 const DashboardView = lazy(() => import('./views/Dashboard'))
 const SmartNowView = lazy(() => import('./views/SmartNow'))
+const TimelineNowView = lazy(() => import('./views/TimelineNow'))
 const SettingsView = lazy(() => import('./views/Settings'))
 
 // Star sidebar loaded eagerly since it's always visible
@@ -227,6 +228,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<DashboardView />} />
                 <Route path="/now" element={<SmartNowView />} />
+                <Route path="/timeline" element={<TimelineNowView />} />
                 <Route path="/settings" element={<SettingsView />} />
               </Routes>
             </Suspense>

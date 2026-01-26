@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import {
   CheckCircle, Star, Calendar, Clock, Zap, Brain, Sparkles,
   RefreshCw, Loader2, X, ChevronRight, Send, MapPin
@@ -305,48 +305,55 @@ export default function SmartNowView() {
 
         {/* Vault Triage Drawer */}
         {showVaultDrawer && (
-          <aside className="w-80 border-l border-gray-800/50 bg-gray-900/50 p-4 space-y-4">
-            <div className="flex items-center justify-between">
-              <h2 className="font-semibold text-white flex items-center gap-2">
-                📥 Vault Triage
-                <span className="text-xs text-gray-500 font-normal">{vaultTasks.length}</span>
-              </h2>
-              <button
-                onClick={() => setShowVaultDrawer(false)}
-                className="text-gray-500 hover:text-white"
-              >
-                <X size={18} />
-              </button>
+          <aside className="w-96 border-l border-gray-800/50 bg-gray-900/80 backdrop-blur-sm flex flex-col">
+            {/* Header */}
+            <div className="p-4 border-b border-gray-800/50">
+              <div className="flex items-center justify-between mb-1">
+                <h2 className="font-semibold text-white flex items-center gap-2">
+                  📥 Vault Inbox
+                </h2>
+                <button
+                  onClick={() => setShowVaultDrawer(false)}
+                  className="text-gray-500 hover:text-white p-1 rounded hover:bg-gray-800"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+              <p className="text-xs text-gray-500">
+                {vaultTasks.length} task{vaultTasks.length !== 1 ? 's' : ''} to process
+              </p>
             </div>
 
-            <p className="text-xs text-gray-500">
-              Tasks from your vault. Send to Things 3 or complete here.
-            </p>
+            {/* Task list - scrollable */}
+            <div className="flex-1 overflow-y-auto p-2">
+              {vaultTasks.length > 0 ? (
+                <div className="space-y-0.5">
+                  {vaultTasks.map(task => (
+                    <VaultTaskRow
+                      key={task.id}
+                      task={task}
+                      onTriage={() => setTriageTask(task)}
+                      onComplete={() => handleVaultComplete(task)}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="py-12 text-center">
+                  <div className="text-4xl mb-3">✨</div>
+                  <p className="text-gray-400 font-medium">Inbox zero!</p>
+                  <p className="text-xs text-gray-600 mt-1">All vault tasks processed</p>
+                </div>
+              )}
+            </div>
 
-            {vaultTasks.length > 0 ? (
-              <div className="space-y-1">
-                {vaultTasks.map(task => (
-                  <VaultTaskRow
-                    key={task.id}
-                    task={task}
-                    onTriage={() => setTriageTask(task)}
-                    onComplete={() => handleVaultComplete(task)}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="py-8 text-center">
-                <div className="text-3xl mb-2">✨</div>
-                <p className="text-sm text-gray-500">Vault inbox zero!</p>
-              </div>
-            )}
-
-            {/* Triage nudge */}
-            {activeInsights.find(i => i.type === 'nudge') && vaultTasks.length > 0 && (
-              <div className="mt-4 p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg">
-                <p className="text-xs text-amber-300">
-                  💡 {activeInsights.find(i => i.type === 'nudge').message}
-                </p>
+            {/* Footer with bulk actions */}
+            {vaultTasks.length > 0 && (
+              <div className="p-3 border-t border-gray-800/50 bg-gray-900/50">
+                <div className="flex gap-2 text-xs">
+                  <button className="flex-1 py-2 rounded-lg bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white transition-colors">
+                    Process all →
+                  </button>
+                </div>
               </div>
             )}
           </aside>
@@ -525,38 +532,92 @@ function TaskRow({ task, onComplete, isFirst, isCompleting }) {
 }
 
 // ============================================
-// VAULT TASK ROW
+// VAULT TASK ROW (Redesigned)
 // ============================================
 function VaultTaskRow({ task, onTriage, onComplete }) {
+  const [expanded, setExpanded] = useState(false)
   const area = LIFE_AREAS[task.fullCircleArea] || LIFE_AREAS.career
-  const sourceLabels = { daily: '📅', project: '📁', carrier_goal: '🎯' }
+  const energyIcons = { deep: '🧠', creative: '✨', quick: '⚡' }
+
+  // Clean up Obsidian wiki links and formatting
+  const cleanText = (text) => {
+    return text
+      .replace(/\[\[([^\]|]+)(\|[^\]]+)?\]\]/g, '$1') // [[Link|Display]] → Link
+      .replace(/—/g, '-')                              // em-dash to hyphen
+      .replace(/·/g, '')                               // remove bullets
+      .replace(/\s+/g, ' ')                            // collapse whitespace
+      .trim()
+  }
+
+  const displayText = cleanText(task.text)
+  const sourceFile = task.filePath?.split('/').pop()?.replace('.md', '') || 'Vault'
 
   return (
-    <div className="flex items-center gap-3 py-2.5 px-2 hover:bg-gray-700/30 rounded-lg transition-colors">
-      <button
-        onClick={onComplete}
-        className="w-4 h-4 rounded-full border-2 border-gray-600 hover:border-green-500 hover:bg-green-500/20 transition-all flex-shrink-0"
-        title="Complete in vault"
-      />
-
-      <span
-        className="w-2 h-2 rounded-full flex-shrink-0"
-        style={{ backgroundColor: area.color }}
-      />
-
-      <span className="flex-1 text-sm text-gray-300 truncate">{task.text}</span>
-
-      <span className="text-xs text-gray-600" title={task.filePath}>
-        {sourceLabels[task.sourceType] || '📄'}
-      </span>
-
-      <button
-        onClick={onTriage}
-        className="px-2 py-1 rounded text-xs bg-blue-600/20 text-blue-400 hover:bg-blue-600/30 transition-colors flex items-center gap-1"
+    <div className="group">
+      <div
+        className="flex items-center gap-2 py-2 px-2 hover:bg-gray-700/30 rounded-lg transition-colors cursor-pointer"
+        onClick={() => setExpanded(!expanded)}
       >
-        <Send size={10} />
-        Things
-      </button>
+        {/* Complete checkbox */}
+        <button
+          onClick={(e) => { e.stopPropagation(); onComplete(); }}
+          className="w-4 h-4 rounded-full border-2 border-gray-600 hover:border-green-500 hover:bg-green-500/20 transition-all flex-shrink-0"
+          title="Mark done"
+        />
+
+        {/* Area dot */}
+        <span
+          className="w-2 h-2 rounded-full flex-shrink-0"
+          style={{ backgroundColor: area.color }}
+          title={area.name}
+        />
+
+        {/* Task text */}
+        <span className={`flex-1 text-sm text-gray-200 ${expanded ? '' : 'truncate'}`}>
+          {displayText}
+        </span>
+
+        {/* Energy indicator */}
+        <span className="text-xs opacity-60" title={`${task.energy} energy`}>
+          {energyIcons[task.energy] || '⚡'}
+        </span>
+
+        {/* Expand/collapse */}
+        <ChevronRight
+          size={14}
+          className={`text-gray-600 transition-transform ${expanded ? 'rotate-90' : ''}`}
+        />
+      </div>
+
+      {/* Expanded actions */}
+      {expanded && (
+        <div className="ml-6 mr-2 mb-2 pl-2 border-l-2 border-gray-700 space-y-2">
+          {/* Source info */}
+          <div className="text-xs text-gray-500 flex items-center gap-2">
+            <span>📁 {sourceFile}</span>
+            <span className="text-gray-700">•</span>
+            <span style={{ color: area.color }}>{area.name}</span>
+          </div>
+
+          {/* Quick actions */}
+          <div className="flex gap-2">
+            <button
+              onClick={(e) => { e.stopPropagation(); onComplete(); }}
+              className="flex-1 py-1.5 rounded-lg bg-green-600/20 text-green-400 hover:bg-green-600/30 text-xs font-medium transition-colors flex items-center justify-center gap-1"
+            >
+              <CheckCircle size={12} />
+              Done
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); onTriage(); }}
+              className="flex-1 py-1.5 rounded-lg bg-blue-600/20 text-blue-400 hover:bg-blue-600/30 text-xs font-medium transition-colors flex items-center justify-center gap-1"
+            >
+              <Send size={12} />
+              Send to Things
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -640,89 +701,162 @@ function CalendarEventRow({ event, isFirst }) {
 }
 
 // ============================================
-// TRIAGE MODAL
+// TRIAGE MODAL (Redesigned)
 // ============================================
 function TriageModal({ task, projects, onSend, onComplete, onCancel }) {
   const [selectedProject, setSelectedProject] = useState('')
   const [selectedWhen, setSelectedWhen] = useState('today')
+  const [showAdvanced, setShowAdvanced] = useState(false)
   const [deadline, setDeadline] = useState('')
 
+  const area = LIFE_AREAS[task.fullCircleArea] || LIFE_AREAS.career
+
+  // Clean the task text for display
+  const cleanText = (text) => {
+    return text
+      .replace(/\[\[([^\]|]+)(\|[^\]]+)?\]\]/g, '$1')
+      .replace(/—/g, '-')
+      .replace(/·/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+  }
+
+  const displayText = cleanText(task.text)
+
+  // Quick send to today
+  const quickSend = () => {
+    onSend({ project: '', when: 'today', deadline: '' })
+  }
+
   return (
-    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
-      <div className="bg-gray-800 rounded-2xl max-w-md w-full p-6 border border-gray-700">
-        <h3 className="text-lg font-semibold text-white mb-1">Send to Things 3</h3>
-        <p className="text-sm text-gray-400 mb-4 truncate">{task.text}</p>
-
-        {/* Project selector */}
-        <div className="mb-4">
-          <label className="text-xs text-gray-500 block mb-1">Project</label>
-          <select
-            value={selectedProject}
-            onChange={(e) => setSelectedProject(e.target.value)}
-            className="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500"
-          >
-            <option value="">Inbox (no project)</option>
-            {projects.map(group => (
-              <optgroup key={group.area} label={group.area}>
-                {group.projects.map(p => (
-                  <option key={p} value={p}>{p}</option>
-                ))}
-              </optgroup>
-            ))}
-          </select>
-        </div>
-
-        {/* When selector */}
-        <div className="mb-4">
-          <label className="text-xs text-gray-500 block mb-1">When</label>
-          <div className="flex gap-2">
-            {['today', 'tomorrow', 'someday'].map(w => (
-              <button
-                key={w}
-                onClick={() => setSelectedWhen(w)}
-                className={`flex-1 py-2 rounded-lg text-sm capitalize transition-colors ${
-                  selectedWhen === w
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-700 text-gray-400 hover:bg-gray-600'
-                }`}
-              >
-                {w}
-              </button>
-            ))}
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-900 rounded-2xl max-w-lg w-full border border-gray-700 shadow-2xl overflow-hidden">
+        {/* Header */}
+        <div className="p-5 border-b border-gray-800">
+          <div className="flex items-start gap-3">
+            <span
+              className="w-3 h-3 rounded-full mt-1.5 flex-shrink-0"
+              style={{ backgroundColor: area.color }}
+            />
+            <div className="flex-1 min-w-0">
+              <h3 className="text-lg font-medium text-white leading-snug">
+                {displayText}
+              </h3>
+              <div className="flex items-center gap-2 mt-1.5 text-xs text-gray-500">
+                <span style={{ color: area.color }}>{area.name}</span>
+                <span>•</span>
+                <span>{task.filePath?.split('/').pop()?.replace('.md', '')}</span>
+              </div>
+            </div>
+            <button
+              onClick={onCancel}
+              className="text-gray-500 hover:text-white p-1 -mr-1 -mt-1"
+            >
+              <X size={18} />
+            </button>
           </div>
         </div>
 
-        {/* Deadline */}
-        <div className="mb-6">
-          <label className="text-xs text-gray-500 block mb-1">Deadline (optional)</label>
-          <input
-            type="date"
-            value={deadline}
-            onChange={(e) => setDeadline(e.target.value)}
-            className="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500"
-          />
+        {/* Quick actions */}
+        <div className="p-4 space-y-3">
+          {/* Primary action - Send to Today */}
+          <button
+            onClick={quickSend}
+            className="w-full py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-500 font-medium transition-colors flex items-center justify-center gap-2"
+          >
+            <Send size={16} />
+            Send to Things Today
+          </button>
+
+          {/* Secondary actions row */}
+          <div className="flex gap-2">
+            <button
+              onClick={onComplete}
+              className="flex-1 py-2.5 rounded-xl bg-green-600/20 text-green-400 hover:bg-green-600/30 text-sm font-medium transition-colors flex items-center justify-center gap-2"
+            >
+              <CheckCircle size={14} />
+              Already Done
+            </button>
+            <button
+              onClick={() => setShowAdvanced(!showAdvanced)}
+              className="flex-1 py-2.5 rounded-xl bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white text-sm font-medium transition-colors"
+            >
+              {showAdvanced ? 'Simple' : 'Options...'}
+            </button>
+          </div>
+
+          {/* Advanced options (collapsed by default) */}
+          {showAdvanced && (
+            <div className="pt-3 space-y-4 border-t border-gray-800">
+              {/* When selector */}
+              <div>
+                <label className="text-xs text-gray-500 block mb-2">Schedule</label>
+                <div className="flex gap-2">
+                  {[
+                    { key: 'today', label: 'Today', icon: '☀️' },
+                    { key: 'tomorrow', label: 'Tomorrow', icon: '🌙' },
+                    { key: 'someday', label: 'Someday', icon: '📅' }
+                  ].map(w => (
+                    <button
+                      key={w.key}
+                      onClick={() => setSelectedWhen(w.key)}
+                      className={`flex-1 py-2 rounded-lg text-sm transition-colors flex items-center justify-center gap-1.5 ${
+                        selectedWhen === w.key
+                          ? 'bg-blue-600 text-white'
+                          : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                      }`}
+                    >
+                      <span>{w.icon}</span>
+                      {w.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Project selector */}
+              <div>
+                <label className="text-xs text-gray-500 block mb-2">Project</label>
+                <select
+                  value={selectedProject}
+                  onChange={(e) => setSelectedProject(e.target.value)}
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500"
+                >
+                  <option value="">📥 Inbox (no project)</option>
+                  {projects.map(group => (
+                    <optgroup key={group.area} label={group.area}>
+                      {group.projects.map(p => (
+                        <option key={p} value={p}>{p}</option>
+                      ))}
+                    </optgroup>
+                  ))}
+                </select>
+              </div>
+
+              {/* Deadline */}
+              <div>
+                <label className="text-xs text-gray-500 block mb-2">Deadline (optional)</label>
+                <input
+                  type="date"
+                  value={deadline}
+                  onChange={(e) => setDeadline(e.target.value)}
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500"
+                />
+              </div>
+
+              {/* Send with options */}
+              <button
+                onClick={() => onSend({ project: selectedProject, when: selectedWhen, deadline })}
+                className="w-full py-2.5 rounded-xl bg-blue-600 text-white hover:bg-blue-500 text-sm font-medium transition-colors"
+              >
+                Send with Options
+              </button>
+            </div>
+          )}
         </div>
 
-        {/* Actions */}
-        <div className="flex gap-2">
-          <button
-            onClick={onCancel}
-            className="flex-1 py-2 rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 text-sm transition-colors"
-          >
-            Cancel
-          </button>
-          <button
-            onClick={onComplete}
-            className="flex-1 py-2 rounded-lg bg-green-600 text-white hover:bg-green-500 text-sm transition-colors"
-          >
-            ✓ Done
-          </button>
-          <button
-            onClick={() => onSend({ project: selectedProject, when: selectedWhen, deadline })}
-            className="flex-1 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-500 text-sm transition-colors"
-          >
-            → Send
-          </button>
+        {/* Keyboard hint */}
+        <div className="px-4 pb-3 text-center">
+          <span className="text-xs text-gray-600">Press Esc to cancel</span>
         </div>
       </div>
     </div>
