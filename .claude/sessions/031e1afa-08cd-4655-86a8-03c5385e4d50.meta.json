@@ -1,0 +1,20 @@
+{
+  "id": "031e1afa-08cd-4655-86a8-03c5385e4d50",
+  "title": "Start Day Morning Brief",
+  "titleGenerationStatus": "success",
+  "createdAt": 1769433849297,
+  "updatedAt": 1769433851835,
+  "lastResponseAt": 1769433849299,
+  "sessionId": "031e1afa-08cd-4655-86a8-03c5385e4d50",
+  "sdkSessionId": "031e1afa-08cd-4655-86a8-03c5385e4d50",
+  "currentNote": "Daily/2026-01-26.md",
+  "usage": {
+    "model": "claude-opus-4-5-20251101",
+    "inputTokens": 36,
+    "cacheCreationInputTokens": 32569,
+    "cacheReadInputTokens": 97002,
+    "contextWindow": 200000,
+    "contextTokens": 129607,
+    "percentage": 65
+  }
+}
