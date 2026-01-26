@@ -90,7 +90,7 @@ This isn't a gap to close — it's a foundation to keep building on.
 |---------|-------------|--------|
 | [[GPA Hero]] | Study guidance app — building with Vinay | Active |
 | [[External Speaking 2026]] | Land 1-2 external opportunities | Not started |
-| [[Substack Growth]] | Build consistent publishing habit | Not started |
+| [[1-Projects/Substack/0_Substack_Index\|Substack]] | Build consistent publishing habit as "The Signal-Finder" | Active |
 
 ---
 
@@ -196,4 +196,4 @@ This isn't a gap to close — it's a foundation to keep building on.
 
 ---
 
-*Last updated: 2026-01-17*
+*Last updated: 2026-01-25*

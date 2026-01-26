@@ -8,6 +8,22 @@ A running log of interesting links, videos, and articles — collected via Sator
 
 ## 2026-01-25
 
+### 🎥 Why Your Best Employees Quit Using AI After 3 Weeks (And the 6 Skills That Would Have Saved Them)
+- **Source:** https://youtu.be/EZ4EjJ0iDDQ
+- **Type:** YouTube
+- **Context:** Work - AI adoption, training
+- **NotebookLM:** ✅ Created notebook + slide deck
+- **Key themes:** AI adoption failure, employee training, skill gaps, the "missing middle" in AI training
+- **Summary:** The video argues that AI adoption fails because organizations focus on basic tool tours OR advanced technical coding, completely ignoring the intermediate "201-level" management skills where real productivity gains happen. The 6 skills that separate successful AI users from those who quit:
+  1. **Context Assembly** — Knowing exactly what information, background, and constraints to provide AI (not too much, not too little)
+  2. **Quality Judgment** — Determining when to trust AI output vs. when to verify it; detecting hallucinations
+  3. **Task Decomposition** — Breaking complex work into "AI-appropriate chunks" (a management mindset)
+  4. **Iterative Refinement** — Treating first output as a 70% draft, using structured passes to reach 95%
+  5. **Workflow Integration** — Shifting AI from "side tool" to embedded capability ("this is how we do RFPs now")
+  6. **Frontier Recognition** — Explicitly knowing where AI excels vs. fails; sharing failure cases with the team
+  
+  Key insight: None of these are technical prompting skills — they're management and judgment skills applied to a digital collaborator.
+
 ### 📰 We Need to Talk About How We Talk About AI
 - **Source:** https://ftsg.com/we-need-to-talk-about-how-we-talk-about-ai/
 - **Type:** Article
