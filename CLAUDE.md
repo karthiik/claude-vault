@@ -320,6 +320,7 @@ When invoked, spawn subagents in parallel to analyze an idea. Each agent documen
    - 🟢 **Optimist Agent** (`[[subagent_advocate]]`) — Strategic maximalist. Extrapolates the best outcome and maps what must be true to get there.
    - 🔴 **Pessimist Agent** (`[[subagent_skeptic]]`) — Strategic minimalist. Extrapolates the worst outcome and maps what would cause it.
    - 🔵 **Realist Agent** (`[[subagent_neutral]]`) — Strategic probabilist. Extrapolates the most likely outcome and maps the pivot points that determine it.
+   - 🎭 **Stakeholder Agent** (`[[subagent_stakeholder]]`) — Political strategist. Maps who wins, who loses, who must be convinced, and the narrative that lands.
 3. **Each agent writes to `shared_reasoning.md` AS THEY WORK:**
    - Initial reaction to the idea
    - Each step of logic ("I noticed X, which means Y...")

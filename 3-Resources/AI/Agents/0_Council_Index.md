@@ -18,6 +18,7 @@ A decision-analysis framework using parallel AI agents with opposing perspective
 | [[subagent_advocate\|🟢 Optimist]] | Strategic maximalist | Best-case extrapolation |
 | [[subagent_skeptic\|🔴 Pessimist]] | Strategic minimalist | Worst-case extrapolation |
 | [[subagent_neutral\|🔵 Realist]] | Strategic probabilist | Most-likely extrapolation |
+| [[subagent_stakeholder\|🎭 Stakeholder]] | Political strategist | Human landscape mapping |
 
 ---
 
@@ -36,6 +37,7 @@ A decision-analysis framework using parallel AI agents with opposing perspective
 - [[subagent_advocate]] — Optimist agent config
 - [[subagent_skeptic]] — Pessimist agent config
 - [[subagent_neutral]] — Realist agent config
+- [[subagent_stakeholder]] — Stakeholder agent config
 
 ---
 
