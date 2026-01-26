@@ -55,7 +55,7 @@ KJ360 is **70% JFDI-complete** with genuine innovations (Full Circle measurement
 
 ## Links
 
+- [[2026-01-26 KJ360 vs JFDI - Council Analysis]] — Full analysis with agent reasoning
+- [[2026-01-26 Research - Alex Hillman JFDI System PRD]] — Reference spec
 - [[KJ360/BUILD_PROGRESS]] — Current build status
 - [[KJ360/ARCHITECTURE_REVIEW]] — Technical assessment
-- [[2026-01-26 Research - Alex Hillman JFDI System PRD]] — Reference spec
-- [[shared_reasoning]] — Full agent reasoning

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import {
-  CheckCircle, Star, Calendar, Clock, Zap, Brain, Sparkles,
-  RefreshCw, Loader2, X, ChevronRight, Send, MapPin
+  CheckCircle, Calendar, Clock, Zap, Brain, Sparkles,
+  RefreshCw, Loader2, X, ChevronRight, ChevronDown, Send, MapPin,
+  Archive, CalendarDays, MoreHorizontal
 } from 'lucide-react'
 import { AreaDot } from '../components/AreaBadge'
 import ErrorBoundary from '../components/ErrorBoundary'
@@ -25,11 +26,11 @@ export default function SmartNowView() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  const [showVaultDrawer, setShowVaultDrawer] = useState(false)
   const [dismissedInsights, setDismissedInsights] = useState([])
   const [completing, setCompleting] = useState(null)
   const [triageTask, setTriageTask] = useState(null)
   const [thingsProjects, setThingsProjects] = useState([])
+  const [showLater, setShowLater] = useState(false)
 
   // Fetch Smart Now data
   const fetchData = useCallback(async () => {
@@ -170,6 +171,7 @@ export default function SmartNowView() {
 
   const focusTasks = data?.focus || []
   const laterTasks = data?.later || []
+  const allTasks = [...focusTasks, ...laterTasks]
   const vaultTasks = data?.vault || []
   const calendar = data?.calendar || {}
   const importantEvents = calendar.important || []
@@ -187,7 +189,6 @@ export default function SmartNowView() {
           </div>
 
           <div className="flex items-center gap-2">
-            {/* Refresh */}
             <button
               onClick={fetchData}
               disabled={loading}
@@ -195,174 +196,109 @@ export default function SmartNowView() {
             >
               <RefreshCw size={18} className={loading ? 'animate-spin' : ''} />
             </button>
-
-            {/* Vault Triage Button */}
-            <button
-              onClick={() => setShowVaultDrawer(!showVaultDrawer)}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-colors ${
-                showVaultDrawer
-                  ? 'bg-purple-600 text-white'
-                  : 'bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700'
-              }`}
-            >
-              📥 Triage
-              {vaultTasks.length > 0 && (
-                <span className={`px-1.5 py-0.5 rounded-full text-xs ${
-                  showVaultDrawer ? 'bg-white/20' : 'bg-purple-500/30 text-purple-400'
-                }`}>
-                  {vaultTasks.length}
-                </span>
-              )}
-            </button>
           </div>
         </div>
       </header>
 
-      <div className="max-w-2xl mx-auto flex">
-        {/* Main Content */}
-        <main className={`flex-1 px-6 py-6 space-y-6 transition-all ${showVaultDrawer ? 'pr-2' : ''}`}>
+      <main className="max-w-2xl mx-auto px-6 py-6 space-y-6">
 
-          {/* AI Insights - All three strategies shown in a stack */}
-          {activeInsights.length > 0 && (
-            <div className="space-y-2">
-              {activeInsights.map(insight => (
-                <AIInsight
-                  key={insight.id}
-                  insight={insight}
-                  onDismiss={dismissInsight}
+        {/* AI Insights */}
+        {activeInsights.length > 0 && (
+          <div className="space-y-2">
+            {activeInsights.map(insight => (
+              <AIInsight
+                key={insight.id}
+                insight={insight}
+                onDismiss={dismissInsight}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Focus Section - All Tasks */}
+        <section>
+          <div className="flex items-center justify-between mb-2">
+            <h2 className="text-sm text-gray-500 uppercase tracking-wide">Focus</h2>
+            <span className="text-xs text-gray-600">{allTasks.length} tasks</span>
+          </div>
+          <div className="bg-gray-800/30 rounded-xl px-3">
+            {allTasks.length > 0 ? (
+              allTasks.map((task, i) => (
+                <TaskRow
+                  key={task.id}
+                  task={task}
+                  isFirst={i === 0}
+                  onComplete={handleComplete}
+                  isCompleting={completing === task.id}
+                />
+              ))
+            ) : (
+              <div className="py-8 text-center text-gray-500">
+                <Sparkles size={24} className="mx-auto mb-2 text-gray-600" />
+                <p>All caught up!</p>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Calendar Section */}
+        <section>
+          <div className="flex items-center justify-between mb-2">
+            <h2 className="text-sm text-gray-500 uppercase tracking-wide">Today's Calendar</h2>
+            <span className="text-xs text-gray-600">{importantEvents.length} key meetings</span>
+          </div>
+          <div className="bg-gray-800/30 rounded-xl px-3">
+            {importantEvents.length > 0 ? (
+              importantEvents.map((event, i) => (
+                <CalendarEventRow key={i} event={event} isFirst={i === 0} />
+              ))
+            ) : (
+              <div className="py-6 text-center text-gray-500">
+                <Calendar size={20} className="mx-auto mb-2 text-gray-600" />
+                <p className="text-sm">No key meetings today</p>
+              </div>
+            )}
+          </div>
+          {calendar.routineCount > 0 && (
+            <p className="text-xs text-gray-600 mt-2 text-center">
+              {calendar.routineCount} routine meeting{calendar.routineCount > 1 ? 's' : ''} hidden
+            </p>
+          )}
+        </section>
+
+        {/* Triage Section - Bottom of page */}
+        {vaultTasks.length > 0 && (
+          <section className="pt-4 border-t border-gray-700/50">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">📥</span>
+                <h2 className="text-sm text-gray-500 uppercase tracking-wide">Triage</h2>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-400">
+                  {vaultTasks.length}
+                </span>
+              </div>
+            </div>
+
+            <div className="bg-gray-800/30 rounded-xl overflow-hidden">
+              {vaultTasks.map((task, i) => (
+                <TriageTaskRow
+                  key={task.id}
+                  task={task}
+                  isFirst={i === 0}
+                  onComplete={() => handleVaultComplete(task)}
+                  onSendToday={() => handleSendToThings(task, { when: 'today' })}
+                  onSchedule={() => setTriageTask(task)}
+                  onSomeday={() => handleSendToThings(task, { when: 'someday' })}
                 />
               ))}
             </div>
-          )}
-
-          {/* Focus Section */}
-          <section>
-            <h2 className="text-sm text-gray-500 uppercase tracking-wide mb-2">Focus</h2>
-            <div className="bg-gray-800/30 rounded-xl px-3">
-              {focusTasks.length > 0 ? (
-                focusTasks.map((task, i) => (
-                  <TaskRow
-                    key={task.id}
-                    task={task}
-                    isFirst={i === 0}
-                    onComplete={handleComplete}
-                    isCompleting={completing === task.id}
-                  />
-                ))
-              ) : (
-                <div className="py-8 text-center text-gray-500">
-                  <Sparkles size={24} className="mx-auto mb-2 text-gray-600" />
-                  <p>All caught up!</p>
-                </div>
-              )}
-            </div>
           </section>
-
-          {/* Later Section */}
-          {laterTasks.length > 0 && (
-            <section>
-              <h2 className="text-sm text-gray-500 uppercase tracking-wide mb-2">Later</h2>
-              <div className="bg-gray-800/20 rounded-xl px-3">
-                {laterTasks.map((task, i) => (
-                  <TaskRow
-                    key={task.id}
-                    task={task}
-                    isFirst={i === 0}
-                    onComplete={handleComplete}
-                    isCompleting={completing === task.id}
-                  />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Calendar Section */}
-          <section>
-            <div className="flex items-center justify-between mb-2">
-              <h2 className="text-sm text-gray-500 uppercase tracking-wide">Today's Calendar</h2>
-              <span className="text-xs text-gray-600">{importantEvents.length} key meetings</span>
-            </div>
-            <div className="bg-gray-800/30 rounded-xl px-3">
-              {importantEvents.length > 0 ? (
-                importantEvents.map((event, i) => (
-                  <CalendarEventRow key={i} event={event} isFirst={i === 0} />
-                ))
-              ) : (
-                <div className="py-6 text-center text-gray-500">
-                  <Calendar size={20} className="mx-auto mb-2 text-gray-600" />
-                  <p className="text-sm">No key meetings today</p>
-                </div>
-              )}
-            </div>
-            {calendar.routineCount > 0 && (
-              <p className="text-xs text-gray-600 mt-2 text-center">
-                {calendar.routineCount} routine meeting{calendar.routineCount > 1 ? 's' : ''} hidden (standups, syncs, lunch)
-              </p>
-            )}
-          </section>
-
-        </main>
-
-        {/* Vault Triage Drawer */}
-        {showVaultDrawer && (
-          <aside className="w-96 border-l border-gray-800/50 bg-gray-900/80 backdrop-blur-sm flex flex-col">
-            {/* Header */}
-            <div className="p-4 border-b border-gray-800/50">
-              <div className="flex items-center justify-between mb-1">
-                <h2 className="font-semibold text-white flex items-center gap-2">
-                  📥 Vault Inbox
-                </h2>
-                <button
-                  onClick={() => setShowVaultDrawer(false)}
-                  className="text-gray-500 hover:text-white p-1 rounded hover:bg-gray-800"
-                >
-                  <X size={18} />
-                </button>
-              </div>
-              <p className="text-xs text-gray-500">
-                {vaultTasks.length} task{vaultTasks.length !== 1 ? 's' : ''} to process
-              </p>
-            </div>
-
-            {/* Task list - scrollable */}
-            <div className="flex-1 overflow-y-auto p-2">
-              {vaultTasks.length > 0 ? (
-                <div className="space-y-0.5">
-                  {vaultTasks.map(task => (
-                    <VaultTaskRow
-                      key={task.id}
-                      task={task}
-                      onTriage={() => setTriageTask(task)}
-                      onComplete={() => handleVaultComplete(task)}
-                    />
-                  ))}
-                </div>
-              ) : (
-                <div className="py-12 text-center">
-                  <div className="text-4xl mb-3">✨</div>
-                  <p className="text-gray-400 font-medium">Inbox zero!</p>
-                  <p className="text-xs text-gray-600 mt-1">All vault tasks processed</p>
-                </div>
-              )}
-            </div>
-
-            {/* Footer with bulk actions */}
-            {vaultTasks.length > 0 && (
-              <div className="p-3 border-t border-gray-800/50 bg-gray-900/50">
-                <div className="flex gap-2 text-xs">
-                  <button className="flex-1 py-2 rounded-lg bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white transition-colors">
-                    Process all →
-                  </button>
-                </div>
-              </div>
-            )}
-          </aside>
         )}
-      </div>
+      </main>
 
-      {/* Triage Modal */}
+      {/* Schedule Modal */}
       {triageTask && (
-        <TriageModal
+        <ScheduleModal
           task={triageTask}
           projects={thingsProjects}
           onSend={(options) => handleSendToThings(triageTask, options)}
@@ -379,10 +315,6 @@ export default function SmartNowView() {
 
 // ============================================
 // AI INSIGHT COMPONENT
-// Three insight types:
-// - opportunity (Gap Finder): purple, ⏱️
-// - guardian (Strategic Guardian): amber/orange, 🛡️
-// - balance (Full Circle Pulse): teal/cyan, ⚖️
 // ============================================
 function AIInsight({ insight, onDismiss }) {
   const configs = {
@@ -450,7 +382,7 @@ function AIInsight({ insight, onDismiss }) {
 }
 
 // ============================================
-// TASK ROW COMPONENT
+// TASK ROW COMPONENT (for Things 3 tasks)
 // ============================================
 function TaskRow({ task, onComplete, isFirst, isCompleting }) {
   const [showActions, setShowActions] = useState(false)
@@ -523,7 +455,7 @@ function TaskRow({ task, onComplete, isFirst, isCompleting }) {
             className="p-1 rounded hover:bg-gray-700 text-gray-500 hover:text-white"
             title="More"
           >
-            <ChevronRight size={14} />
+            <MoreHorizontal size={14} />
           </button>
         </div>
       </div>
@@ -532,20 +464,20 @@ function TaskRow({ task, onComplete, isFirst, isCompleting }) {
 }
 
 // ============================================
-// VAULT TASK ROW (Redesigned)
+// TRIAGE TASK ROW - List item with inline actions
 // ============================================
-function VaultTaskRow({ task, onTriage, onComplete }) {
-  const [expanded, setExpanded] = useState(false)
+function TriageTaskRow({ task, isFirst, onComplete, onSendToday, onSchedule, onSomeday }) {
+  const [showActions, setShowActions] = useState(false)
   const area = LIFE_AREAS[task.fullCircleArea] || LIFE_AREAS.career
   const energyIcons = { deep: '🧠', creative: '✨', quick: '⚡' }
 
   // Clean up Obsidian wiki links and formatting
   const cleanText = (text) => {
     return text
-      .replace(/\[\[([^\]|]+)(\|[^\]]+)?\]\]/g, '$1') // [[Link|Display]] → Link
-      .replace(/—/g, '-')                              // em-dash to hyphen
-      .replace(/·/g, '')                               // remove bullets
-      .replace(/\s+/g, ' ')                            // collapse whitespace
+      .replace(/\[\[([^\]|]+)(\|[^\]]+)?\]\]/g, '$1')
+      .replace(/—/g, '-')
+      .replace(/·/g, '')
+      .replace(/\s+/g, ' ')
       .trim()
   }
 
@@ -553,71 +485,62 @@ function VaultTaskRow({ task, onTriage, onComplete }) {
   const sourceFile = task.filePath?.split('/').pop()?.replace('.md', '') || 'Vault'
 
   return (
-    <div className="group">
-      <div
-        className="flex items-center gap-2 py-2 px-2 hover:bg-gray-700/30 rounded-lg transition-colors cursor-pointer"
-        onClick={() => setExpanded(!expanded)}
-      >
-        {/* Complete checkbox */}
-        <button
-          onClick={(e) => { e.stopPropagation(); onComplete(); }}
-          className="w-4 h-4 rounded-full border-2 border-gray-600 hover:border-green-500 hover:bg-green-500/20 transition-all flex-shrink-0"
-          title="Mark done"
-        />
+    <div
+      className={`group flex items-center gap-3 py-3 px-4 hover:bg-gray-800/50 transition-colors ${
+        isFirst ? '' : 'border-t border-gray-700/30'
+      }`}
+      onMouseEnter={() => setShowActions(true)}
+      onMouseLeave={() => setShowActions(false)}
+    >
+      {/* Area dot */}
+      <span
+        className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+        style={{ backgroundColor: area.color }}
+        title={area.name}
+      />
 
-        {/* Area dot */}
-        <span
-          className="w-2 h-2 rounded-full flex-shrink-0"
-          style={{ backgroundColor: area.color }}
-          title={area.name}
-        />
-
-        {/* Task text */}
-        <span className={`flex-1 text-sm text-gray-200 ${expanded ? '' : 'truncate'}`}>
-          {displayText}
-        </span>
-
-        {/* Energy indicator */}
-        <span className="text-xs opacity-60" title={`${task.energy} energy`}>
-          {energyIcons[task.energy] || '⚡'}
-        </span>
-
-        {/* Expand/collapse */}
-        <ChevronRight
-          size={14}
-          className={`text-gray-600 transition-transform ${expanded ? 'rotate-90' : ''}`}
-        />
+      {/* Task text & source */}
+      <div className="flex-1 min-w-0">
+        <span className="text-gray-200 block truncate">{displayText}</span>
+        <span className="text-xs text-gray-600">{sourceFile}</span>
       </div>
 
-      {/* Expanded actions */}
-      {expanded && (
-        <div className="ml-6 mr-2 mb-2 pl-2 border-l-2 border-gray-700 space-y-2">
-          {/* Source info */}
-          <div className="text-xs text-gray-500 flex items-center gap-2">
-            <span>📁 {sourceFile}</span>
-            <span className="text-gray-700">•</span>
-            <span style={{ color: area.color }}>{area.name}</span>
-          </div>
+      {/* Energy indicator */}
+      <span className="text-sm opacity-60" title={`${task.energy} energy`}>
+        {energyIcons[task.energy] || '⚡'}
+      </span>
 
-          {/* Quick actions */}
-          <div className="flex gap-2">
-            <button
-              onClick={(e) => { e.stopPropagation(); onComplete(); }}
-              className="flex-1 py-1.5 rounded-lg bg-green-600/20 text-green-400 hover:bg-green-600/30 text-xs font-medium transition-colors flex items-center justify-center gap-1"
-            >
-              <CheckCircle size={12} />
-              Done
-            </button>
-            <button
-              onClick={(e) => { e.stopPropagation(); onTriage(); }}
-              className="flex-1 py-1.5 rounded-lg bg-blue-600/20 text-blue-400 hover:bg-blue-600/30 text-xs font-medium transition-colors flex items-center justify-center gap-1"
-            >
-              <Send size={12} />
-              Send to Things
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Action buttons - always visible on mobile, hover on desktop */}
+      <div className={`flex items-center gap-1 transition-opacity ${showActions ? 'opacity-100' : 'opacity-0 sm:group-hover:opacity-100'}`}>
+        <button
+          onClick={onComplete}
+          className="p-1.5 rounded-lg bg-green-600/20 text-green-400 hover:bg-green-600/30 transition-colors"
+          title="Done"
+        >
+          <CheckCircle size={14} />
+        </button>
+        <button
+          onClick={onSendToday}
+          className="p-1.5 rounded-lg bg-blue-600/20 text-blue-400 hover:bg-blue-600/30 transition-colors"
+          title="Send to Today"
+        >
+          <Send size={14} />
+        </button>
+        <button
+          onClick={onSchedule}
+          className="p-1.5 rounded-lg bg-gray-700/50 text-gray-400 hover:bg-gray-700 hover:text-white transition-colors"
+          title="Schedule for later"
+        >
+          <CalendarDays size={14} />
+        </button>
+        <button
+          onClick={onSomeday}
+          className="p-1.5 rounded-lg bg-gray-700/50 text-gray-500 hover:bg-gray-700 hover:text-gray-300 transition-colors"
+          title="Someday"
+        >
+          <Archive size={14} />
+        </button>
+      </div>
     </div>
   )
 }
@@ -701,17 +624,15 @@ function CalendarEventRow({ event, isFirst }) {
 }
 
 // ============================================
-// TRIAGE MODAL (Redesigned)
+// SCHEDULE MODAL
 // ============================================
-function TriageModal({ task, projects, onSend, onComplete, onCancel }) {
+function ScheduleModal({ task, projects, onSend, onComplete, onCancel }) {
   const [selectedProject, setSelectedProject] = useState('')
-  const [selectedWhen, setSelectedWhen] = useState('today')
-  const [showAdvanced, setShowAdvanced] = useState(false)
+  const [selectedWhen, setSelectedWhen] = useState('tomorrow')
   const [deadline, setDeadline] = useState('')
 
   const area = LIFE_AREAS[task.fullCircleArea] || LIFE_AREAS.career
 
-  // Clean the task text for display
   const cleanText = (text) => {
     return text
       .replace(/\[\[([^\]|]+)(\|[^\]]+)?\]\]/g, '$1')
@@ -723,14 +644,18 @@ function TriageModal({ task, projects, onSend, onComplete, onCancel }) {
 
   const displayText = cleanText(task.text)
 
-  // Quick send to today
-  const quickSend = () => {
-    onSend({ project: '', when: 'today', deadline: '' })
-  }
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') onCancel()
+    }
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [onCancel])
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-gray-900 rounded-2xl max-w-lg w-full border border-gray-700 shadow-2xl overflow-hidden">
+      <div className="bg-gray-900 rounded-2xl max-w-md w-full border border-gray-700 shadow-2xl overflow-hidden">
         {/* Header */}
         <div className="p-5 border-b border-gray-800">
           <div className="flex items-start gap-3">
@@ -742,11 +667,9 @@ function TriageModal({ task, projects, onSend, onComplete, onCancel }) {
               <h3 className="text-lg font-medium text-white leading-snug">
                 {displayText}
               </h3>
-              <div className="flex items-center gap-2 mt-1.5 text-xs text-gray-500">
-                <span style={{ color: area.color }}>{area.name}</span>
-                <span>•</span>
-                <span>{task.filePath?.split('/').pop()?.replace('.md', '')}</span>
-              </div>
+              <p className="text-xs text-gray-500 mt-1" style={{ color: area.color }}>
+                {area.name}
+              </p>
             </div>
             <button
               onClick={onCancel}
@@ -757,105 +680,75 @@ function TriageModal({ task, projects, onSend, onComplete, onCancel }) {
           </div>
         </div>
 
-        {/* Quick actions */}
-        <div className="p-4 space-y-3">
-          {/* Primary action - Send to Today */}
+        {/* Options */}
+        <div className="p-5 space-y-4">
+          {/* When selector */}
+          <div>
+            <label className="text-xs text-gray-500 block mb-2">Schedule for</label>
+            <div className="grid grid-cols-3 gap-2">
+              {[
+                { key: 'tomorrow', label: 'Tomorrow', icon: '🌙' },
+                { key: 'weekend', label: 'Weekend', icon: '☀️' },
+                { key: 'nextweek', label: 'Next Week', icon: '📅' }
+              ].map(w => (
+                <button
+                  key={w.key}
+                  onClick={() => setSelectedWhen(w.key)}
+                  className={`py-2.5 rounded-lg text-sm transition-colors flex items-center justify-center gap-1.5 ${
+                    selectedWhen === w.key
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                  }`}
+                >
+                  <span>{w.icon}</span>
+                  {w.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Project selector */}
+          <div>
+            <label className="text-xs text-gray-500 block mb-2">Project (optional)</label>
+            <select
+              value={selectedProject}
+              onChange={(e) => setSelectedProject(e.target.value)}
+              className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500"
+            >
+              <option value="">📥 Inbox (no project)</option>
+              {projects.map(group => (
+                <optgroup key={group.area} label={group.area}>
+                  {group.projects.map(p => (
+                    <option key={p} value={p}>{p}</option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
+          </div>
+
+          {/* Deadline */}
+          <div>
+            <label className="text-xs text-gray-500 block mb-2">Deadline (optional)</label>
+            <input
+              type="date"
+              value={deadline}
+              onChange={(e) => setDeadline(e.target.value)}
+              className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500"
+            />
+          </div>
+
+          {/* Submit */}
           <button
-            onClick={quickSend}
+            onClick={() => onSend({ project: selectedProject, when: selectedWhen, deadline })}
             className="w-full py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-500 font-medium transition-colors flex items-center justify-center gap-2"
           >
             <Send size={16} />
-            Send to Things Today
+            Schedule Task
           </button>
-
-          {/* Secondary actions row */}
-          <div className="flex gap-2">
-            <button
-              onClick={onComplete}
-              className="flex-1 py-2.5 rounded-xl bg-green-600/20 text-green-400 hover:bg-green-600/30 text-sm font-medium transition-colors flex items-center justify-center gap-2"
-            >
-              <CheckCircle size={14} />
-              Already Done
-            </button>
-            <button
-              onClick={() => setShowAdvanced(!showAdvanced)}
-              className="flex-1 py-2.5 rounded-xl bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white text-sm font-medium transition-colors"
-            >
-              {showAdvanced ? 'Simple' : 'Options...'}
-            </button>
-          </div>
-
-          {/* Advanced options (collapsed by default) */}
-          {showAdvanced && (
-            <div className="pt-3 space-y-4 border-t border-gray-800">
-              {/* When selector */}
-              <div>
-                <label className="text-xs text-gray-500 block mb-2">Schedule</label>
-                <div className="flex gap-2">
-                  {[
-                    { key: 'today', label: 'Today', icon: '☀️' },
-                    { key: 'tomorrow', label: 'Tomorrow', icon: '🌙' },
-                    { key: 'someday', label: 'Someday', icon: '📅' }
-                  ].map(w => (
-                    <button
-                      key={w.key}
-                      onClick={() => setSelectedWhen(w.key)}
-                      className={`flex-1 py-2 rounded-lg text-sm transition-colors flex items-center justify-center gap-1.5 ${
-                        selectedWhen === w.key
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-                      }`}
-                    >
-                      <span>{w.icon}</span>
-                      {w.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Project selector */}
-              <div>
-                <label className="text-xs text-gray-500 block mb-2">Project</label>
-                <select
-                  value={selectedProject}
-                  onChange={(e) => setSelectedProject(e.target.value)}
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500"
-                >
-                  <option value="">📥 Inbox (no project)</option>
-                  {projects.map(group => (
-                    <optgroup key={group.area} label={group.area}>
-                      {group.projects.map(p => (
-                        <option key={p} value={p}>{p}</option>
-                      ))}
-                    </optgroup>
-                  ))}
-                </select>
-              </div>
-
-              {/* Deadline */}
-              <div>
-                <label className="text-xs text-gray-500 block mb-2">Deadline (optional)</label>
-                <input
-                  type="date"
-                  value={deadline}
-                  onChange={(e) => setDeadline(e.target.value)}
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500"
-                />
-              </div>
-
-              {/* Send with options */}
-              <button
-                onClick={() => onSend({ project: selectedProject, when: selectedWhen, deadline })}
-                className="w-full py-2.5 rounded-xl bg-blue-600 text-white hover:bg-blue-500 text-sm font-medium transition-colors"
-              >
-                Send with Options
-              </button>
-            </div>
-          )}
         </div>
 
-        {/* Keyboard hint */}
-        <div className="px-4 pb-3 text-center">
+        {/* Footer */}
+        <div className="px-5 pb-4 text-center">
           <span className="text-xs text-gray-600">Press Esc to cancel</span>
         </div>
       </div>
