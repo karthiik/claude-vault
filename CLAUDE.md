@@ -316,7 +316,7 @@ When invoked, spawn subagents in parallel to analyze an idea. Each agent documen
 ### How It Works
 
 1. **User submits an idea** with the trigger phrase
-2. **Spawn subagents in parallel** (configs in root folder):
+2. **Spawn subagents in parallel** (configs in `3-Resources/AI/Agents/`):
    - 🟢 **Optimist Agent** (`[[subagent_advocate]]`) — Strategic maximalist. Extrapolates the best outcome and maps what must be true to get there.
    - 🔴 **Pessimist Agent** (`[[subagent_skeptic]]`) — Strategic minimalist. Extrapolates the worst outcome and maps what would cause it.
    - 🔵 **Realist Agent** (`[[subagent_neutral]]`) — Strategic probabilist. Extrapolates the most likely outcome and maps the pivot points that determine it.
@@ -407,7 +407,7 @@ Each agent writes to `shared_reasoning.md` using Obsidian callouts for visual di
 **This behavior persists for ANY agent added to the council.**
 
 To add a new agent:
-1. Create `subagent_[name].md` in root folder with: Role, Tone, Core Mandate, Reasoning Approach, Output Format, Stance
+1. Create `subagent_[name].md` in `3-Resources/AI/Agents/` with: Role, Tone, Core Mandate, Reasoning Approach, Output Format, Stance
 2. Add to the spawn list above
 3. The agent automatically inherits the live documentation requirement
 
