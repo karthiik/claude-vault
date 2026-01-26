@@ -154,17 +154,92 @@ When documenting in `[[shared_reasoning.md]]`:
 
 ## Lockton C-Suite Reference
 
-*To be populated with individual profiles:*
+### Byron Clymer — Global CIO ⭐ (Direct Boss)
 
-| Name | Role | What They Care About | Communication Style | History with Karthik |
-|------|------|---------------------|---------------------|---------------------|
-| Byron Clymer | | | | |
-| Claude Yoder | | | | |
-| Nick Serrault | | | | |
-| Glenn Feldman | | | | |
-| Ron Lockton | | | | |
+| Attribute | Details |
+|-----------|---------|
+| **Role** | Global CIO |
+| **Cares about** | Global alignment, IT value told through insurance business stories |
+| **Communication style** | Direct |
+| **Relationship** | Boss for 5 years. Sees Karthik as "the nerd" — technically strong but not the business shmoozer |
+| **Influence lever** | Lead with business impact, not technical elegance. Frame everything in client/revenue terms. |
+| **Growth opportunity** | Shift perception from "nerd" to "strategic technologist who speaks business" |
 
-*Update this section as you learn more about each stakeholder's patterns, preferences, and priorities.*
+**How to pitch Byron:** Open with the insurance/business problem. Let him discover the technical solution is elegant, don't lead with it. Use storylines, not architectures.
+
+---
+
+### Claude Yoder — Chief Digital Officer ✅ (Champion)
+
+| Attribute | Details |
+|-----------|---------|
+| **Role** | Chief Digital Officer |
+| **Cares about** | Aggressive tech build out, moving fast |
+| **Communication style** | Nice and direct |
+| **Relationship** | Respects Karthik. Named him as "face of IT" for Associate Hub transformation (alongside Phil Marsala) |
+| **Influence lever** | Already a champion. Keep him informed, make him look good. |
+| **Watch for** | Nick's concern about stability — Claude's aggression may be creating tension |
+
+**How to pitch Claude:** He's already bought in. Use him strategically — his endorsement carries weight. Keep him in the loop so he can advocate.
+
+---
+
+### Nick Serrault — US COO ⚠️ (Hidden Influencer)
+
+| Attribute | Details |
+|-----------|---------|
+| **Role** | US COO |
+| **Cares about** | Speed of delivery, RevOps |
+| **Communication style** | Short/curt — values brevity |
+| **Relationship** | Limited direct interaction |
+| **Key intel** | In a taxi ride, asked Karthik to "make sure Claude is building something stable" |
+| **Influence lever** | Values stability despite caring about speed. Skeptical of Claude's aggressive approach? |
+
+**How to pitch Nick:** Keep it brief. Lead with outcomes and timelines. The taxi comment reveals he's watching — position yourself as the "stable hands" counterbalance to aggressive build. He may be a quiet ally for "do it right" arguments.
+
+**Political read:** Nick asking *you* to ensure stability means he either doesn't trust Claude fully or sees you as the technical conscience. This is influence capital — use wisely.
+
+---
+
+### Glenn Feldman — East CIO 🤝 (Peer Ally)
+
+| Attribute | Details |
+|-----------|---------|
+| **Role** | East CIO (peer, also reports to Byron) |
+| **Cares about** | Navigating the highly political UK environment |
+| **Communication style** | Funny and snarky |
+| **Relationship** | Respects Karthik |
+| **Influence lever** | Peer ally. Can help navigate Byron, provide political intel on UK dynamics. |
+
+**How to pitch Glenn:** Be direct, match his humor. He's a sounding board and potential coalition partner for initiatives that need global buy-in. His UK political experience is valuable intel.
+
+---
+
+### Ron Lockton — Global CEO 👔 (Distant Executive)
+
+| Attribute | Details |
+|-----------|---------|
+| **Role** | Global CEO |
+| **Cares about** | Global growth |
+| **Communication style** | Less technically inclined |
+| **Relationship** | No direct interaction |
+| **Influence lever** | Influence through Byron and Claude. Keep messages extremely high-level. |
+
+**How to pitch Ron:** You don't — directly. Ensure Byron and Claude can tell the story in terms Ron cares about: growth, competitive advantage, client experience. Give them the soundbite.
+
+---
+
+## Political Dynamics to Remember
+
+1. **Byron sees you as the nerd** — Every pitch is a chance to shift this. Lead with business, close with technical credibility.
+
+2. **Claude is your champion** — But his aggression is being watched. Being his "stable hands" partner raises your profile without threatening his.
+
+3. **Nick's taxi comment is gold** — He revealed concern about Claude's approach to *you*. This positions you as a trusted technical voice at COO level. Don't squander it.
+
+4. **Glenn is a peer ally** — Use him for intel and coalition-building, especially for anything touching UK/global.
+
+5. **Ron is reached through others** — Make sure your initiatives have a "Ron soundbite" ready for Byron/Claude to use.
 
 ---
 
