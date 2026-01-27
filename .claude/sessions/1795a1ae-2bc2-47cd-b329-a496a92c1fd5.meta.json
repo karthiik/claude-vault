@@ -1,0 +1,27 @@
+{
+  "id": "1795a1ae-2bc2-47cd-b329-a496a92c1fd5",
+  "title": "Organize Obsidian image attachments with backlinks",
+  "titleGenerationStatus": "success",
+  "createdAt": 1769539604172,
+  "updatedAt": 1769548737244,
+  "lastResponseAt": 1769548663265,
+  "sessionId": "1795a1ae-2bc2-47cd-b329-a496a92c1fd5",
+  "sdkSessionId": "1795a1ae-2bc2-47cd-b329-a496a92c1fd5",
+  "currentNote": "0-Inbox/2026-01-27 MS Executive Briefing - CX Innovation Journey.md",
+  "usage": {
+    "model": "claude-opus-4-5-20251101",
+    "inputTokens": 443,
+    "cacheCreationInputTokens": 81878,
+    "cacheReadInputTokens": 1011068,
+    "contextWindow": 200000,
+    "contextTokens": 1093389,
+    "percentage": 100
+  },
+  "toolDiffData": {
+    "toolu_018qt8AYVUumsSrQ5u5N6viA": {
+      "filePath": "/Users/karthik/Documents/3 - Resources/Vaults/SecondBrain26/.obsidian/app.json",
+      "originalContent": "{\n  \"alwaysUpdateLinks\": true,\n  \"newFileLocation\": \"folder\",\n  \"newFileFolderPath\": \"0-Inbox\",\n  \"attachmentFolderPath\": \"3-Resources\",\n  \"promptDelete\": false\n}",
+      "newContent": "{\n  \"alwaysUpdateLinks\": true,\n  \"newFileLocation\": \"folder\",\n  \"newFileFolderPath\": \"0-Inbox\",\n  \"attachmentFolderPath\": \"./attachments\",\n  \"promptDelete\": false\n}"
+    }
+  }
+}

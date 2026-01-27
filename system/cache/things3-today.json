@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-01-27T16:18:18.893Z",
+  "expiresAt": "2026-01-27T16:23:18.893Z",
+  "tasks": [
+    {
+      "title": "Synthesize Summit & Hackathon survey results → deck for Byron",
+      "project": "C2: Innovation Leadership"
+    },
+    {
+      "title": "Talk to Byron on Crema/Certs",
+      "project": "C3: West CIO Transition"
+    },
+    {
+      "title": "Book NYC Glenn/Claude trip",
+      "project": "C5 EA Ops"
+    },
+    {
+      "title": "Thomas - Create 90 day plan",
+      "project": "C5 EA Ops"
+    },
+    {
+      "title": "Call Nav on Puru promotion to my team ",
+      "project": "C5 EA Ops"
+    }
+  ]
+}

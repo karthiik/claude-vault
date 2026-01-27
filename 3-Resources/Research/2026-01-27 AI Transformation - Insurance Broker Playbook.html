@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Transformation: The Insurance Broker's Playbook</title>
+    <style>
+        :root {
+            --primary: #0078D4;
+            --primary-dark: #005A9E;
+            --accent: #00B7C3;
+            --accent-green: #107C10;
+            --accent-orange: #FF8C00;
+            --accent-red: #D13438;
+            --bg-light: #F5F7FA;
+            --bg-card: #FFFFFF;
+            --text-dark: #1B1B1B;
+            --text-muted: #605E5C;
+            --border: #EDEBE9;
+            --gradient-blue: linear-gradient(135deg, #0078D4, #00B7C3);
+            --gradient-dark: linear-gradient(135deg, #1B1B1B, #323130);
+            --gradient-purple: linear-gradient(135deg, #5C2D91, #0078D4);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+        .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
+        .section-subtitle { color: var(--text-muted); margin-bottom: 32px; font-size: 1rem; }
+        .divider { height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); margin: 48px 0; }
+
+        /* Hero */
+        .hero {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0,120,212,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%; left: -10%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(0,183,195,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 12px; position: relative; z-index: 1; }
+        .hero .subtitle { font-size: 1.1rem; opacity: 0.85; position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .hero .badge {
+            display: inline-block;
+            background: var(--gradient-blue);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-card);
+            padding: 8px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .tab-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px 16px;
+            border: none;
+            background: transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+        .tab-btn:hover { background: var(--bg-light); }
+        .tab-btn.active {
+            background: var(--gradient-blue);
+            color: white;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Metric Cards */
+        .metric-row { display: flex; gap: 20px; margin-bottom: 32px; flex-wrap: wrap; }
+        .metric-card {
+            flex: 1; min-width: 180px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+        .metric-value {
+            font-size: 2rem; font-weight: 800;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .metric-value.red {
+            background: linear-gradient(135deg, #D13438, #FF8C00);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        .metric-value.green {
+            background: linear-gradient(135deg, #107C10, #00B7C3);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        .metric-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+        .metric-source { font-size: 0.65rem; color: var(--text-muted); margin-top: 8px; opacity: 0.7; }
+
+        /* Callouts */
+        .callout {
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .callout::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 5px;
+        }
+        .callout-critical { background: linear-gradient(135deg, #FDE8E8, #FFF5F5); border: 1px solid #F5C6CB; }
+        .callout-critical::before { background: var(--accent-red); }
+        .callout-insight { background: linear-gradient(135deg, #E8F4FD, #F0FAFF); border: 1px solid #BEE3F8; }
+        .callout-insight::before { background: var(--primary); }
+        .callout-success { background: linear-gradient(135deg, #E6F9E6, #F0FFF0); border: 1px solid #C6F0C6; }
+        .callout-success::before { background: var(--accent-green); }
+        .callout-warning { background: linear-gradient(135deg, #FFF8E1, #FFFDE7); border: 1px solid #FFE082; }
+        .callout-warning::before { background: var(--accent-orange); }
+        .callout-icon { font-size: 1.4rem; margin-bottom: 8px; }
+        .callout-title { font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+        .callout-body { font-size: 0.92rem; color: var(--text-muted); }
+        .callout-body ul { margin-top: 8px; padding-left: 20px; }
+        .callout-body li { margin-bottom: 4px; }
+
+        /* Tables */
+        .comparison-table {
+            width: 100%; border-collapse: separate; border-spacing: 0;
+            background: var(--bg-card);
+            border-radius: 12px; overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 32px; font-size: 0.85rem;
+        }
+        .comparison-table thead { background: var(--gradient-dark); color: white; }
+        .comparison-table th {
+            padding: 14px 16px; text-align: left;
+            font-weight: 600; font-size: 0.78rem;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .comparison-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tbody tr:hover { background: #F8F9FA; }
+        .tag {
+            display: inline-block; padding: 3px 10px;
+            border-radius: 12px; font-size: 0.7rem;
+            font-weight: 600; text-transform: uppercase;
+        }
+        .tag-best { background: #D4EDDA; color: #155724; }
+        .tag-good { background: #D1ECF1; color: #0C5460; }
+        .tag-caution { background: #FFF3CD; color: #856404; }
+        .tag-limited { background: #F8D7DA; color: #721C24; }
+
+        /* Cards */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px; padding: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+        .card-number {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px;
+            background: var(--gradient-blue); color: white;
+            border-radius: 50%; font-weight: 700; font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+        .card h3 { font-size: 1.1rem; margin-bottom: 12px; }
+        .card ul { list-style: none; padding: 0; }
+        .card ul li {
+            padding: 6px 0; padding-left: 20px;
+            position: relative; font-size: 0.88rem; color: var(--text-muted);
+        }
+        .card ul li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+
+        /* Savings Bars */
+        .savings-bar { display: flex; align-items: center; margin: 12px 0; }
+        .savings-bar-label { min-width: 160px; font-size: 0.82rem; font-weight: 600; }
+        .savings-bar-track {
+            flex: 1; height: 32px;
+            background: #EDEBE9; border-radius: 16px;
+            overflow: hidden; position: relative;
+        }
+        .savings-bar-fill {
+            height: 100%; border-radius: 16px;
+            display: flex; align-items: center;
+            justify-content: flex-end; padding-right: 12px;
+            font-size: 0.72rem; font-weight: 700; color: white;
+        }
+
+        /* Architecture Diagram */
+        .arch-diagram {
+            background: var(--bg-card);
+            border-radius: 16px; padding: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid var(--border); margin-bottom: 32px;
+        }
+        .arch-flow { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; padding: 20px 0; }
+        .arch-node {
+            background: var(--gradient-blue); color: white;
+            padding: 12px 20px; border-radius: 10px;
+            font-size: 0.82rem; font-weight: 600;
+            text-align: center; min-width: 110px;
+        }
+        .arch-node.secondary {
+            background: linear-gradient(135deg, #F3F2F1, #FAF9F8);
+            color: var(--text-dark); border: 2px solid var(--border);
+        }
+        .arch-node.danger { background: linear-gradient(135deg, #D13438, #FF8C00); }
+        .arch-node.success { background: linear-gradient(135deg, #107C10, #00B7C3); }
+        .arch-arrow { font-size: 1.5rem; color: var(--primary); font-weight: 700; }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 40px; }
+        .timeline::before {
+            content: '';
+            position: absolute; left: 14px; top: 0; bottom: 0;
+            width: 3px; background: var(--gradient-blue); border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative; margin-bottom: 20px;
+            padding: 16px 20px;
+            background: var(--bg-card); border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute; left: -33px; top: 20px;
+            width: 12px; height: 12px;
+            background: var(--primary); border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        .timeline-item.urgent::before { background: var(--accent-red); box-shadow: 0 0 0 2px var(--accent-red); }
+        .timeline-item.warning::before { background: var(--accent-orange); box-shadow: 0 0 0 2px var(--accent-orange); }
+        .timeline-item.success::before { background: var(--accent-green); box-shadow: 0 0 0 2px var(--accent-green); }
+        .timeline-phase { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--primary); letter-spacing: 0.5px; }
+        .timeline-title { font-weight: 600; margin: 4px 0; }
+        .timeline-desc { font-size: 0.82rem; color: var(--text-muted); }
+
+        /* Source Links */
+        .source-link {
+            display: inline-flex; align-items: center; gap: 4px;
+            font-size: 0.75rem; color: var(--primary); text-decoration: none;
+            padding: 2px 8px; background: rgba(0,120,212,0.06);
+            border-radius: 4px; margin: 2px 4px 2px 0;
+        }
+        .source-link:hover { background: rgba(0,120,212,0.12); }
+
+        /* Quote Block */
+        .quote-block {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 32px 40px;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+        .quote-block::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        .quote-block p {
+            font-size: 1.05rem;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        .quote-block .attribution {
+            margin-top: 16px;
+            font-size: 0.82rem;
+            opacity: 0.8;
+        }
+
+        /* Stat Grid */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .stat-box {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .stat-box .number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-box .label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        .stat-box .source {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .footer a { color: var(--primary); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .card-grid { grid-template-columns: 1fr; }
+            .metric-row { flex-direction: column; }
+            .arch-flow { flex-direction: column; }
+            .tab-btn { min-width: 80px; font-size: 0.75rem; padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>AI Transformation</h1>
+    <div class="subtitle">The Insurance Broker's Playbook: Synthesizing Anthropic's Urgent Warnings with McKinsey's Implementation Blueprint</div>
+    <div class="badge">Broker Strategy | January 2026</div>
+</div>
+
+<div class="container">
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+        <button class="tab-btn" onclick="showTab('urgency')">The Urgency</button>
+        <button class="tab-btn" onclick="showTab('opportunity')">Broker Opportunity</button>
+        <button class="tab-btn" onclick="showTab('clients')">Client Advisory</button>
+        <button class="tab-btn" onclick="showTab('operations')">Operations</button>
+        <button class="tab-btn" onclick="showTab('talent')">Talent & Culture</button>
+        <button class="tab-btn" onclick="showTab('action')">Action Plan</button>
+        <button class="tab-btn" onclick="showTab('lockton')" style="background: linear-gradient(135deg, #5C2D91, #0078D4); color: white;">Lockton</button>
+    </div>
+
+    <!-- TAB 1: Overview -->
+    <div id="overview" class="tab-content active">
+        <h2 class="section-title">Two Perspectives, One Mandate</h2>
+        <p class="section-subtitle">Combining Anthropic CEO Dario Amodei's urgent warnings with McKinsey's implementation playbook for insurance</p>
+
+        <div class="quote-block">
+            <p>AI in insurance isn't a technology project — it's a workforce transformation. Our digital investments create the foundation; now we scale by enabling every person to use it.</p>
+            <div class="attribution">— Innovation Thesis</div>
+        </div>
+
+        <div class="metric-row">
+            <div class="metric-card">
+                <div class="metric-value red">1-2 yrs</div>
+                <div class="metric-label">Until "Powerful AI" Arrives</div>
+                <div class="metric-source">Amodei, Jan 2026</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">6.1x</div>
+                <div class="metric-label">TSR: AI Leaders vs Laggards</div>
+                <div class="metric-source">McKinsey, Jul 2025</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value green">50%</div>
+                <div class="metric-label">Change Management = Half the Effort</div>
+                <div class="metric-source">McKinsey, Jul 2025</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">50%</div>
+                <div class="metric-label">Entry-Level Jobs at Risk (1-5 yrs)</div>
+                <div class="metric-source">Amodei, Jan 2026</div>
+            </div>
+        </div>
+
+        <div class="callout callout-critical">
+            <div class="callout-icon">⚠️</div>
+            <div class="callout-title">THE BROKER'S DILEMMA</div>
+            <div class="callout-body">
+                Insurance brokers face a unique challenge: You don't underwrite or pay claims — <strong>your value is relationships, expertise, and market access</strong>. AI threatens to commoditize advisory services while simultaneously creating new opportunities. The brokers who figure out how to <strong>augment human judgment with AI</strong> — rather than replace it — will dominate the next decade.
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">The Synthesis: Two Lenses on One Transformation</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Dimension</th>
+                    <th>Amodei (Anthropic)</th>
+                    <th>McKinsey</th>
+                    <th>Broker Implication</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Timeline</strong></td>
+                    <td>1-2 years to transformative AI</td>
+                    <td>"Imperative for staying competitive"</td>
+                    <td><span class="tag tag-limited">Act Now</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Approach</strong></td>
+                    <td>Bold but careful; surgical interventions</td>
+                    <td>Domain-based transformation, not pilots</td>
+                    <td>Transform entire functions, not sprinkle AI</td>
+                </tr>
+                <tr>
+                    <td><strong>People</strong></td>
+                    <td>50% entry-level white collar displacement</td>
+                    <td>70-80% digital talent in-house; change mgmt = 50%</td>
+                    <td>Workforce enablement is the real work</td>
+                </tr>
+                <tr>
+                    <td><strong>Risk</strong></td>
+                    <td>Autonomy, misuse, economic disruption</td>
+                    <td>Pilot purgatory, fragmented solutions, poor ROI</td>
+                    <td>Both doing nothing AND doing wrong are risky</td>
+                </tr>
+                <tr>
+                    <td><strong>Opportunity</strong></td>
+                    <td>Essential infrastructure for AI age</td>
+                    <td>10-20% improvement in sales, 20-40% cost reduction</td>
+                    <td>First-movers define the next era of broking</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-bottom:32px">
+            <a href="https://www.darioamodei.com/essay/the-adolescence-of-technology" class="source-link">📄 Amodei: The Adolescence of Technology</a>
+            <a href="https://www.mckinsey.com/industries/financial-services/our-insights/the-future-of-ai-in-the-insurance-industry" class="source-link">📄 McKinsey: Future of AI in Insurance</a>
+        </div>
+    </div>
+
+    <!-- TAB 2: The Urgency -->
+    <div id="urgency" class="tab-content">
+        <h2 class="section-title">The Urgency: Why 2026-2027 Is the Window</h2>
+        <p class="section-subtitle">Amodei's predictions + McKinsey's competitive data = a narrow window to establish leadership</p>
+
+        <div class="quote-block">
+            <p>AI systems will soon be smarter than Nobel Prize winners across relevant fields, capable of autonomous multi-week tasks, operating at 10-100x human speed, and deployable in millions of parallel instances.</p>
+            <div class="attribution">— Dario Amodei, CEO of Anthropic, January 2026</div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">What "Powerful AI" Means for Brokers</h3>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-number" style="background: linear-gradient(135deg, #D13438, #FF8C00);">!</div>
+                <h3>10-100x Human Speed</h3>
+                <ul>
+                    <li><strong>RFP turnaround:</strong> Days → Hours → Minutes</li>
+                    <li><strong>Market research:</strong> Weeks → Real-time</li>
+                    <li><strong>Policy comparison:</strong> Manual → Instant</li>
+                    <li>Competitors using AI will simply move faster</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number" style="background: linear-gradient(135deg, #D13438, #FF8C00);">!</div>
+                <h3>Millions of Parallel Instances</h3>
+                <ul>
+                    <li><strong>Scale economics flip:</strong> Small brokers can compete</li>
+                    <li><strong>24/7 client service</strong> becomes table stakes</li>
+                    <li><strong>Personalization at scale</strong> — every client gets white-glove</li>
+                    <li>Human-only teams can't match AI-augmented competitors</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number" style="background: linear-gradient(135deg, #D13438, #FF8C00);">!</div>
+                <h3>50% Entry-Level Displacement</h3>
+                <ul>
+                    <li><strong>Account coordinators:</strong> High automation risk</li>
+                    <li><strong>Certificate processing:</strong> Near-full automation</li>
+                    <li><strong>Junior analysts:</strong> AI does the research</li>
+                    <li>Your talent pipeline must be rethought entirely</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout callout-insight">
+            <div class="callout-icon">💡</div>
+            <div class="callout-title">THE COMPETITIVE GAP IS WIDENING</div>
+            <div class="callout-body">
+                McKinsey data shows insurance AI leaders have created <strong>6.1x the total shareholder return</strong> of AI laggards over the past five years — compared to only 2-3x in most other sectors. Insurance is uniquely sensitive to AI transformation. <strong>The gap between leaders and laggards will only accelerate.</strong>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">McKinsey's Proven Impact Numbers</h3>
+
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="number">10-20%</div>
+                <div class="label">Improvement in Agent Success Rates</div>
+                <div class="source">McKinsey, 2025</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">10-15%</div>
+                <div class="label">Premium Growth</div>
+                <div class="source">McKinsey, 2025</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">20-40%</div>
+                <div class="label">Cost Reduction in Onboarding</div>
+                <div class="source">McKinsey, 2025</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">15%</div>
+                <div class="label">Increase in Agent Productivity</div>
+                <div class="source">McKinsey, 2025</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">50%</div>
+                <div class="label">Time Saved Drafting Outreach</div>
+                <div class="source">McKinsey, 2025</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">36 pts</div>
+                <div class="label">Customer Satisfaction Increase</div>
+                <div class="source">McKinsey, 2025</div>
+            </div>
+        </div>
+
+        <div class="callout callout-warning">
+            <div class="callout-icon">⚡</div>
+            <div class="callout-title">THE PILOT PURGATORY TRAP</div>
+            <div class="callout-body">
+                McKinsey warns: <strong>"Most insurers remain stuck in pilot purgatory."</strong> They run POCs that never scale. They buy patchwork SaaS solutions with no strategic intent. They hope off-the-shelf AI will transform workflows. <strong>None of this works.</strong> Transformation requires domain-wide rewiring, not scattered experiments.
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">The Window Is Narrowing</h3>
+
+        <div class="savings-bar">
+            <div class="savings-bar-label">Window to Lead</div>
+            <div class="savings-bar-track">
+                <div class="savings-bar-fill" style="width:25%; background: var(--accent-red);">12-24 months</div>
+            </div>
+        </div>
+        <div class="savings-bar">
+            <div class="savings-bar-label">Powerful AI Arrival</div>
+            <div class="savings-bar-track">
+                <div class="savings-bar-fill" style="width:20%; background: var(--accent-orange);">1-2 years (Amodei)</div>
+            </div>
+        </div>
+        <div class="savings-bar">
+            <div class="savings-bar-label">Job Displacement Wave</div>
+            <div class="savings-bar-track">
+                <div class="savings-bar-fill" style="width:50%; background: var(--primary);">1-5 years (50% entry-level)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 3: Broker Opportunity -->
+    <div id="opportunity" class="tab-content">
+        <h2 class="section-title">The Broker Opportunity</h2>
+        <p class="section-subtitle">Where AI creates value specifically for intermediaries — not carriers</p>
+
+        <div class="callout callout-success">
+            <div class="callout-icon">🎯</div>
+            <div class="callout-title">THE BROKER ADVANTAGE</div>
+            <div class="callout-body">
+                Unlike carriers, brokers sit at the intersection of <strong>client relationships + market intelligence + risk expertise</strong>. AI can amplify all three simultaneously. The brokers who embed AI into their advisory model — not just their back office — will become <strong>indispensable trusted advisors</strong> in an era of overwhelming complexity.
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">AI-Enhanced Broker Value Chain</h3>
+
+        <div class="arch-diagram">
+            <h4 style="margin-bottom:20px; text-align:center; color:var(--text-muted);">The AI-Native Broker Model</h4>
+            <div class="arch-flow">
+                <div class="arch-node">AI-Powered<br>Prospecting</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node">Intelligent<br>Risk Discovery</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node secondary">Human<br>Relationship</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node">AI Market<br>Intelligence</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node success">Proactive<br>Risk Advisory</div>
+            </div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-number">1</div>
+                <h3>Market Intelligence at Scale</h3>
+                <ul>
+                    <li><strong>Real-time carrier appetite tracking</strong> across 100+ markets</li>
+                    <li><strong>Automatic rate trend analysis</strong> by industry, geography, risk type</li>
+                    <li><strong>Emerging risk identification</strong> from news, filings, social signals</li>
+                    <li>Your producers become the best-informed in every room</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number">2</div>
+                <h3>Hyperpersonalized Client Advisory</h3>
+                <ul>
+                    <li><strong>AI-generated risk profiles</strong> from client data + external sources</li>
+                    <li><strong>Proactive coverage gap alerts</strong> before renewal</li>
+                    <li><strong>Benchmark reports</strong> showing client vs. industry peers</li>
+                    <li>Every client feels like your only client</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number">3</div>
+                <h3>New Risk Products to Sell</h3>
+                <ul>
+                    <li><strong>AI Liability Coverage</strong> for clients deploying AI systems</li>
+                    <li><strong>Algorithmic E&O</strong> for automated decision-making</li>
+                    <li><strong>Deepfake/Synthetic Media</strong> coverage for reputation damage</li>
+                    <li><strong>Cyber 2.0:</strong> AI-powered attack coverage</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number">4</div>
+                <h3>RFP & Submission Automation</h3>
+                <ul>
+                    <li><strong>Auto-populated submissions</strong> from client data</li>
+                    <li><strong>Instant spec comparison</strong> across carrier quotes</li>
+                    <li><strong>AI-drafted proposals</strong> with human review</li>
+                    <li>Potential: <strong>50% time reduction</strong> in placement workflow</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">McKinsey's Gen AI Use Cases for Brokers</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Use Case</th>
+                    <th>Technology</th>
+                    <th>Impact Area</th>
+                    <th>Broker Relevance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Agent Copilot</strong></td>
+                    <td>Cognitive Agents</td>
+                    <td>Revenue Generation</td>
+                    <td><span class="tag tag-best">High</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Hyperpersonalized Customer Outreach</strong></td>
+                    <td>NLP + ML</td>
+                    <td>Revenue Generation</td>
+                    <td><span class="tag tag-best">High</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Customer 360 Profile</strong></td>
+                    <td>ML</td>
+                    <td>Revenue Generation</td>
+                    <td><span class="tag tag-best">High</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Broker-Facing Chatbot</strong></td>
+                    <td>NLP</td>
+                    <td>Revenue Generation</td>
+                    <td><span class="tag tag-good">Medium</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Request-for-Proposal Streamlining</strong></td>
+                    <td>NLP</td>
+                    <td>Productivity</td>
+                    <td><span class="tag tag-best">High</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Service Provider Contract Analyzer</strong></td>
+                    <td>OCR + NLP</td>
+                    <td>Revenue Generation</td>
+                    <td><span class="tag tag-best">High</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Personalized Agent Training</strong></td>
+                    <td>ML + NLP</td>
+                    <td>Productivity</td>
+                    <td><span class="tag tag-good">Medium</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Automated Call Assessment</strong></td>
+                    <td>NLP</td>
+                    <td>Productivity</td>
+                    <td><span class="tag tag-good">Medium</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-bottom:32px">
+            <a href="https://www.mckinsey.com/industries/financial-services/our-insights/the-future-of-ai-in-the-insurance-industry" class="source-link">📄 Source: McKinsey Exhibit 1A — Gen AI Use Cases in Insurance</a>
+        </div>
+    </div>
+
+    <!-- TAB 4: Client Advisory -->
+    <div id="clients" class="tab-content">
+        <h2 class="section-title">Client Advisory: The New Conversation</h2>
+        <p class="section-subtitle">Your clients face the same AI transformation — how do you advise them?</p>
+
+        <div class="callout callout-insight">
+            <div class="callout-icon">💡</div>
+            <div class="callout-title">THE TRUSTED ADVISOR OPPORTUNITY</div>
+            <div class="callout-body">
+                Every client you serve is grappling with AI: <strong>Should we deploy it? What are the risks? How do we insure AI systems?</strong> The broker who can guide them through AI risk — not just sell them a policy — becomes an indispensable strategic partner.
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">Amodei's Five Risk Categories — Client Advisory Framework</h3>
+
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+            <div class="card" style="border-left: 4px solid var(--accent-red);">
+                <h3>1. Autonomy Risks — "Your AI Might Go Rogue"</h3>
+                <ul>
+                    <li><strong>Client question:</strong> "What if our AI system makes decisions we didn't anticipate?"</li>
+                    <li><strong>Documented risks:</strong> Amodei documents AI systems exhibiting deception, blackmail, and "reward hacking" in testing</li>
+                    <li><strong>Coverage conversation:</strong> AI Liability, Algorithmic E&O, Professional Indemnity extensions</li>
+                    <li><strong>Risk management:</strong> Human-in-the-loop requirements, decision audit trails, model governance</li>
+                </ul>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--accent-red);">
+                <h3>2. Misuse for Destruction — "AI-Powered Attacks on Your Business"</h3>
+                <ul>
+                    <li><strong>Client question:</strong> "How do we protect against AI-enhanced cyber attacks?"</li>
+                    <li><strong>Threat evolution:</strong> Autonomous penetration testing, AI-generated phishing, polymorphic malware</li>
+                    <li><strong>Coverage conversation:</strong> Cyber 2.0 policies with AI-attack sublimits, business interruption from AI incidents</li>
+                    <li><strong>Risk management:</strong> AI-powered defense tools, security posture assessments, incident response planning</li>
+                </ul>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--accent-orange);">
+                <h3>3. Economic Disruption — "Half Your Workforce May Be Affected"</h3>
+                <ul>
+                    <li><strong>Client question:</strong> "What are our liabilities if we automate jobs?"</li>
+                    <li><strong>Amodei's warning:</strong> 50% of entry-level white collar jobs displaced in 1-5 years</li>
+                    <li><strong>Coverage conversation:</strong> Employment Practices Liability, D&O for workforce decisions, regulatory defense</li>
+                    <li><strong>Risk management:</strong> Workforce transition planning, reskilling programs, communication strategies</li>
+                </ul>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--accent-orange);">
+                <h3>4. Reputational & Ethical Risks — "Your AI Might Discriminate"</h3>
+                <ul>
+                    <li><strong>Client question:</strong> "What if our AI makes biased decisions?"</li>
+                    <li><strong>Regulatory pressure:</strong> EU AI Act, NY RAISE Act, state insurance department rules</li>
+                    <li><strong>Coverage conversation:</strong> Media Liability, Regulatory Defense, D&O</li>
+                    <li><strong>Risk management:</strong> Bias auditing, explainability requirements, compliance frameworks</li>
+                </ul>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--primary);">
+                <h3>5. Third-Party AI Risks — "Your Vendors Are Using AI Too"</h3>
+                <ul>
+                    <li><strong>Client question:</strong> "Are we liable for our vendors' AI decisions?"</li>
+                    <li><strong>Emerging risk:</strong> Supply chain AI failures, vendor AI data breaches, API dependencies</li>
+                    <li><strong>Coverage conversation:</strong> Technology E&O, Contingent Business Interruption, Vendor Management Liability</li>
+                    <li><strong>Risk management:</strong> Vendor AI due diligence, contract language, SLA requirements</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">New Products to Discuss with Clients</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>What It Covers</th>
+                    <th>Target Client</th>
+                    <th>Market Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>AI Liability Insurance</strong></td>
+                    <td>Third-party damages from AI system decisions</td>
+                    <td>Any company deploying AI</td>
+                    <td><span class="tag tag-caution">Emerging</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Algorithmic E&O</strong></td>
+                    <td>Professional errors from automated decision-making</td>
+                    <td>Financial services, healthcare, HR tech</td>
+                    <td><span class="tag tag-caution">Emerging</span></td>
+                </tr>
+                <tr>
+                    <td><strong>AI Regulatory Defense</strong></td>
+                    <td>Legal costs from AI-related regulatory actions</td>
+                    <td>Heavily regulated industries</td>
+                    <td><span class="tag tag-caution">Emerging</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Deepfake/Synthetic Media</strong></td>
+                    <td>Reputation damage from AI-generated content</td>
+                    <td>Executives, public figures, brands</td>
+                    <td><span class="tag tag-good">Available</span></td>
+                </tr>
+                <tr>
+                    <td><strong>AI Business Interruption</strong></td>
+                    <td>Losses from AI system failures or hallucinations</td>
+                    <td>AI-dependent operations</td>
+                    <td><span class="tag tag-limited">Very New</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="callout callout-success">
+            <div class="callout-icon">🎯</div>
+            <div class="callout-title">THE STEWARDSHIP CONVERSATION</div>
+            <div class="callout-body">
+                Use renewal meetings to open AI risk discussions:
+                <ul>
+                    <li>"What AI tools are you deploying or considering?"</li>
+                    <li>"How are your vendors using AI with your data?"</li>
+                    <li>"What's your plan for workforce changes from automation?"</li>
+                    <li>"Have you assessed your liability if AI systems make errors?"</li>
+                </ul>
+                <strong>Position yourself as the AI risk expert — not just the policy seller.</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 5: Operations -->
+    <div id="operations" class="tab-content">
+        <h2 class="section-title">Operations: The McKinsey Playbook</h2>
+        <p class="section-subtitle">Domain-based transformation — not scattered pilots</p>
+
+        <div class="callout callout-warning">
+            <div class="callout-icon">⚡</div>
+            <div class="callout-title">MCKINSEY'S WARNING: PILOT PURGATORY</div>
+            <div class="callout-body">
+                "It's not enough to tinker around the edges and run a few pilots, or to expect true AI enablement to come from buying a patchwork of SaaS products with minimal strategic intent, or to hope that workflows will be transformed by off-the-shelf AI solutions."
+                <br><br>
+                <strong>The solution:</strong> Transform entire domains end-to-end, not individual use cases.
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">The Six Signature Moves (McKinsey's Rewired Framework)</h3>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-number">1</div>
+                <h3>C-Suite Alignment</h3>
+                <ul>
+                    <li><strong>AI as transformation driver</strong>, not efficiency tool</li>
+                    <li>Results tied to <strong>measurable business outcomes</strong></li>
+                    <li>Focus on <strong>1-3 domains</strong>, transform end-to-end</li>
+                    <li>Aggregate use cases in domains, not scatter across</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number">2</div>
+                <h3>Build Talent Bench</h3>
+                <ul>
+                    <li><strong>70-80% digital talent in-house</strong> (not outsourced)</li>
+                    <li>Shift to <strong>experienced technologists</strong>, fewer novices</li>
+                    <li>Specialized HR team for digital talent</li>
+                    <li>Prepare for <strong>humans + AI agents</strong> workforce</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number">3</div>
+                <h3>Scalable Operating Model</h3>
+                <ul>
+                    <li>Choose model: Digital factory (20-50 pods) or enterprise agile</li>
+                    <li>Robust <strong>product management capabilities</strong></li>
+                    <li>AI control tower for governance</li>
+                    <li>Break down silos, foster ownership</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number">4</div>
+                <h3>Technology for Speed</h3>
+                <ul>
+                    <li><strong>Reusable AI components</strong> across domains</li>
+                    <li>Agentic AI mesh architecture</li>
+                    <li>Modular, vendor-agnostic approach</li>
+                    <li>Built to evolve with technology</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number">5</div>
+                <h3>Embed Data Everywhere</h3>
+                <ul>
+                    <li>State-of-the-art <strong>data capabilities</strong> are critical</li>
+                    <li>Overcome technical AND organizational challenges</li>
+                    <li>Embed expertise into agentic AI systems</li>
+                    <li>Data becomes core <strong>intellectual property</strong></li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number">6</div>
+                <h3>Adoption & Change Management</h3>
+                <ul>
+                    <li><strong>50% of effort</strong> is change management</li>
+                    <li>For every $1 on dev, $1 on adoption</li>
+                    <li>Employees must view AI as <strong>core to their jobs</strong></li>
+                    <li>Culture of test, learn, fail, scale</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">Broker-Specific Domains to Transform</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Domain</th>
+                    <th>Current State</th>
+                    <th>AI-Transformed State</th>
+                    <th>McKinsey Impact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Sales & Distribution</strong></td>
+                    <td>Producer-dependent, manual prospecting</td>
+                    <td>AI-powered lead scoring, hyperpersonalized outreach, agent copilot</td>
+                    <td><span class="tag tag-best">+15% productivity, -50% outreach time</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Placement & Submission</strong></td>
+                    <td>Manual RFPs, email-based market communication</td>
+                    <td>Auto-populated submissions, instant spec comparison, AI-drafted proposals</td>
+                    <td><span class="tag tag-best">20-40% cost reduction</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Client Service</strong></td>
+                    <td>Reactive, account manager-dependent</td>
+                    <td>24/7 chatbot, proactive alerts, AI-powered stewardship</td>
+                    <td><span class="tag tag-best">+11% conversion, +36 pt NPS</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Claims Advocacy</strong></td>
+                    <td>Manual tracking, reactive involvement</td>
+                    <td>AI-monitored claims, proactive intervention, settlement optimization</td>
+                    <td><span class="tag tag-good">3-5% accuracy improvement</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Risk Advisory</strong></td>
+                    <td>Annual reviews, manual analysis</td>
+                    <td>Continuous risk monitoring, AI-generated insights, proactive recommendations</td>
+                    <td><span class="tag tag-best">Differentiation</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-bottom: 16px;">The Messy Middle: From Pilots to Production</h3>
+
+        <div class="arch-diagram">
+            <h4 style="margin-bottom:20px; text-align:center; color:var(--text-muted);">What Production AI Actually Requires</h4>
+            <div class="arch-flow">
+                <div class="arch-node secondary">Demo<br>Reality</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node danger">The Messy<br>Middle</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node success">Enterprise<br>Reality</div>
+            </div>
+        </div>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Demo Reality</th>
+                    <th>Enterprise Reality</th>
+                    <th>What IT Must Build</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Clean data</td>
+                    <td>Technical debt, legacy systems</td>
+                    <td>Data governance, quality pipelines</td>
+                </tr>
+                <tr>
+                    <td>Single use case</td>
+                    <td>End-to-end workflow integration</td>
+                    <td>Secure middleware, API layer</td>
+                </tr>
+                <tr>
+                    <td>No governance</td>
+                    <td>Auditability, security, compliance</td>
+                    <td>Agent tracing, decision logging</td>
+                </tr>
+                <tr>
+                    <td>"It works!"</td>
+                    <td>Reversible vs. irreversible actions</td>
+                    <td>Action classification, human-in-loop</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-bottom:32px">
+            <a href="https://www.mckinsey.com/industries/financial-services/our-insights/the-future-of-ai-in-the-insurance-industry" class="source-link">📄 Source: McKinsey — Six Signature Moves</a>
+        </div>
+    </div>
+
+    <!-- TAB 6: Talent & Culture -->
+    <div id="talent" class="tab-content">
+        <h2 class="section-title">Talent & Culture: The Real Transformation</h2>
+        <p class="section-subtitle">Change management is half the effort — and most companies underinvest</p>
+
+        <div class="quote-block">
+            <p>Successful AI adoption depends on fostering a culture of innovation, shifting mindsets, and building essential capabilities, but organizations often underestimate employee resistance and readiness to embrace new ways of working.</p>
+            <div class="attribution">— McKinsey, July 2025</div>
+        </div>
+
+        <div class="metric-row">
+            <div class="metric-card">
+                <div class="metric-value">50%</div>
+                <div class="metric-label">Change Management = Half the Effort</div>
+                <div class="metric-source">McKinsey</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">70-80%</div>
+                <div class="metric-label">Digital Talent Should Be In-House</div>
+                <div class="metric-source">McKinsey</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">$1:$1</div>
+                <div class="metric-label">Dev Spend : Adoption Spend Ratio</div>
+                <div class="metric-source">McKinsey</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value red">50%</div>
+                <div class="metric-label">Entry-Level Jobs at Risk</div>
+                <div class="metric-source">Amodei</div>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">The Workforce Enablement Progression</h3>
+
+        <div class="arch-diagram">
+            <h4 style="margin-bottom:20px; text-align:center; color:var(--text-muted);">AI is a capability you embed into people, not just processes</h4>
+            <div class="arch-flow">
+                <div class="arch-node secondary">Level 1<br>Summarize</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node secondary">Level 2<br>Automate</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node secondary">Level 3<br>Create</div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-node success">Level 4<br>Trust</div>
+            </div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-number">1</div>
+                <h3>Level 1: Summarize</h3>
+                <ul>
+                    <li>AI summarizes emails, documents, meetings</li>
+                    <li>Low risk, high visibility</li>
+                    <li>Everyone starts here</li>
+                    <li>Builds comfort with AI output</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number">2</div>
+                <h3>Level 2: Automate</h3>
+                <ul>
+                    <li>AI handles action items, routine tasks</li>
+                    <li>Certificate processing, data entry</li>
+                    <li>Human review of AI work</li>
+                    <li>Builds trust in AI execution</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number">3</div>
+                <h3>Level 3: Create</h3>
+                <ul>
+                    <li>AI drafts presentations, reports, proposals</li>
+                    <li>Human editing and approval</li>
+                    <li>Significant productivity gains</li>
+                    <li>Builds appreciation for AI creativity</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-number">4</div>
+                <h3>Level 4: Trust</h3>
+                <ul>
+                    <li>Agentic workflows with human oversight</li>
+                    <li>AI makes decisions within guardrails</li>
+                    <li>Human handles exceptions</li>
+                    <li>Requires deep AI intuition</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout callout-insight">
+            <div class="callout-icon">💡</div>
+            <div class="callout-title">JAGGED INTELLIGENCE</div>
+            <div class="callout-body">
+                AI is brilliant at some things and fails at basics (the "strawberry" problem). You can't trust it blindly — you need experience to know where the edges are. <strong>This intuition only comes from personal use.</strong> You can't mandate trust in AI; people must develop it through hands-on experience.
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">Broker Role Evolution</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Today</th>
+                    <th>AI-Augmented Future</th>
+                    <th>Risk Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Senior Producer</strong></td>
+                    <td>Relationship owner, deal maker</td>
+                    <td>Strategic advisor with AI insights, relationship orchestrator</td>
+                    <td><span class="tag tag-best">Low — Augmented</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Account Executive</strong></td>
+                    <td>Day-to-day client management</td>
+                    <td>AI-augmented service delivery, exception handling</td>
+                    <td><span class="tag tag-good">Medium — Evolving</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Account Coordinator</strong></td>
+                    <td>Administrative support, certificate processing</td>
+                    <td>AI oversight, quality assurance, complex exceptions</td>
+                    <td><span class="tag tag-caution">High — Transforming</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Placement Specialist</strong></td>
+                    <td>Manual submission preparation, market communication</td>
+                    <td>AI-assisted placement, market strategy, carrier relationships</td>
+                    <td><span class="tag tag-good">Medium — Evolving</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Data Entry / Processing</strong></td>
+                    <td>Manual data input, document handling</td>
+                    <td>Largely automated; human QA for exceptions</td>
+                    <td><span class="tag tag-limited">Very High — Displaced</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Junior Analyst</strong></td>
+                    <td>Research, benchmarking, report preparation</td>
+                    <td>AI does research; analyst interprets and presents</td>
+                    <td><span class="tag tag-caution">High — Transforming</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="callout callout-warning">
+            <div class="callout-icon">⚡</div>
+            <div class="callout-title">THE CULTURE SHIFT REQUIRED</div>
+            <div class="callout-body">
+                McKinsey: "In the most successful AI-based transformations, we see employees begin to view AI assistants as <strong>core to their jobs</strong>, embedded with their own knowledge and expertise. If an AI tool delivers suboptimal results, these employees <strong>take ownership of the problem</strong>, rather than blaming the engineer who built it."
+                <br><br>
+                This is the culture shift: <strong>AI is my tool, not IT's problem.</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 7: Action Plan -->
+    <div id="action" class="tab-content">
+        <h2 class="section-title">Action Plan: The Broker's 18-Month Roadmap</h2>
+        <p class="section-subtitle">Synthesizing Amodei's urgency with McKinsey's implementation playbook</p>
+
+        <div class="timeline">
+            <div class="timeline-item urgent">
+                <div class="timeline-phase" style="color: var(--accent-red);">Phase 1 | Now - Q2 2026</div>
+                <div class="timeline-title">🔴 Immediate: Foundation & Assessment</div>
+                <div class="timeline-desc">
+                    <strong>Leadership Alignment</strong><br>
+                    • Align C-suite on AI as transformation driver (not efficiency tool)<br>
+                    • Select 1-2 domains for end-to-end transformation (Sales? Service?)<br>
+                    • Establish measurable business outcomes for each domain<br><br>
+
+                    <strong>Current State Assessment</strong><br>
+                    • Audit existing AI tools and pilots — what's stuck in pilot purgatory?<br>
+                    • Assess data readiness for AI (quality, accessibility, governance)<br>
+                    • Evaluate talent: Who's AI-ready? What's the gap?<br><br>
+
+                    <strong>Quick Wins</strong><br>
+                    • Deploy summarization tools (Level 1) across organization<br>
+                    • Pilot agent copilot for top producers<br>
+                    • Launch AI risk advisory conversations with 5 key clients
+                </div>
+            </div>
+            <div class="timeline-item warning">
+                <div class="timeline-phase" style="color: var(--accent-orange);">Phase 2 | Q3 - Q4 2026</div>
+                <div class="timeline-title">🟠 Near-Term: Domain Transformation</div>
+                <div class="timeline-desc">
+                    <strong>Domain 1 Transformation (e.g., Sales & Distribution)</strong><br>
+                    • Implement hyperpersonalized customer outreach<br>
+                    • Deploy Customer 360 profiles<br>
+                    • Launch RFP streamlining automation<br>
+                    • Target: 15% productivity improvement, 50% outreach time reduction<br><br>
+
+                    <strong>Workforce Enablement</strong><br>
+                    • Structured change management program (remember: 50% of effort)<br>
+                    • Progress workforce through Levels 1→2→3<br>
+                    • Identify and train AI champions in each team<br><br>
+
+                    <strong>Client Advisory Launch</strong><br>
+                    • Train producers on AI risk conversations<br>
+                    • Develop AI risk assessment framework for clients<br>
+                    • Partner with carriers on emerging AI coverage products
+                </div>
+            </div>
+            <div class="timeline-item success">
+                <div class="timeline-phase" style="color: var(--accent-green);">Phase 3 | 2027</div>
+                <div class="timeline-title">🟢 Strategic: Scale & Differentiate</div>
+                <div class="timeline-desc">
+                    <strong>Scale Proven Capabilities</strong><br>
+                    • Roll out Domain 1 transformation across all business units<br>
+                    • Begin Domain 2 transformation (e.g., Client Service)<br>
+                    • Build reusable AI components library<br><br>
+
+                    <strong>Advanced Capabilities</strong><br>
+                    • Deploy agentic workflows (Level 4) for routine processes<br>
+                    • Launch proactive risk advisory platform for clients<br>
+                    • Implement AI-powered market intelligence<br><br>
+
+                    <strong>Market Differentiation</strong><br>
+                    • Position as AI risk advisory leader<br>
+                    • Launch specialized AI coverage practice<br>
+                    • Publish thought leadership on AI in insurance
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <h3 style="margin-bottom: 16px;">Investment Framework</h3>
+
+        <div class="card-grid">
+            <div class="card" style="border-left: 4px solid var(--accent-red);">
+                <h3>🔴 Don't Underinvest</h3>
+                <ul>
+                    <li><strong>Change management:</strong> Match dev spend 1:1</li>
+                    <li><strong>Talent:</strong> 70-80% digital talent in-house</li>
+                    <li><strong>Data infrastructure:</strong> AI runs on data quality</li>
+                    <li><strong>Executive time:</strong> This is a transformation, not a project</li>
+                </ul>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--accent-orange);">
+                <h3>🟠 Common Pitfalls to Avoid</h3>
+                <ul>
+                    <li><strong>Pilot purgatory:</strong> Transform domains, not use cases</li>
+                    <li><strong>Off-the-shelf hope:</strong> Customize for your "secret sauce"</li>
+                    <li><strong>Scattered efforts:</strong> Focus 1-3 domains, transform end-to-end</li>
+                    <li><strong>Ignoring culture:</strong> Technology is only half the battle</li>
+                </ul>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--accent-green);">
+                <h3>🟢 Success Indicators</h3>
+                <ul>
+                    <li><strong>Employees view AI as core to their jobs</strong></li>
+                    <li><strong>Measurable business outcomes</strong> (not just adoption)</li>
+                    <li><strong>Reusable components</strong> deployed across domains</li>
+                    <li><strong>Clients seek you out</strong> for AI risk advisory</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout callout-critical">
+            <div class="callout-icon">⚠️</div>
+            <div class="callout-title">THE BOTTOM LINE</div>
+            <div class="callout-body">
+                <strong>Amodei says:</strong> 1-2 years until transformative AI. 50% of entry-level jobs at risk.<br>
+                <strong>McKinsey says:</strong> AI leaders generate 6.1x the returns of laggards. Most are stuck in pilot purgatory.<br>
+                <strong>For brokers:</strong> Your value is relationships + expertise + market access. AI can amplify all three — or make them irrelevant.<br><br>
+                <strong>The window to establish leadership is 12-24 months. The choice is simple: Transform or be transformed.</strong>
+            </div>
+        </div>
+
+        <div style="margin-top:40px; text-align:center;">
+            <a href="https://www.darioamodei.com/essay/the-adolescence-of-technology" class="source-link" style="font-size: 0.85rem; padding: 8px 16px;">📄 Amodei: The Adolescence of Technology</a>
+            <a href="https://www.mckinsey.com/industries/financial-services/our-insights/the-future-of-ai-in-the-insurance-industry" class="source-link" style="font-size: 0.85rem; padding: 8px 16px;">📄 McKinsey: Future of AI in Insurance</a>
+        </div>
+    </div>
+
+    <!-- TAB 8: Lockton -->
+    <div id="lockton" class="tab-content">
+        <h2 class="section-title">Lockton: Tailored AI Strategy</h2>
+        <p class="section-subtitle">Applying the playbook to Lockton's unique positioning as the world's largest privately held broker</p>
+
+        <div class="quote-block" style="background: linear-gradient(135deg, #5C2D91, #0078D4);">
+            <p>What's the secret sauce of Lockton? It's not technology. It's all about getting the right people steered in the right direction to accomplish what the client needs.</p>
+            <div class="attribution">— Byron Clymer, Global CIO, Lockton</div>
+        </div>
+
+        <!-- Key Metrics -->
+        <h3 style="margin-bottom: 16px;">Lockton by the Numbers</h3>
+
+        <div class="metric-row">
+            <div class="metric-card">
+                <div class="metric-value" style="background: linear-gradient(135deg, #5C2D91, #0078D4); -webkit-background-clip: text; background-clip: text;">$4B</div>
+                <div class="metric-label">FY25 Revenue</div>
+                <div class="metric-source">#9 Global Broker</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value green">$7.1B</div>
+                <div class="metric-label">FY31 Target Revenue</div>
+                <div class="metric-source">+78% Growth</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">94%</div>
+                <div class="metric-label">Client Loyalty</div>
+                <div class="metric-source">Industry-Leading Retention</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">13%</div>
+                <div class="metric-label">Organic Growth CAGR</div>
+                <div class="metric-source">~$500M/year added</div>
+            </div>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="number">13,200</div>
+                <div class="label">Associates (FY25)</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">21,000</div>
+                <div class="label">Associates (FY31 Target)</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">$1B</div>
+                <div class="label">Every 24 Months</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">36</div>
+                <div class="label">Countries Owned Operations</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">156</div>
+                <div class="label">Countries via Global Partnership</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">18</div>
+                <div class="label">Data Centers Worldwide</div>
+            </div>
+        </div>
+
+        <!-- Competitive Positioning -->
+        <div class="callout callout-success">
+            <div class="callout-icon">🏆</div>
+            <div class="callout-title">THE LOCKTON DIFFERENTIATOR</div>
+            <div class="callout-body">
+                Lockton is the <strong>only private company in the top 20 global brokers</strong>. Every other player is either public (Marsh, Aon, Gallagher, WTW, Brown & Brown) or PE-backed (Hub, Acrisure, Alliant, Howden). This creates a unique advantage: <strong>long-term thinking, client focus over quarterly returns, and the ability to reinvest profits</strong> (e.g., Reinsurance grew from $30M to $400M through family investment).
+            </div>
+        </div>
+
+        <!-- Byron's Five Strategic Pillars -->
+        <h3 style="margin-bottom: 16px;">Byron's Five Strategic Pillars — AI Alignment</h3>
+
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+            <div class="card" style="border-left: 5px solid #5C2D91;">
+                <div class="card-number" style="background: linear-gradient(135deg, #5C2D91, #0078D4);">1</div>
+                <h3>Advisory Beats Access</h3>
+                <table class="comparison-table" style="margin-top: 16px; margin-bottom: 0;">
+                    <thead><tr><th>Byron's Vision</th><th>AI Enablement</th><th>Priority</th></tr></thead>
+                    <tbody>
+                        <tr><td>Quantified risk narratives</td><td>AI-generated risk scoring and trend analysis from client data + external signals</td><td><span class="tag tag-best">High</span></td></tr>
+                        <tr><td>Coverage gap analysis</td><td>Automated policy comparison against industry benchmarks and emerging risks</td><td><span class="tag tag-best">High</span></td></tr>
+                        <tr><td>Claims advocacy</td><td>AI-monitored claims with proactive intervention recommendations</td><td><span class="tag tag-good">Medium</span></td></tr>
+                        <tr><td>Board-ready reporting</td><td>AI-drafted executive summaries, visualizations, and risk dashboards</td><td><span class="tag tag-best">High</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card" style="border-left: 5px solid #0078D4;">
+                <div class="card-number" style="background: linear-gradient(135deg, #5C2D91, #0078D4);">2</div>
+                <h3>Program Engineering Becomes Core Capability</h3>
+                <table class="comparison-table" style="margin-top: 16px; margin-bottom: 0;">
+                    <thead><tr><th>Byron's Vision</th><th>AI Enablement</th><th>Priority</th></tr></thead>
+                    <tbody>
+                        <tr><td>Dynamic Mud Maps</td><td>AI-optimized risk layering based on real-time claims data and market conditions</td><td><span class="tag tag-best">High</span></td></tr>
+                        <tr><td>Layering & Captives</td><td>AI modeling for optimal retention/limit structures across carrier markets</td><td><span class="tag tag-good">Medium</span></td></tr>
+                        <tr><td>Parametric triggers</td><td>AI identification of parametric opportunities from client risk profiles</td><td><span class="tag tag-good">Medium</span></td></tr>
+                        <tr><td>Blended markets</td><td>AI market intelligence across traditional + alternative risk transfer</td><td><span class="tag tag-best">High</span></td></tr>
+                        <tr><td>Tighter wording control</td><td>AI endorsement analysis — the "sweet spot" Byron identified</td><td><span class="tag tag-best">High</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card" style="border-left: 5px solid #00B7C3;">
+                <div class="card-number" style="background: linear-gradient(135deg, #5C2D91, #0078D4);">3</div>
+                <h3>Data Quality is a Placement Lever</h3>
+                <table class="comparison-table" style="margin-top: 16px; margin-bottom: 0;">
+                    <thead><tr><th>Byron's Vision</th><th>AI Enablement</th><th>Priority</th></tr></thead>
+                    <tbody>
+                        <tr><td>COPE completeness</td><td>AI extraction and validation from documents, photos, and external sources</td><td><span class="tag tag-best">High</span></td></tr>
+                        <tr><td>Exposure mapping</td><td>AI-powered geocoding, CAT modeling integration, portfolio aggregation</td><td><span class="tag tag-best">High</span></td></tr>
+                        <tr><td>Cyber controls evidence</td><td>Automated security questionnaire analysis and benchmarking</td><td><span class="tag tag-good">Medium</span></td></tr>
+                        <tr><td>Loss runs normalization</td><td>AI standardization across carrier formats for trend analysis</td><td><span class="tag tag-best">High</span></td></tr>
+                        <tr><td>Modeling outputs</td><td>AI translation of vendor models into underwriter-ready narratives</td><td><span class="tag tag-good">Medium</span></td></tr>
+                    </tbody>
+                </table>
+                <div class="callout callout-warning" style="margin-top: 16px; margin-bottom: 0;">
+                    <div class="callout-body"><strong>Byron's Warning:</strong> "Data quality will torpedo a deal if something is wrong."</div>
+                </div>
+            </div>
+
+            <div class="card" style="border-left: 5px solid #107C10;">
+                <div class="card-number" style="background: linear-gradient(135deg, #5C2D91, #0078D4);">4</div>
+                <h3>Operational Excellence — It's a Faster Cycle Now</h3>
+                <table class="comparison-table" style="margin-top: 16px; margin-bottom: 0;">
+                    <thead><tr><th>Byron's Vision</th><th>AI Enablement</th><th>Priority</th></tr></thead>
+                    <tbody>
+                        <tr><td>Digital submission packs</td><td>AI-assembled, carrier-specific submission packages from client data</td><td><span class="tag tag-best">High</span></td></tr>
+                        <tr><td>Structured data exchange</td><td>AI extraction from unstructured documents → ACORD standards</td><td><span class="tag tag-best">High</span></td></tr>
+                        <tr><td>Workflow discipline</td><td>AI prioritization and deadline management to secure UW attention</td><td><span class="tag tag-good">Medium</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card" style="border-left: 5px solid #FF8C00;">
+                <div class="card-number" style="background: linear-gradient(135deg, #5C2D91, #0078D4);">5</div>
+                <h3>Client Affordability Strategy</h3>
+                <table class="comparison-table" style="margin-top: 16px; margin-bottom: 0;">
+                    <thead><tr><th>Byron's Vision</th><th>AI Enablement</th><th>Priority</th></tr></thead>
+                    <tbody>
+                        <tr><td>Retention optimization</td><td>AI modeling of optimal retention levels based on loss history + cash flow</td><td><span class="tag tag-best">High</span></td></tr>
+                        <tr><td>Risk improvements</td><td>AI identification of loss drivers and targeted mitigation recommendations</td><td><span class="tag tag-best">High</span></td></tr>
+                        <tr><td>Phased limit buys</td><td>AI scenario modeling for staged capacity approaches</td><td><span class="tag tag-good">Medium</span></td></tr>
+                        <tr><td>Multi-year structures</td><td>AI rate trend forecasting to identify optimal lock-in periods</td><td><span class="tag tag-good">Medium</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Byron's AI Insights -->
+        <h3 style="margin-bottom: 16px;">Byron's AI Vision</h3>
+
+        <div class="quote-block">
+            <p>The whole underwriting function that goes on with creating the policy — you can throw tons and tons of data at an AI engine and get consistent results over time. That piece is going to go away.</p>
+            <div class="attribution">— Byron Clymer on AI Displacement</div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3>🎯 AI "Sweet Spot" — Endorsement Analysis</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Byron identified policy endorsement comparison as the highest-value AI use case:</p>
+                <ul>
+                    <li>Compare policy versions and exclusions</li>
+                    <li>Identify coverage gaps across endorsements</li>
+                    <li>Flag changes that create client exposure</li>
+                    <li>Version control for wording precision</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📊 Claims Data Mining</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Unlock the massive claims database for advisory:</p>
+                <ul>
+                    <li>"What's the most expensive claim?"</li>
+                    <li>"What surgery goes bad most often?"</li>
+                    <li>Pattern recognition for loss prevention</li>
+                    <li>Advisor-ready insights from raw data</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🔄 Data Ingestion Automation</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Replace third-party data entry services:</p>
+                <ul>
+                    <li>Fleet data for marine/shipping</li>
+                    <li>Employee census across jurisdictions</li>
+                    <li>Loss run normalization</li>
+                    <li>Document extraction → structured data</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout callout-critical">
+            <div class="callout-icon">⚠️</div>
+            <div class="callout-title">BYRON'S AI ACCURACY REQUIREMENT</div>
+            <div class="callout-body">
+                "In the AI world, it has to be 100% because it's a legal document. Once that document is signed, someone is accountable; somebody is liable. <strong>Errors and omissions become a massive deal.</strong>"
+                <br><br>
+                <strong>Implication:</strong> AI outputs in policy documents require human-in-the-loop validation. Focus AI on research, comparison, and drafting — with human approval before client delivery.
+            </div>
+        </div>
+
+        <!-- Global Footprint -->
+        <h3 style="margin-bottom: 16px;">Global Footprint — Regional AI Considerations</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>FY25 Revenue</th>
+                    <th>AI Considerations</th>
+                    <th>Byron's Insight</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>United States</strong></td>
+                    <td>$3.0B+ (7 Series)</td>
+                    <td>Full AI deployment; lead innovation</td>
+                    <td>Core growth engine</td>
+                </tr>
+                <tr>
+                    <td><strong>Europe</strong></td>
+                    <td>$603.1M</td>
+                    <td>EU AI Act compliance; GDPR constraints</td>
+                    <td>Paris/London leadership for messaging</td>
+                </tr>
+                <tr>
+                    <td><strong>Latin America</strong></td>
+                    <td>$152.6M</td>
+                    <td>Brazil P&C mining expertise</td>
+                    <td>$14M → $100M growth; Lima vs Brazil claims</td>
+                </tr>
+                <tr>
+                    <td><strong>Asia</strong></td>
+                    <td>$117.6M</td>
+                    <td>Regional data sovereignty (India, China)</td>
+                    <td>Korea: nationalistic, local carrier lead required</td>
+                </tr>
+                <tr>
+                    <td><strong>Pacific</strong></td>
+                    <td>$64.6M</td>
+                    <td>Australia/NZ regulatory alignment</td>
+                    <td>Mature market, ready for AI</td>
+                </tr>
+                <tr>
+                    <td><strong>Middle East & Africa</strong></td>
+                    <td>$64.2M</td>
+                    <td>KSA data center coming (6-12 mo); local affinity</td>
+                    <td>Emerging markets focus next 5 years</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Competitive Landscape -->
+        <h3 style="margin-bottom: 16px;">Competitive Landscape</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Company</th>
+                    <th>Revenue</th>
+                    <th>Ownership</th>
+                    <th>AI Vulnerability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#1</td>
+                    <td>Marsh & McLennan</td>
+                    <td>$25.33B</td>
+                    <td>Public</td>
+                    <td><span class="tag tag-caution">Heavy tech investment</span></td>
+                </tr>
+                <tr>
+                    <td>#2</td>
+                    <td>Aon PLC</td>
+                    <td>$15.38B</td>
+                    <td>Public</td>
+                    <td><span class="tag tag-caution">Heavy tech investment</span></td>
+                </tr>
+                <tr>
+                    <td>#3</td>
+                    <td>Arthur J. Gallagher</td>
+                    <td>$11.08B</td>
+                    <td>Public</td>
+                    <td><span class="tag tag-good">Acquisition-focused</span></td>
+                </tr>
+                <tr style="background: rgba(92, 45, 145, 0.05);">
+                    <td><strong>#9</strong></td>
+                    <td><strong>Lockton Companies</strong></td>
+                    <td><strong>$3.94B</strong></td>
+                    <td><strong>Private</strong></td>
+                    <td><span class="tag tag-best">Long-term advantage</span></td>
+                </tr>
+                <tr>
+                    <td>#10</td>
+                    <td>Howden</td>
+                    <td>$3.73B</td>
+                    <td>PE Backed</td>
+                    <td><span class="tag tag-limited">Entering US market</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="callout callout-insight">
+            <div class="callout-icon">💡</div>
+            <div class="callout-title">PE COMPETITOR VULNERABILITY</div>
+            <div class="callout-body">
+                Byron's insight: <strong>"What PE wants? They want a return. They're probably not servicing the clients."</strong>
+                <br><br>
+                In hard markets, "peanut butter spread" PE-backed competitors struggle because they haven't invested in carrier relationships. Lockton's 94% retention + long-term relationship focus = sustainable moat that AI can amplify but not replace.
+            </div>
+        </div>
+
+        <!-- Lockton-Specific Roadmap -->
+        <h3 style="margin-bottom: 16px;">Lockton AI Transformation Roadmap</h3>
+
+        <div class="timeline">
+            <div class="timeline-item urgent">
+                <div class="timeline-phase" style="color: var(--accent-red);">Phase 1 | Now - Q2 2026</div>
+                <div class="timeline-title">🔴 Foundation: Byron's "Sweet Spots"</div>
+                <div class="timeline-desc">
+                    <strong>Endorsement Analysis AI</strong> (Byron's #1 priority)<br>
+                    • Policy version comparison and exclusion flagging<br>
+                    • Coverage gap detection across endorsement structures<br>
+                    • Integrate with existing policy admin systems (regional)<br><br>
+
+                    <strong>Data Ingestion Automation</strong><br>
+                    • Replace third-party data entry services<br>
+                    • Fleet data, census, loss runs normalization<br>
+                    • COPE extraction from documents/photos<br><br>
+
+                    <strong>Claims Data Mining Pilot</strong><br>
+                    • Natural language queries against claims database<br>
+                    • Pattern recognition for advisory insights<br>
+                    • "What surgery goes bad most often?" use case
+                </div>
+            </div>
+            <div class="timeline-item warning">
+                <div class="timeline-phase" style="color: var(--accent-orange);">Phase 2 | Q3 - Q4 2026</div>
+                <div class="timeline-title">🟠 Scale: Advisory Enablement</div>
+                <div class="timeline-desc">
+                    <strong>Advisory AI Suite</strong><br>
+                    • Quantified risk narratives from client data<br>
+                    • Board-ready reporting generation<br>
+                    • Coverage gap analysis at renewal<br><br>
+
+                    <strong>Program Engineering AI</strong><br>
+                    • Dynamic mud map optimization<br>
+                    • Market intelligence across 100+ carriers<br>
+                    • Layering recommendations by risk type<br><br>
+
+                    <strong>Producer Copilot</strong><br>
+                    • Deploy to top 50 producers globally<br>
+                    • Client meeting prep and follow-up<br>
+                    • Competitive intelligence on accounts
+                </div>
+            </div>
+            <div class="timeline-item success">
+                <div class="timeline-phase" style="color: var(--accent-green);">Phase 3 | 2027</div>
+                <div class="timeline-title">🟢 Differentiation: AI-Native Advisory</div>
+                <div class="timeline-desc">
+                    <strong>Client Affordability AI</strong><br>
+                    • Retention optimization modeling<br>
+                    • Risk improvement identification<br>
+                    • Multi-year structure forecasting<br><br>
+
+                    <strong>Global Rollout</strong><br>
+                    • Adapt for regional compliance (EU AI Act, GDPR, India sovereignty)<br>
+                    • "Think Global, Act Local" AI deployment<br>
+                    • Cross-border risk intelligence<br><br>
+
+                    <strong>Market Differentiation</strong><br>
+                    • AI risk advisory practice launch<br>
+                    • Thought leadership on AI in broking<br>
+                    • 94% retention → 96%+ with AI-powered stewardship
+                </div>
+            </div>
+        </div>
+
+        <!-- Byron's Philosophy -->
+        <div class="quote-block" style="background: var(--gradient-dark);">
+            <p>IT's job is to remove the friction of technology — get rid of the friction of technology — but do it in a cost-constrained way.</p>
+            <div class="attribution">— Byron Clymer, Global CIO</div>
+        </div>
+
+        <div class="callout callout-success">
+            <div class="callout-icon">🎯</div>
+            <div class="callout-title">LOCKTON'S AI ADVANTAGE</div>
+            <div class="callout-body">
+                <strong>Private ownership</strong> = Long-term AI investment without quarterly earnings pressure<br>
+                <strong>94% client loyalty</strong> = Deep relationships that AI augments, not replaces<br>
+                <strong>"Think Global, Act Local"</strong> = AI adapted to regional cultures and regulations<br>
+                <strong>Family reinvestment</strong> = Ability to make bold bets (like $15-20M → $400M in reinsurance)<br><br>
+                <strong>The play:</strong> Win accounts from PE-backed competitors by combining Lockton's relationship culture with AI-powered advisory — proving "I should have gone with you sooner" at scale.
+            </div>
+        </div>
+
+        <div style="margin-top:40px; text-align:center;">
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Source: Byron Clymer, Microsoft Executive Briefing, January 27, 2026</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p><strong>AI Transformation: The Insurance Broker's Playbook</strong></p>
+    <p style="margin-top: 8px;">Synthesizing Anthropic's warnings with McKinsey's implementation blueprint</p>
+    <p style="margin-top: 8px;">January 2026</p>
+    <p style="margin-top: 16px; font-size: 0.75rem;">
+        Sources: <a href="https://www.darioamodei.com/essay/the-adolescence-of-technology">Dario Amodei, "The Adolescence of Technology" (Jan 2026)</a> |
+        <a href="https://www.mckinsey.com/industries/financial-services/our-insights/the-future-of-ai-in-the-insurance-industry">McKinsey, "The Future of AI in the Insurance Industry" (Jul 2025)</a>
+    </p>
+</div>
+
+<script>
+    function showTab(tabId) {
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        // Remove active from all buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        // Show selected tab
+        document.getElementById(tabId).classList.add('active');
+        // Add active to clicked button
+        event.target.classList.add('active');
+        // Scroll to top of content
+        window.scrollTo({ top: 200, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

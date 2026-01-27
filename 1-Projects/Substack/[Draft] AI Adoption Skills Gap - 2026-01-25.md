@@ -71,6 +71,6 @@ That's a different kind of training. One that treats AI fluency as a skill set t
 ## Notes for Revision
 
 - [x] Fill in the 6 skills once video content is extracted ✅
-- [ ] Add specific examples from Lockton or prior experience
-- [ ] Consider adding a "what we did differently" section
-- [ ] Review tone — keep it practical, not preachy
+- [x] Add specific examples from Lockton or prior experience
+- [x] Consider adding a "what we did differently" section
+- [x] Review tone — keep it practical, not preachy
