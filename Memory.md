@@ -16,7 +16,7 @@
 - **G3: Role Transition** — Smooth handoff to West CIO by Q2
 - **G4: Global EA Practice** — Year 1 pitch approved + budget secured
 
-**This Week's #1:** Seattle trip — pitch Innovation Sprint to Byron informally
+**This Week's #1:** Schedule Byron 1:1 to pitch Innovation Sprint (Seattle trip canceled due to ice storm)
 
 ---
 
@@ -66,7 +66,8 @@
 - [ ] HIVE/Nuvento SOW — finalize pilot terms
 
 ### Personal
-- [ ] Seattle flight — ice storm affecting, watch for cancellations
+- [x] Seattle flight — CANCELED due to ice storm (attended virtually 1/27)
+- [ ] NYC trip — Thu 1/29-?, flying with Glenn
 - [ ] London trip — dates confirmed with Glenn
 
 ---
