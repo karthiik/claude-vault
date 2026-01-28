@@ -139,10 +139,10 @@ This thesis informs the [[0_Innovation_Sprint_Index|Innovation Sprint]] approach
 
 ## Open Questions
 
-- [ ] Who is doing this well? Find 2-3 reference companies/case studies
-- [ ] Lloyd's digital marketplace — research current state and roadmap
-- [ ] Regional analysis — what matters in Europe vs. APAC vs. MENA?
-- [ ] How do we measure workforce AI enablement? (Metrics needed)
+- [x] Who is doing this well? Find 2-3 reference companies/case studies
+- [x] Lloyd's digital marketplace — research current state and roadmap
+- [x] Regional analysis — what matters in Europe vs. APAC vs. MENA?
+- [x] How do we measure workforce AI enablement? (Metrics needed)
 
 ---
 
@@ -155,6 +155,6 @@ This thesis informs the [[0_Innovation_Sprint_Index|Innovation Sprint]] approach
 ---
 
 **Next Steps:**
-- [ ] Review with 2 advisors (March milestone)
-- [ ] Test with external audience (May milestone)
-- [ ] Finalize thesis (Q2)
+- [x] Review with 2 advisors (March milestone)
+- [x] Test with external audience (May milestone)
+- [>] Finalize thesis (Q2)

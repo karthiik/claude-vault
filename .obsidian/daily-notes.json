@@ -1,5 +1,5 @@
 {
-  "folder": "Daily/2026/01",
+  "folder": "Daily",
   "format": "YYYY-MM-DD",
-  "template": "Templates/Daily"
+  "template": "Templates/Daily.md"
 }

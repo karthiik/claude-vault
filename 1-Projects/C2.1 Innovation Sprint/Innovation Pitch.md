@@ -289,10 +289,10 @@ Three forces are converging:
 
 ## Next Steps
 
-- [ ] Review this outline with Byron (30 min)
-- [ ] Refine based on feedback
-- [ ] Develop visual deck for Tim/Nick introduction
-- [ ] Schedule Shared Services partnership kickoff
+- [x] Review this outline with Byron (30 min)
+- [x] Refine based on feedback
+- [x] Develop visual deck for Tim/Nick introduction
+- [x] Schedule Shared Services partnership kickoff
 
 ---
 

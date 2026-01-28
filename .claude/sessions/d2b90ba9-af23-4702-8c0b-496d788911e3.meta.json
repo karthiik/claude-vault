@@ -1,0 +1,20 @@
+{
+  "id": "d2b90ba9-af23-4702-8c0b-496d788911e3",
+  "title": "Open Daily Note for January 28",
+  "titleGenerationStatus": "success",
+  "createdAt": 1769621220747,
+  "updatedAt": 1769621222906,
+  "lastResponseAt": 1769621220750,
+  "sessionId": "d2b90ba9-af23-4702-8c0b-496d788911e3",
+  "sdkSessionId": "d2b90ba9-af23-4702-8c0b-496d788911e3",
+  "currentNote": "Daily/2026/01/2026-01-26 1.md",
+  "usage": {
+    "model": "claude-opus-4-5-20251101",
+    "inputTokens": 12,
+    "cacheCreationInputTokens": 16199,
+    "cacheReadInputTokens": 69867,
+    "contextWindow": 200000,
+    "contextTokens": 86078,
+    "percentage": 43
+  }
+}

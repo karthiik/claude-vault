@@ -7,8 +7,8 @@
   "templater-obsidian",
   "obsidian-tracker",
   "dataview",
-  "heatmap-calendar",
   "things-logbook",
-  "periodic-notes",
-  "obsidian-paste-image-rename"
+  "obsidian-paste-image-rename",
+  "calendar",
+  "periodic-notes"
 ]

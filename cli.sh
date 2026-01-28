@@ -371,6 +371,56 @@ cmd_tasks() {
   echo "Total: $total tasks"
 }
 
+cmd_daily() {
+  cd "$SCRIPT_DIR"
+
+  # Get current date
+  local year=$(date '+%Y')
+  local month=$(date '+%m')
+  local date_str=$(date '+%Y-%m-%d')
+
+  # Ensure directory exists
+  local daily_dir="Daily/$year/$month"
+  mkdir -p "$daily_dir"
+
+  # Ensure Briefs subfolder exists
+  mkdir -p "$daily_dir/Briefs"
+
+  # Create the daily note file
+  local daily_file="$daily_dir/$date_str.md"
+
+  # Check if file already exists
+  if [ -f "$daily_file" ]; then
+    echo "Daily note already exists: $daily_file"
+  else
+    # Copy template if it exists
+    if [ -f "Templates/Daily.md" ]; then
+      cp "Templates/Daily.md" "$daily_file"
+      echo "Created daily note: $daily_file"
+    else
+      # Create basic template if none exists
+      cat > "$daily_file" << EOF
+# $date_str
+
+## 🎯 #1 Priority
+
+## Workspace
+
+### Deep Work
+
+### Capture
+
+## Logbook
+
+EOF
+      echo "Created daily note: $daily_file"
+    fi
+  fi
+
+  # Open in Obsidian
+  "$CLI_DIR/obsidian-cli" open "$daily_file"
+}
+
 cmd_things() {
   local list="${1:-today}"
 
@@ -483,6 +533,9 @@ case "${1:-}" in
   read)
     cmd_read "$2"
     ;;
+  daily)
+    cmd_daily
+    ;;
   tasks)
     shift
     cmd_tasks "$@"
@@ -498,6 +551,7 @@ case "${1:-}" in
     echo "  sync              Commit all changes and push to main"
     echo "  status            Show git status summary"
     echo "  read <note>       Read note with backlinks"
+    echo "  daily             Open/create today's daily note"
     echo "  tasks [path]      List open tasks"
     echo "        --p1/p2/p3  Filter by priority"
     echo "        --next      Filter by #next tag"

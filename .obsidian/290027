@@ -1,0 +1,302 @@
+{
+  "main": {
+    "id": "c0c8ee2e3e656f82",
+    "type": "split",
+    "children": [
+      {
+        "id": "f4dc83f89511a1cd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "98095b7e13dcec39",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-Projects/C4 Establish Global EA Practice/EA Ideas Journal.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "EA Ideas Journal"
+            }
+          },
+          {
+            "id": "6a66e911654a8a67",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-Projects/C4 Establish Global EA Practice/London EA Workshop Planning.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "London EA Workshop Planning"
+            }
+          },
+          {
+            "id": "073ad13f76e70777",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-Projects/0_Project _Index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "0_Project _Index"
+            }
+          },
+          {
+            "id": "2cc36387bd8ff80e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-Projects/C4 Establish Global EA Practice/Research - Stretegic Plan.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Research - Stretegic Plan"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "acfb8219a2094510",
+    "type": "split",
+    "children": [
+      {
+        "id": "0cc9804e9c67ccb8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "53a46f23adc1516a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "f8f29f8dccd968af",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "80762883ef827b98",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 354.5
+  },
+  "right": {
+    "id": "79218c494e13b51b",
+    "type": "split",
+    "children": [
+      {
+        "id": "36ad63bfea875223",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3db434d698381cca",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "2-Areas/Career/0_Career_Index.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 0_Career_Index"
+            }
+          },
+          {
+            "id": "112976db27a601eb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "2-Areas/Career/0_Career_Index.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 0_Career_Index"
+            }
+          },
+          {
+            "id": "77ad78a57cc1ffdd",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "dad9f72c358ee4b7",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "51f772d9b5ec2d89",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "2-Areas/Career/0_Career_Index.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 0_Career_Index"
+            }
+          },
+          {
+            "id": "9f595f00c4310716",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          },
+          {
+            "id": "32f7c0764c8d6c37",
+            "type": "leaf",
+            "state": {
+              "type": "things3-today",
+              "state": {},
+              "icon": "check-square",
+              "title": "Things3 Today"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 509.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian42-brat:BRAT": false,
+      "claudian:Open Claudian": false,
+      "things3-today:Open Things3 Today": false,
+      "templater-obsidian:Templater": false,
+      "periodic-notes:Open today": false
+    }
+  },
+  "active": "9f595f00c4310716",
+  "lastOpenFiles": [
+    "3-Resources/Work/2026 Microsoft Exec Briefing",
+    "3-Resources/Work/Untitled",
+    "1-Projects/C2.1 Innovation Sprint/Hackathon Retro Notes.docx",
+    "KJ360/app/node_modules/esbuild/bin/esbuild",
+    "KJ360/system/logs/2026-01-24-agents.jsonl",
+    "Daily/2026/01/attachments/Pasted image 20260120113712.png",
+    "Daily/2026/01/attachments/Pasted image 20260121080323.png",
+    "Daily/2026/01/attachments/Pasted image 20260120160628.png",
+    "KJ360/app/node_modules/esbuild/bin",
+    "KJ360/server/routes/agent.js",
+    "KJ360/server/routes/tasks.js",
+    "KJ360/server/config/vault.config.example.js",
+    "KJ360/server/services/claudeAgent.js",
+    "KJ360/server/routes/fullcircle.test.js",
+    "1-Projects/C4 Establish Global EA Practice/attachments/Pasted image 20260122142832.png",
+    "1-Projects/C4 Establish Global EA Practice/attachments/Pasted image 20260122142118.png",
+    "1-Projects/C4 Establish Global EA Practice/attachments/Pasted image 20260122142034.png",
+    "1-Projects/C4 Establish Global EA Practice/attachments/Pasted image 20260122141408.png",
+    "0-Inbox/attachments/2026-01-27 MS Executive Briefing - Security Copilot-2.png",
+    "0-Inbox/attachments/2026-01-27 MS Executive Briefing - AI 4.png",
+    "0-Inbox/attachments/2026-01-27 MS Executive Briefing - AI 3.png",
+    "Daily/2026/01/Briefs/2026-01-28-weekday.md",
+    "1-Projects/C2.1 Innovation Sprint/Innovation Pitch.md",
+    "0-Inbox/2026-01-27 MS Executive Briefing - Security Copilot.md",
+    "0-Inbox/Untitled.md",
+    "0-Inbox/2026-01-27 MS Executive Briefing - Copilot at work.md",
+    "0-Inbox/2026-01-27 MS Executive Briefing -.md",
+    "0-Inbox/2026-01-27 MS Executive Briefing - Securing & Governing AI.md",
+    "1-Projects/C2.1 Innovation Sprint/Innovation Thesis.md",
+    "0-Inbox/2026-01-27 MS Executive Briefing - AI Microsoft Journey.md",
+    "2-Areas/Career & Purpose/People Journals/Byron Clymer/Byron Clymer.md",
+    "2-Areas/Career & Purpose/People Journals/Byron Clymer/Byron Clymer - MS Executive Briefing Insights (2026-01-27).md",
+    "KJ360/CLAUDE.md",
+    "KJ360/BUILD_PROGRESS 2.md",
+    "KJ360/INSTALL 2.md",
+    "KJ360/ARCHITECTURE_REVIEW 2.md",
+    "KJ360/docs 2/JFDI screens.md",
+    "KJ360/app 2/node_modules/tailwindcss/src/postcss-plugins/nesting/README.md",
+    "KJ360/app 2/node_modules/tailwindcss/lib/postcss-plugins/nesting/README.md",
+    "KJ360/app 2/node_modules/tinyglobby/node_modules/picomatch/README.md",
+    "KJ360/app 2/node_modules/tinyglobby/node_modules/fdir/README.md",
+    "KJ360/app 2/node_modules/tailwindcss/src/value-parser/README.md",
+    "KJ360/app 2/node_modules/tailwindcss/lib/value-parser/README.md",
+    "KJ360/app 2/node_modules/fast-glob/node_modules/glob-parent/README.md",
+    "KJ360/app 2/node_modules/fast-glob/node_modules/glob-parent/CHANGELOG.md",
+    "KJ360/app 2/node_modules/chokidar/node_modules/glob-parent/README.md"
+  ]
+}

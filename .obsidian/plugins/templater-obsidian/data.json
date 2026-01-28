@@ -5,6 +5,10 @@
     [
       "calendar",
       "~/.config/obsidian-scripts/calendar.sh\n"
+    ],
+    [
+      "daily",
+      "cd '/Users/karthik/Documents/3 - Resources/Vaults/SecondBrain26' && ./cli.sh daily\n"
     ]
   ],
   "trigger_on_file_creation": true,

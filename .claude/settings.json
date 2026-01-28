@@ -5,7 +5,14 @@
       "Bash(pgrep -f \"server.js\" && curl -s http://localhost:3333/api/daily | head -100)",
       "Write(/Users/karthik/Documents/3 - Resources/Vaults/SecondBrain26/2-Areas/Joy, Creativity & Play/2026 Joy Goals.md)",
       "Edit(/Users/karthik/Documents/3 - Resources/Vaults/SecondBrain26/3-Resources/Copilot Chief of Staff Prompt.md)",
-      "Bash(./cli.sh sync)"
+      "Bash(./cli.sh sync)",
+      "Bash(./cli.sh daily)",
+      "Bash(./cli.sh read \"Daily/2026/01/2026-01-28.md\")",
+      "Bash(./cli.sh read \"Memory.md\")",
+      "Edit(/Users/karthik/Documents/3 - Resources/Vaults/SecondBrain26/Memory.md)",
+      "Skill",
+      "Bash(icalBuddy -n -nc -iep \"datetime,title,location\" -po \"datetime,title,location\" -ps \"| \" -df \"%H:%M\" -nrd eventsToday 2>&1 || echo \"No calendar access\")",
+      "Edit(/Users/karthik/Documents/3 - Resources/Vaults/SecondBrain26/Daily/2026/01/2026-01-28.md)"
     ],
     "deny": [],
     "ask": []

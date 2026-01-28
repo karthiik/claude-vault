@@ -1,0 +1,146 @@
+{
+  "title": "Innovation Sprint - Byron Pitch",
+  "slides": [
+    {
+      "layout": 15,
+      "title": "Innovation Sprint",
+      "subtitle": "Turning Hackathon Energy into Sustainable Results"
+    },
+    {
+      "layout": 18,
+      "title": "The Moment We're In",
+      "bullets": [
+        "GAS Summit & Hackathon proved our people want to innovate",
+        "We generated energy, ideas, and enthusiasm",
+        "But hackathon energy fades without a system to sustain it",
+        "The risk: Ideas die in inboxes. People disengage.",
+        "The opportunity: Channel this into a repeatable engine"
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Microsoft Showed Us the Playbook",
+      "quote": "When you do Kaizen, you'll find a lot of waste. Then you layer in AI.",
+      "headers": ["Microsoft's Recipe", "What It Means for Lockton"],
+      "rows": [
+        ["Kaizen First, AI Second", "Find waste → then layer AI"],
+        ["Business Leader Sponsorship", "Unless sponsored, we don't work on it"],
+        ["Shared Services Council", "Cross-functional idea prioritization"],
+        ["Measure the Impact", "Hard metrics, not just stories"]
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Aligned with Your Strategic Priorities",
+      "quote": "IT's job is to remove friction — but cost-constrained.",
+      "headers": ["Your Priority", "How Innovation Sprints Deliver"],
+      "rows": [
+        ["Scale without doing everything differently", "Repeatable framework, not one-offs"],
+        ["Remove friction, cost-constrained", "Kaizen finds waste; AI automates pain"],
+        ["Data quality as table stakes", "Focus on governance & clean pipelines"],
+        ["Hard metrics behind ROI", "Success criteria defined upfront"]
+      ]
+    },
+    {
+      "layout": 18,
+      "title": "Workforce Enablement Unlocks Scale",
+      "bullets": [
+        "Level 1: SUMMARIZE — emails, docs, meetings",
+        "Level 2: AUTOMATE — action items, routine tasks",
+        "Level 3: CREATE — presentations, reports, drafts",
+        "Level 4: TRUST — agentic workflows with human oversight",
+        "AI is 'jagged' — intuition comes from personal use"
+      ]
+    },
+    {
+      "layout": 18,
+      "title": "Why Shared Services First",
+      "bullets": [
+        "High volume, repeatable processes — ideal for Kaizen + AI",
+        "Cross-functional visibility — Tim & Nick see impact everywhere",
+        "Measurable outcomes — cycle time, errors, cost/transaction",
+        "Internal customers — lower risk than client-facing",
+        "Quick wins compound — each win builds the case",
+        "Microsoft-proven council model"
+      ]
+    },
+    {
+      "type": "two_column",
+      "title": "The Sprint Model: 4-Week Cadence",
+      "left": {
+        "header": "What IT Provides",
+        "items": [
+          "Infrastructure for secure AI deployment",
+          "Data governance & integration layer",
+          "Measurement & tracing frameworks",
+          "Sprint facilitation & technical enablement"
+        ]
+      },
+      "right": {
+        "header": "What Business Provides",
+        "items": [
+          "Process ownership & domain expertise",
+          "Sponsorship & prioritization",
+          "Change management for teams",
+          "Success metrics & adoption ownership"
+        ]
+      }
+    },
+    {
+      "type": "table",
+      "title": "What Tim and Nick Will See by Q2",
+      "headers": ["Win", "Metric", "Why It Matters"],
+      "rows": [
+        ["3 Completed Sprints", "End-to-end delivery", "Proven capability"],
+        ["Efficiency Gains", "Hours saved, error reduction", "Hard ROI to report"],
+        ["Enabled Workforce", "Team AI-fluent", "Adoption not deployment"],
+        ["Documented Playbook", "Repeatable process", "Scalability proof"]
+      ]
+    },
+    {
+      "layout": 18,
+      "title": "The Scale Path: Earn the Right",
+      "bullets": [
+        "Q1-Q2: Shared Services — Partner with Tim/Nick, deliver 3-5 wins, build playbook",
+        "Q3: Digital — Byron champions model, expand to client-facing, train the trainers",
+        "Q4+: Global — Regional CIOs adopt, local champions own it, becomes Lockton standard",
+        "We don't oversell before we've proven — each phase builds on demonstrated success"
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Addressing the Hard Questions",
+      "quote": "Bad news is better than uncertainty. Share intent.",
+      "headers": ["Your Concern", "Our Answer"],
+      "rows": [
+        ["Insurance expects fully baked", "Complete solutions with human-in-the-loop"],
+        ["Need hard metrics for ROI", "Success criteria defined before sprint starts"],
+        ["Change management is hard", "HR partner involved; process owner leads"],
+        ["Skittish on global comms", "No comms until we have wins to show"]
+      ]
+    },
+    {
+      "layout": 18,
+      "title": "The Ask",
+      "bullets": [
+        "Your sponsorship as IT champion",
+        "Introduction to Tim and Nick",
+        "Air cover for experimentation",
+        "Quarterly visibility on progress"
+      ]
+    },
+    {
+      "layout": 18,
+      "title": "Why This, Why Now",
+      "bullets": [
+        "Hackathon momentum — people are energized NOW (energy fades fast)",
+        "Microsoft playbook — fresh insights from Seattle, validated approach",
+        "Lockton growth targets — $4B → $7.1B requires efficiency, not headcount",
+        "Three forces converging — the window is open"
+      ]
+    },
+    {
+      "layout": 19
+    }
+  ]
+}

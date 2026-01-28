@@ -1,0 +1,19 @@
+{
+  "id": "e7585046-8369-4daa-8e9a-86b3b6336886",
+  "title": "Search Jake's promotion details",
+  "titleGenerationStatus": "success",
+  "createdAt": 1769612990111,
+  "updatedAt": 1769613198626,
+  "lastResponseAt": 1769613198626,
+  "sessionId": "e7585046-8369-4daa-8e9a-86b3b6336886",
+  "sdkSessionId": "e7585046-8369-4daa-8e9a-86b3b6336886",
+  "usage": {
+    "model": "claude-opus-4-5-20251101",
+    "inputTokens": 292,
+    "cacheCreationInputTokens": 41101,
+    "cacheReadInputTokens": 183706,
+    "contextWindow": 200000,
+    "contextTokens": 225099,
+    "percentage": 100
+  }
+}

@@ -2,6 +2,7 @@
   "alwaysUpdateLinks": true,
   "newFileLocation": "folder",
   "newFileFolderPath": "0-Inbox",
-  "attachmentFolderPath": "./attachments",
-  "promptDelete": false
+  "attachmentFolderPath": "3-Resources",
+  "promptDelete": false,
+  "showUnsupportedFiles": true
 }

@@ -2,7 +2,7 @@
 
 *Long-term context that spans weeks. Read at session start; update at session end.*
 
-**Last updated:** 2026-01-25
+**Last updated:** 2026-01-28
 
 ---
 
@@ -88,6 +88,21 @@
 | 2026-01-22 | Innovation Sprint committee formed | G2 |
 | 2026-01-22 | Promotions finalized | G3 |
 | 2026-01-24 | Simon Sinek courses completed | Learning |
+
+---
+
+## Tools & Preferences
+
+### Daily Workflow
+- **`/daily` always runs `/morning-brief`** — don't ask, just populate the brief automatically
+
+### PowerPoint Presentations
+- **Always use Lockton branding** — never generate generic decks
+- **Skill:** `/lockton-deck` — creates branded presentations
+- **Template:** `1-Projects/2026 PACE/PACE SteerCo Update - December 25.pptx`
+- **Dimensions:** 13.33" x 7.50" (16:9)
+- **Key layouts:** Title_Black (15), Title_Light (16), Content_White (18), One-Column (22)
+- **Export to:** `~/Desktop/` for easy access
 
 ---
 
