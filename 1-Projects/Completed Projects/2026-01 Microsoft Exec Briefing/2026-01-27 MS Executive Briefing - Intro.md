@@ -84,11 +84,11 @@ Byron - Insurance
 	- Phased limit buys 
 	- Multi year structures
 
-![[Pasted image 20260127113209.png]]
+![[0-Inbox/attachments/Pasted image 20260127113209.png]]
 
-![[Pasted image 20260127114551.png]]
+![[0-Inbox/attachments/Pasted image 20260127114551.png]]
 
-![[Pasted image 20260127114841.png]]
+![[0-Inbox/attachments/Pasted image 20260127114841.png]]
 
 
 

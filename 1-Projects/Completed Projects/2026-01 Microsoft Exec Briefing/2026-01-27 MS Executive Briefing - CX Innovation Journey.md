@@ -1,4 +1,4 @@
-![[Pasted image 20260127122147.png]]
+![[0-Inbox/attachments/Pasted image 20260127122147.png]]
 
 
 ![[Pasted image 20260127124250.png]]

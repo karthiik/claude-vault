@@ -9,8 +9,14 @@ Execute the morning startup routine to prepare for the day ahead.
 Read these sources to understand the current state:
 
 **Obsidian:**
-- **Today's daily note** (`Daily/YYYY-MM-DD.md`) — calendar, any pre-populated items
-- **Yesterday's daily note** — action items, evening close, meeting notes
+- **Today's daily note** (`Daily/YYYY/MM/YYYY-MM-DD.md`) — calendar, any pre-populated items
+- **Yesterday's daily note** — FULL read, not just tail. Extract:
+  - Open threads from "🔥 Open Threads to Track"
+  - Incomplete tasks from "✅ Things 3: Today"
+  - Action items from meeting notes
+  - Capture section items
+  - Evening close insights (if filled)
+  - Personal context (travel, energy, life events)
 - **Day before yesterday** (if relevant) — for continuity on multi-day threads
 - **Memory.md** — long-term context, key relationships, multi-week threads
 
@@ -68,8 +74,22 @@ Present a concise morning brief with:
 ```markdown
 ## ☀️ Morning Brief — [Day, Date]
 
+*[Context line: Where is Karthik today? Travel status? Any key personal context from yesterday.]*
+
+### 🔄 Carryover from Yesterday
+**Open Threads:**
+| Thread | Status | Today's Action |
+|--------|--------|----------------|
+| [Thread] | [emoji status] | [What to do] |
+
+**Verify Completion:** (tasks from yesterday's list)
+- [ ] [Task] — did this get done?
+
+**Personal Context:** [Energy, travel, life events to be mindful of]
+
 ### 🎯 Suggested #1 Priority
-[Based on action items, Things 3, calendar, and career goals — what's THE most important thing today?]
+> [Based on action items, Things 3, calendar, and career goals — what's THE most important thing today?]
+> *(Goal alignment: G1/G2/G3/G4)*
 
 ### 📅 Today's Meetings — Context & Prep
 | Time | Meeting | Context | Things 3 Tasks | Prep Needed |
@@ -92,6 +112,11 @@ Present a concise morning brief with:
 - [Anything time-sensitive or noteworthy]
 - [Prep work not yet done]
 - [Deadlines this week]
+
+### 👀 Looking Ahead
+- [Tomorrow's big items]
+- [This week's deadlines]
+- [Prep needed for future meetings]
 ```
 
 ### 7. Set #1 Priority

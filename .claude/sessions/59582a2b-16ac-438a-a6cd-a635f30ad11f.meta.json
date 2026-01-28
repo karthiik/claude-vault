@@ -1,0 +1,20 @@
+{
+  "id": "59582a2b-16ac-438a-a6cd-a635f30ad11f",
+  "title": "Review yesterday's notes for carryover",
+  "titleGenerationStatus": "success",
+  "createdAt": 1769622609128,
+  "updatedAt": 1769622612296,
+  "lastResponseAt": 1769622609131,
+  "sessionId": "59582a2b-16ac-438a-a6cd-a635f30ad11f",
+  "sdkSessionId": "59582a2b-16ac-438a-a6cd-a635f30ad11f",
+  "currentNote": "Daily/2026/01/2026-01-28.md",
+  "usage": {
+    "model": "claude-opus-4-5-20251101",
+    "inputTokens": 26,
+    "cacheCreationInputTokens": 11786,
+    "cacheReadInputTokens": 62146,
+    "contextWindow": 200000,
+    "contextTokens": 73958,
+    "percentage": 37
+  }
+}
